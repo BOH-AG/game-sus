@@ -9,6 +9,7 @@ public class player extends Image implements FrameUpdateListener, KeyListener {
     public player() {
         super("rsc/linustips.png", 16);
         mvmnt = new Vector(0, 0);
+
     }
 
     Vector mvmnt;
@@ -24,13 +25,19 @@ public class player extends Image implements FrameUpdateListener, KeyListener {
     @Override
     public void onKeyDown(KeyEvent e) {
         int k = e.getKeyCode();
-        if (k==KeyEvent.VK_W) dely = 5;
-        if (k==KeyEvent.VK_A) delx = -5;
-        if (k==KeyEvent.VK_S) dely = -5;
-        if (k==KeyEvent.VK_D) {
+        if (k==KeyEvent.VK_A) {
+            delx = -5;
+            this.setRotation(90);
+        }if (k==KeyEvent.VK_D) {
             delx = 5;
-            this.setAngularVelocity(2);
-        }
+            this.setRotation(270);
+        }if (k==KeyEvent.VK_S) {
+            dely = -5;
+            this.setRotation(180);
+        }if (k == KeyEvent.VK_W){
+            dely = 5;
+            this.setRotation(0);
+       }
     }
 
     @Override
