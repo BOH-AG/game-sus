@@ -1,13 +1,48 @@
-import ea.FrameUpdateListener;
-import ea.Scene;
-import ea.Game;
 import ea.Vector;
-import ea.actor.Polygon;
+import ea.edu.Spiel;
+import ea.edu.event.MausKlickReagierbar;
 import ea.event.MouseButton;
 import ea.event.MouseClickListener;
-import java.awt.*;
 
 
+
+public class game extends Spiel {
+
+
+    public game(int width, int height) {
+        super();
+        setzeFensterGroesse(width, height);
+        gameScene();
+        benenneAktiveSzene("gameScene");
+    }
+
+
+    void gameScene() {
+        player p1 = new player();
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 public class game extends Scene implements MouseClickListener, FrameUpdateListener {
     public game() {
         p1 = new player();
@@ -38,5 +73,5 @@ public class game extends Scene implements MouseClickListener, FrameUpdateListen
         catch (Exception ignored) {}
     }
 }
-
+*/
 
