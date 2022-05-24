@@ -3,6 +3,7 @@ import ea.edu.Spiel;
 import ea.edu.event.MausKlickReagierbar;
 import ea.event.MouseButton;
 import ea.event.MouseClickListener;
+import ea.Scene;
 
 
 
@@ -19,6 +20,11 @@ public class game extends Spiel {
 
     void gameScene() {
         player p1 = new player();
+    }
+    void menuScene(){
+
+
+
     }
 
 
