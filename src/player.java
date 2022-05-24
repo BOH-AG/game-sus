@@ -2,6 +2,8 @@ import ea.Vector;
 import ea.actor.StatefulAnimation;
 import ea.edu.Figur;
 import ea.edu.event.TastenReagierbar;
+import ea.event.MouseButton;
+import ea.event.MouseClickListener;
 
 import java.awt.event.KeyEvent;
 
@@ -59,6 +61,8 @@ public class player extends Figur implements TastenReagierbar {
         }
         actor.setCenter(bingy);
     }
+
+
 
 }
 

@@ -1,4 +1,6 @@
+import ea.Scene;
 import ea.Vector;
+import ea.edu.Kreis;
 import ea.edu.Spiel;
 import ea.edu.event.MausKlickReagierbar;
 import ea.event.MouseButton;
@@ -13,8 +15,18 @@ public class game extends Spiel {
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
+        //setzeRasterSichtbar(false);
         gameScene();
         benenneAktiveSzene("gameScene");
+        MausKlickReagierbar mouseClick;
+        registriereMausKlickReagierbar(
+                mouseClick = new MausKlickReagierbar() {
+                    @Override
+                    public void klickReagieren(double v, double v1) {
+                        shoot(v, v1);
+                    }
+                }
+        );
     }
 
 
@@ -22,12 +34,23 @@ public class game extends Spiel {
         player p1 = new player();
         menuScene = new MenuScene(this);
     }
+    void menuScene(){
 
+
+
+    }
+
+    private void shoot(double x, double y) {
+        tracer testing = new tracer(
+                x,
+                y,
+                p1.nenneMittelpunktX(),
+                p1.nenneMittelpunktY()
+        );
+    }
 
 
 }
-
-
 
 
 
