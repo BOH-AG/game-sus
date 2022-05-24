@@ -29,9 +29,9 @@ public class game extends Spiel {
         );
     }
 
-
+    player p1;
     void gameScene() {
-        player p1 = new player();
+        p1 = new player();
         menuScene = new MenuScene(this);
     }
     void menuScene(){
