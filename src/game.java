@@ -8,7 +8,7 @@ import ea.Scene;
 
 
 public class game extends Spiel {
-
+    public MenuScene menuScene;
 
     public game(int width, int height) {
         super();
@@ -20,12 +20,9 @@ public class game extends Spiel {
 
     void gameScene() {
         player p1 = new player();
+        menuScene = new MenuScene(this);
     }
-    void menuScene(){
 
-
-
-    }
 
 
 }
