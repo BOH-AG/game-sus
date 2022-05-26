@@ -32,16 +32,17 @@ public class game extends Spiel {
     player p1;
     void gameScene() {
         p1 = new player();
-        menuScene = new MenuScene(this);
+        p1.setzeEbenenposition(2);
+        //menuScene = new MenuScene(this);
     }
     void menuScene(){
 
 
 
     }
-
+    tracer traced;
     private void shoot(double x, double y) {
-        tracer testing = new tracer(
+        traced = new tracer(
                 x,
                 y,
                 p1.nenneMittelpunktX(),
