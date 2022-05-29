@@ -30,9 +30,11 @@ public class game extends Spiel {
     }
 
     player p1;
+    enemy e1;
     void gameScene() {
         p1 = new player();
         p1.setzeEbenenposition(2);
+        e1 = new enemy();
         //menuScene = new MenuScene(this);
     }
     void menuScene(){

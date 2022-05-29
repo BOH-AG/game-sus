@@ -1,7 +1,7 @@
 import ea.edu.Figur;
 
-public class Enemy extends Figur {
-    Enemy() {
+public class enemy extends Figur {
+    enemy() {
         super("normal", "rsc/linustips.gif");
 
     }
