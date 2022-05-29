@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46e727f0-5d28-4def-8e57-6e31f8171c11" name="Changes" comment="menu" />
+    <list default="true" id="46e727f0-5d28-4def-8e57-6e31f8171c11" name="Changes" comment="menu">
+      <change afterPath="$PROJECT_DIR$/src/damage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653421572550</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lttstore.com">
+      <created>1653850089064</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653850089064</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -86,10 +95,10 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu" />
+    <MESSAGE value="lttstore.com" />
+    <option name="LAST_COMMIT_MESSAGE" value="lttstore.com" />
   </component>
 </project>
