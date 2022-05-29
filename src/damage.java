@@ -1,3 +1,5 @@
+
+
 public interface damage {
     public void takeDamage();
 
