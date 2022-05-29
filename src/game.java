@@ -1,3 +1,4 @@
+import ea.FrameUpdateListener;
 import ea.Scene;
 import ea.Vector;
 import ea.edu.Kreis;
@@ -24,6 +25,9 @@ public class game extends Spiel {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shoot(v, v1);
+                        player px = new player();
+                        px.setzeEbenenposition(2);
+                        enemy ex = new enemy();
                     }
                 }
         );
@@ -37,6 +41,10 @@ public class game extends Spiel {
         e1 = new enemy();
         //menuScene = new MenuScene(this);
     }
+
+
+
+
     void menuScene(){
 
 
@@ -51,7 +59,6 @@ public class game extends Spiel {
                 p1.nenneMittelpunktY()
         );
     }
-
 
 }
 
