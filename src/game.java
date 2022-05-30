@@ -19,9 +19,9 @@ public class game extends Spiel {
         //setzeRasterSichtbar(false);
         gameScene();
         benenneAktiveSzene("gameScene");
-        MausKlickReagierbar mouseClick;
+        MausKlickReagierbar dieSendungMitDer;
         registriereMausKlickReagierbar(
-                mouseClick = new MausKlickReagierbar() {
+                dieSendungMitDer = new MausKlickReagierbar() {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shoot(v, v1);
@@ -60,6 +60,10 @@ public class game extends Spiel {
                 p1.nenneMittelpunktX(),
                 p1.nenneMittelpunktY()
         );
+    }
+
+    public void alexaDisableGravity() {
+        setzeSchwerkraft(0);
     }
 
 
