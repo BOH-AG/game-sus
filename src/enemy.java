@@ -1,8 +1,10 @@
 import ea.edu.Figur;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class enemy extends Figur {
-    enemy() {
+     enemy() {
+
         super("normal", "rsc/linustips.gif");
         setzeMittelpunkt(
             ThreadLocalRandom.current().nextDouble(-25,25),

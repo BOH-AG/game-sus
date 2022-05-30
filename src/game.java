@@ -25,8 +25,8 @@ public class game extends Spiel {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shoot(v, v1);
-                       // player px = new player();
-                       // px.setzeEbenenposition(2);
+                        // player px = new player();
+                        // px.setzeEbenenposition(2);
                         //enemy ex = new enemy();
                     }
                 }
@@ -35,6 +35,7 @@ public class game extends Spiel {
 
     player p1;
     enemy e1;
+
     void gameScene() {
         p1 = new player();
         p1.setzeEbenenposition(2);
@@ -43,14 +44,13 @@ public class game extends Spiel {
     }
 
 
-
-
-    void menuScene(){
-
+    void menuScene() {
 
 
     }
+
     tracer traced;
+
     private void shoot(double x, double y) {
         traced = new tracer(
                 x,
@@ -60,10 +60,15 @@ public class game extends Spiel {
         );
     }
 
+
+    private void damage()
+
+    {
+
+
+    }
+
 }
-
-
-
 
 
 
