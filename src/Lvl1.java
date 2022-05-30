@@ -1,3 +1,4 @@
+import ea.edu.Figur;
 import ea.edu.Rechteck;
 import ea.edu.Spiel;
 
@@ -38,6 +39,11 @@ public class Lvl1{
         r3.setzeEbenenposition(-1);
         r2.setzeEbenenposition(-1);
         r1.setzeEbenenposition(-1);
+
+        Figur background = new Figur("background", "rsc/uhoh.gif");
+        background.setzeEbenenposition(-99);
+        background.skaliere(5);
+        background.setzeMittelpunkt(0,0);
     }
 
 }
