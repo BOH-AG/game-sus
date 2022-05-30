@@ -10,6 +10,12 @@ public class enemy extends Figur {
             ThreadLocalRandom.current().nextDouble(-25,25),
                 ThreadLocalRandom.current().nextDouble(-10,10)
         );
+        animiereGerade(
+                ThreadLocalRandom.current().nextDouble(0.2,1),
+                ThreadLocalRandom.current().nextDouble(-5,5),
+                ThreadLocalRandom.current().nextDouble(-5,5),
+                true
+        );
 
     }
 

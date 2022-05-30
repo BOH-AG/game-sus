@@ -35,12 +35,13 @@ public class game extends Spiel {
 
     player p1;
     enemy e1;
+    enemy e2;
 
     void gameScene() {
         p1 = new player();
         p1.setzeEbenenposition(2);
         e1 = new enemy();
-        e1.animiereGerade(1,5,5,true);
+        e2 = new enemy();
         Lvl1 lvl = new Lvl1();
         p1.macheAktiv();
         //menuScene = new MenuScene(this);
