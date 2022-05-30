@@ -40,9 +40,9 @@ public class Lvl1{
         r2.setzeEbenenposition(-1);
         r1.setzeEbenenposition(-1);
 
-        Figur background = new Figur("background", "rsc/hi.gif");
+        Figur background = new Figur("background", "rsc/cat.gif");
         background.setzeEbenenposition(-99);
-        background.skaliere(5);
+        background.skaliere(2);
         background.setzeMittelpunkt(0,0);
     }
 

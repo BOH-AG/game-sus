@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class enemy extends Figur {
      enemy() {
 
-        super("normal", "rsc/linustips.gif");
+        super("normal", "rsc/obamba.gif");
         setzeMittelpunkt(
             ThreadLocalRandom.current().nextDouble(-25,25),
                 ThreadLocalRandom.current().nextDouble(-10,10)
