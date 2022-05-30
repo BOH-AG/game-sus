@@ -18,6 +18,7 @@ public class player extends Figur implements TastenReagierbar {
         actor = getActor();
         actor.setSize(2.5f, 2.5f);
 
+
     }
 
     @Override

@@ -30,6 +30,14 @@ public class Lvl1{
         r3.machePassiv();
         r2.machePassiv();
         r1.machePassiv();
+        r8.setzeEbenenposition(-1);
+        r7.setzeEbenenposition(-1);
+        r6.setzeEbenenposition(-1);
+        r5.setzeEbenenposition(-1);
+        r4.setzeEbenenposition(-1);
+        r3.setzeEbenenposition(-1);
+        r2.setzeEbenenposition(-1);
+        r1.setzeEbenenposition(-1);
     }
 
 }

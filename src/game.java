@@ -40,6 +40,7 @@ public class game extends Spiel {
         p1 = new player();
         p1.setzeEbenenposition(2);
         e1 = new enemy();
+        e1.animiereGerade(1,5,5,true);
         Lvl1 lvl = new Lvl1();
         p1.macheAktiv();
         //menuScene = new MenuScene(this);
