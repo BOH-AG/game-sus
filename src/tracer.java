@@ -10,7 +10,6 @@ public class tracer extends Rechteck {
         double angle = Math.asin((py-my)/Math.sqrt(Math.pow(px-mx, 2)+Math.pow(py-my, 2)))*57.296; // i hate trig (math people suck)
         if ((px-mx)>0) setzeDrehwinkel(angle);
         else setzeDrehwinkel(-angle);
-
         setzeMittelpunkt(
                 px+((mx-px)/2-0.5),
                 py+((my-py)/2-0.5)

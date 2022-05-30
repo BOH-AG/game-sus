@@ -22,6 +22,14 @@ public class Lvl1{
         r3.verschieben(-2.25, -7.5);
         r2.verschieben(3,-9);
         r1.verschieben(0, -9);
+        r8.machePassiv();
+        r7.machePassiv();
+        r6.machePassiv();
+        r5.machePassiv();
+        r4.machePassiv();
+        r3.machePassiv();
+        r2.machePassiv();
+        r1.machePassiv();
     }
 
 }

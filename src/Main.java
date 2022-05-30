@@ -6,7 +6,7 @@ import ea.event.MouseClickListener;
 
 public class Main {
     public static void main(String[] args) {
-        //game sUs = new game(1280, 720);
-        Lvl1 l = new Lvl1();
+        game sUs = new game(1280, 720);
+        //Lvl1 l = new Lvl1();
     }
 }
