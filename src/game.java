@@ -25,9 +25,9 @@ public class game extends Spiel {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shoot(v, v1);
-                        player px = new player();
-                        px.setzeEbenenposition(2);
-                        enemy ex = new enemy();
+                       // player px = new player();
+                       // px.setzeEbenenposition(2);
+                        //enemy ex = new enemy();
                     }
                 }
         );
