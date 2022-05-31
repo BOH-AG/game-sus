@@ -57,8 +57,8 @@ public class game extends Spiel {
 
     private void shoot(double x, double y) {
         traced = new tracer(
-                x,
-                y,
+                x+0.5,
+                y+0.5,
                 p1.nenneMittelpunktX(),
                 p1.nenneMittelpunktY()
         );
