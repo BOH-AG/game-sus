@@ -1,17 +1,11 @@
-import ea.FrameUpdateListener;
-import ea.Scene;
-import ea.Vector;
-import ea.edu.Kreis;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
-import ea.event.MouseButton;
-import ea.event.MouseClickListener;
-import ea.Scene;
+
+import java.util.Arrays;
 
 
-
-public class game extends Spiel implements MausKlickReagierbar {
+public class game extends Spiel {
     public MenuScene menuScene;
 
     public game(int width, int height) {
@@ -32,15 +26,23 @@ public class game extends Spiel implements MausKlickReagierbar {
         );
     }
 
+    tracer traced;
     player p1;
-    enemy e1;
+    enemy[] enemies;
+    int enemyhealth;
+    int kills;
 
     void gameScene() {
         p1 = new player();
+        kills = 0;
+        enemyhealth = 1;
         p1.setzeEbenenposition(2);
-        e1 = new enemy();
+        enemies = new enemy[3];
+        for (int z=0; z < enemies.length; z++) {
+            enemies[z] = new enemy(enemyhealth);
+        }
         Lvl1 lvl = new Lvl1();
-        p1.macheAktiv();
+        p1.macheDynamisch();
         //menuScene = new MenuScene(this);
     }
 
@@ -50,15 +52,20 @@ public class game extends Spiel implements MausKlickReagierbar {
 
     }
 
-    tracer traced;
-
     private void shoot(double x, double y) {
-        if (e1.beinhaltetPunkt(x,y)) {
-            e1.takeDamage(1);
-            if (e1.dead) {
-                e1 = new enemy();
+        for (int z=0; z < enemies.length; z++) {
+            if (enemies[z].beinhaltetPunkt(x,y)) {
+                enemies[z].takeDamage(1);
+                if (enemies[z].dead) {
+                    enemies[z] = new enemy(enemyhealth);
+                    kills = kills + 1;
+                    System.out.println("kills: " + kills);
+                }
             }
         }
+
+
+
         traced = new tracer(
                 x+0.5,
                 y+0.5,
@@ -72,25 +79,6 @@ public class game extends Spiel implements MausKlickReagierbar {
     }
 
 
-    private void damage()
-
-    {
-
-
-    }
-
-
-
-    @Override
-    public void klickReagieren(double v, double v1) {
-        System.out.println("pressed");
-    }
-
-    @Override
-    public void klickLosgelassenReagieren(double mx, double my) {
-        MausKlickReagierbar.super.klickLosgelassenReagieren(mx, my);
-        System.out.println("let go");
-    }
 }
 
 
