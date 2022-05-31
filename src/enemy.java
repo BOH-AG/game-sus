@@ -2,10 +2,14 @@ import ea.edu.Figur;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class enemy extends Figur {
+public class enemy extends Figur implements damage {
      enemy() {
 
         super("normal", "rsc/obamba.gif");
+        fuegeZustandVonGifHinzu("dead", "rsc/doge.gif");
+        getActor().setSize(3,3);
+        health = 1;
+        dead = false;
         setzeMittelpunkt(
             ThreadLocalRandom.current().nextDouble(-25,25),
                 ThreadLocalRandom.current().nextDouble(-10,10)
@@ -18,5 +22,32 @@ public class enemy extends Figur {
         );
 
     }
+    public int health;
+    public boolean dead;
 
+    @Override
+    public void takeDamage(int d) {
+
+        if (health >d) {
+            health = health-d;
+            System.out.println("health: " + health);
+        } else if (health==d) {
+            kill();
+            System.out.println("dead");
+        }
+    }
+
+    public void kill() {
+        health = 0;
+        dead = true;
+        setzeZustand("dead");
+        pausiereAnimation(true);
+        setzeWinkelgeschwindigkeit(5);
+        machePartikel(2);
+        macheDynamisch();
+        setzeGeschwindigkeit(
+                ThreadLocalRandom.current().nextDouble(-20,20),
+                ThreadLocalRandom.current().nextDouble(-20,20)
+        );
+    }
 }

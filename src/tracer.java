@@ -1,4 +1,6 @@
 import ea.FrameUpdateListener;
+import ea.actor.Actor;
+import ea.actor.Rectangle;
 import ea.edu.Rechteck;
 
 public class tracer extends Rechteck {
@@ -8,6 +10,8 @@ public class tracer extends Rechteck {
                 Math.sqrt(Math.pow(px-mx, 2)+Math.pow(py-my, 2)), //pythagora's theorem bs
                 0.1
         );
+        Actor actor = this.getActor();
+        tracer actor2 = this;
         double angle = Math.asin((py-my)/Math.sqrt(Math.pow(px-mx, 2)+Math.pow(py-my, 2)))*57.296; // i hate trig (math people suck)
         if ((px-mx)>0) setzeDrehwinkel(angle);
         else setzeDrehwinkel(-angle);
@@ -16,10 +20,12 @@ public class tracer extends Rechteck {
         setzeMittelpunkt(newx, newy);
         getActor().setFriction(99999999999f);
         FrameUpdateListener framesWinGames;
-        this.getActor().addFrameUpdateListener(
+        actor.addFrameUpdateListener(
                 framesWinGames = new FrameUpdateListener() {
                     @Override
-                    public void onFrameUpdate(float v) {setzeMittelpunkt(newx, newy);}
+                    public void onFrameUpdate(float v) {
+                        setzeMittelpunkt(newx, newy);
+                    }
                 }
 
         );

@@ -4,7 +4,7 @@ import ea.edu.Spiel;
 
 public class Lvl1{
 
-    Lvl1(){
+    public Lvl1(){
 
         Rechteck r1 = new Rechteck(0.5, 3);
         Rechteck r2 = new Rechteck(0.5, 3);

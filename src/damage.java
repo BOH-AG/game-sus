@@ -1,7 +1,7 @@
 
 
-public interface damage {
-    public void takeDamage();
+public interface damage                                                                                                                                                                                                                                                                                                         {
+    public void takeDamage(int d)                                                                                                                                                                                                                                                                                                                                ;
 
 
 
