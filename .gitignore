@@ -1,4 +1,5 @@
 
 rsc/loremipsum.txt
 out
-.idea/workspace.xml
+.idea
+*.xml
