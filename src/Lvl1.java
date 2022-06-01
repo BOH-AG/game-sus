@@ -28,7 +28,6 @@ public class Lvl1{
         walls[7] = new Rechteck(0.5, 5.5);
         walls[7].setzeMittelpunkt(8.75,7.25);
 
-
         boundry = new Rechteck[4];
         boundry[0] = new Rechteck(42,1);
         boundry[0].setzeMittelpunkt(0,12);

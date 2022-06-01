@@ -1,3 +1,4 @@
+import ea.edu.Kreis;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
@@ -21,7 +22,6 @@ public class game extends Spiel {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shoot(v, v1);
-                        lvl.walls[5].setzeFarbe("rot");
                     }
 
                     @Override
@@ -51,13 +51,22 @@ public class game extends Spiel {
         }
         lvl = new Lvl1();
         p1.macheDynamisch();
-        //menuScene = new MenuScene(this);
+
     }
 
 
     void menuScene() {
-
-
+        /*
+        Kreis k1 = new Kreis(3);
+        Kreis k2 = new Kreis(2);
+        k1.setzeFarbe("gelb");
+        k2.setzeFarbe("rot");
+        k1.macheStatisch();
+        k2.macheStatisch();
+        if (k1.schneidet(k2)) {
+            System.out.println("alhflidwsufhvnbwlivweuvhdbvlweiuvwdbv");
+        }
+        */
     }
 
     private void shoot(double x, double y) {
