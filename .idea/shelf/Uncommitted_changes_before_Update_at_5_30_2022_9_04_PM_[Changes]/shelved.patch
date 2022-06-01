@@ -1,0 +1,26 @@
+Index: src/Lvl1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import ea.edu.Figur;\r\nimport ea.edu.Rechteck;\r\nimport ea.edu.Spiel;\r\n\r\npublic class Lvl1{\r\n\r\n    Lvl1(){\r\n\r\n        Rechteck r1 = new Rechteck(0.5, 3);\r\n        Rechteck r2 = new Rechteck(0.5, 3);\r\n        Rechteck r3 = new Rechteck(5, 0.5);\r\n        Rechteck r4 = new Rechteck(5, 0.5);\r\n        Rechteck r5 = new Rechteck(0.5, 10);\r\n        Rechteck r6 = new Rechteck(0.5, 15);\r\n        Rechteck r7 = new Rechteck(9, 0.5);\r\n        Rechteck r8 = new Rechteck(0.5, 5.5);\r\n\r\n        r8.verschieben(4.25, 4.75 );\r\n        r7.verschieben(0, 2);\r\n        r6.verschieben(7.5, 0);\r\n        r5.verschieben(-4.5, -2.75);\r\n        r4.verschieben(5.25,-7.5);\r\n        r3.verschieben(-2.25, -7.5);\r\n        r2.verschieben(3,-9);\r\n        r1.verschieben(0, -9);\r\n        r8.machePassiv();\r\n        r7.machePassiv();\r\n        r6.machePassiv();\r\n        r5.machePassiv();\r\n        r4.machePassiv();\r\n        r3.machePassiv();\r\n        r2.machePassiv();\r\n        r1.machePassiv();\r\n        r8.setzeEbenenposition(-1);\r\n        r7.setzeEbenenposition(-1);\r\n        r6.setzeEbenenposition(-1);\r\n        r5.setzeEbenenposition(-1);\r\n        r4.setzeEbenenposition(-1);\r\n        r3.setzeEbenenposition(-1);\r\n        r2.setzeEbenenposition(-1);\r\n        r1.setzeEbenenposition(-1);\r\n\r\n        Figur background = new Figur(\"background\", \"rsc/uhoh.gif\");\r\n        background.setzeEbenenposition(-99);\r\n        background.skaliere(5);\r\n        background.setzeMittelpunkt(0,0);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Lvl1.java b/src/Lvl1.java
+--- a/src/Lvl1.java	(revision 1fedf2eced3be86eb7a89135eed6c755066717c2)
++++ b/src/Lvl1.java	(date 1653937326815)
+@@ -6,6 +6,7 @@
+ 
+     Lvl1(){
+ 
++        
+         Rechteck r1 = new Rechteck(0.5, 3);
+         Rechteck r2 = new Rechteck(0.5, 3);
+         Rechteck r3 = new Rechteck(5, 0.5);
+@@ -15,6 +16,7 @@
+         Rechteck r7 = new Rechteck(9, 0.5);
+         Rechteck r8 = new Rechteck(0.5, 5.5);
+ 
++
+         r8.verschieben(4.25, 4.75 );
+         r7.verschieben(0, 2);
+         r6.verschieben(7.5, 0);

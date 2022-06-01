@@ -6,14 +6,25 @@ public class Lvl1{
 
     public Lvl1(){
 
-        Rechteck r1 = new Rechteck(0.5, 3);
-        Rechteck r2 = new Rechteck(0.5, 3);
-        Rechteck r3 = new Rechteck(5, 0.5);
-        Rechteck r4 = new Rechteck(5, 0.5);
-        Rechteck r5 = new Rechteck(0.5, 10);
-        Rechteck r6 = new Rechteck(0.5, 15);
-        Rechteck r7 = new Rechteck(9, 0.5);
-        Rechteck r8 = new Rechteck(0.5, 5.5);
+
+        Rechteck[] rooms = new Rechteck[8];
+        rooms[0] = new Rechteck(0.5,3);
+        rooms[0].setzeMittelpunkt(5, -7);
+        rooms[1] = new Rechteck(0.5,3);
+        rooms[1].setzeMittelpunkt(10,-7);
+        rooms[2] = new Rechteck(5,0.5);
+        rooms[2].setzeMittelpunkt(2.25,-5.75);
+        rooms[3] = new Rechteck(5,0.5);
+        rooms[3].setzeMittelpunkt(12.75,-5.75);
+        rooms[4] = new Rechteck(0.5, 10);
+        rooms[4].setzeMittelpunkt(0,-0.5);
+        rooms[5] = new Rechteck(0.5, 15);
+        rooms[5].setzeMittelpunkt(15,2);
+        rooms[6] = new Rechteck(9, 0.5);
+        rooms[6].setzeMittelpunkt(4.5,4.25);
+        rooms[7] = new Rechteck(0.5, 5.5);
+        rooms[7].setzeMittelpunkt(8.75,7.25);
+
 
         Rechteck[] walls = new Rechteck[4];
         walls[0] = new Rechteck(42,1);
@@ -30,32 +41,16 @@ public class Lvl1{
             walls[x].macheStatisch();
 
         }
+        for (int i=0; i<rooms.length; i++) {
+            rooms[i].setzeEbenenposition(-1);
+            rooms[i].macheStatisch();
+
+        }
 
 
-        r8.verschieben(4.25, 4.75 );
-        r7.verschieben(0, 2);
-        r6.verschieben(7.5, 0);
-        r5.verschieben(-4.5, -2.75);
-        r4.verschieben(5.25,-7.5);
-        r3.verschieben(-2.25, -7.5);
-        r2.verschieben(3,-9);
-        r1.verschieben(0, -9);
-        r8.macheStatisch();
-        r7.macheStatisch();
-        r6.macheStatisch();
-        r5.macheStatisch();
-        r4.macheStatisch();
-        r3.macheStatisch();
-        r2.macheStatisch();
-        r1.macheStatisch();
-        r8.setzeEbenenposition(-1);
-        r7.setzeEbenenposition(-1);
-        r6.setzeEbenenposition(-1);
-        r5.setzeEbenenposition(-1);
-        r4.setzeEbenenposition(-1);
-        r3.setzeEbenenposition(-1);
-        r2.setzeEbenenposition(-1);
-        r1.setzeEbenenposition(-1);
+
+
+
 
         Figur background = new Figur("background", "rsc/cat.gif");
         background.setzeEbenenposition(-99);

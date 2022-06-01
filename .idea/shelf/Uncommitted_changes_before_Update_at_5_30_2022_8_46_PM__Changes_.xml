@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_5_30_2022_8_46_PM_[Changes]" date="1653936408317" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2022_8_46_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 5/30/2022 8:46 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/game-sus/tracer.class" />
+    <option name="AFTER_PATH" value="out/production/game-sus/tracer.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2022_8_46_PM_[Changes]/tracer.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/game-sus/Lvl1.class" />
+    <option name="AFTER_PATH" value="out/production/game-sus/Lvl1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2022_8_46_PM_[Changes]/Lvl1.class" />
+  </binary>
+</changelist>
