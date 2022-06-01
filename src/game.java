@@ -21,6 +21,13 @@ public class game extends Spiel {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shoot(v, v1);
+                        lvl.walls[5].setzeFarbe("rot");
+                    }
+
+                    @Override
+                    public void klickLosgelassenReagieren(double x, double y) {
+                        System.out.println("stopped clicking");
+
                     }
                 }
         );
@@ -31,6 +38,7 @@ public class game extends Spiel {
     enemy[] enemies;
     int enemyhealth;
     int kills;
+    Lvl1 lvl;
 
     void gameScene() {
         p1 = new player();
@@ -41,7 +49,7 @@ public class game extends Spiel {
         for (int z=0; z < enemies.length; z++) {
             enemies[z] = new enemy(enemyhealth);
         }
-        Lvl1 lvl = new Lvl1();
+        lvl = new Lvl1();
         p1.macheDynamisch();
         //menuScene = new MenuScene(this);
     }

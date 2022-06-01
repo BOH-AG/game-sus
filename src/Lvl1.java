@@ -4,10 +4,13 @@ import ea.edu.Spiel;
 
 public class Lvl1{
 
+    public Rechteck[] walls;
+    public Rechteck[] boundry;
+
     public Lvl1(){
 
 
-        Rechteck[] walls = new Rechteck[8];
+        walls = new Rechteck[8];
         walls[0] = new Rechteck(0.5,3);
         walls[0].setzeMittelpunkt(5, -7);
         walls[1] = new Rechteck(0.5,3);
@@ -26,7 +29,7 @@ public class Lvl1{
         walls[7].setzeMittelpunkt(8.75,7.25);
 
 
-        Rechteck[] boundry = new Rechteck[4];
+        boundry = new Rechteck[4];
         boundry[0] = new Rechteck(42,1);
         boundry[0].setzeMittelpunkt(0,12);
         boundry[1] = new Rechteck(42,1);
