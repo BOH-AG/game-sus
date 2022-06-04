@@ -7,6 +7,7 @@ public class Sound {
             FileInputStream fis = new FileInputStream("rsc/music/dream.mp3");
             Player playMP3 = new Player(fis);
             playMP3.play();
+            System.out.println("d");
         }
         catch(Exception exc){
             exc.printStackTrace();

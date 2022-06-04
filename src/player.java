@@ -64,7 +64,7 @@ public class player extends Figur implements TastenReagierbar {
         actor.setCenter(v1);
     }
 
-
+/*
     @Override
     public void onKeyUp(KeyEvent e) {
         KeyListener.super.onKeyUp(e);
@@ -72,7 +72,7 @@ public class player extends Figur implements TastenReagierbar {
         if (k==KeyEvent.VK_W||k==KeyEvent.VK_S) dely = 0;
         if (k==KeyEvent.VK_A||k==KeyEvent.VK_D) delx = 0;
     }
-
+*/
 
 
 
