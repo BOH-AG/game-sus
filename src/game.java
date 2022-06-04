@@ -1,9 +1,7 @@
-import ea.edu.Kreis;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 
-import java.util.Arrays;
 
 
 public class game extends Spiel {

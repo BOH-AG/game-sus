@@ -1,6 +1,5 @@
 import ea.FrameUpdateListener;
 import ea.actor.Actor;
-import ea.actor.Rectangle;
 import ea.edu.Rechteck;
 
 public class tracer extends Rechteck {

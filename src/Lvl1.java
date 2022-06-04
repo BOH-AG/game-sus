@@ -1,6 +1,5 @@
 import ea.edu.Figur;
 import ea.edu.Rechteck;
-import ea.edu.Spiel;
 
 public class Lvl1{
 

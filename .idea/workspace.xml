@@ -8,12 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/game-sus/Lvl1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/Lvl1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/game-sus/game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/game-sus/player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/game-sus/tracer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/tracer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lvl1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lvl1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,13 +56,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="engine-gamma.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/+libs/engine-gamma.jar" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.engine-gamma.jar" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.HelloWorld_v1" />
       </list>
