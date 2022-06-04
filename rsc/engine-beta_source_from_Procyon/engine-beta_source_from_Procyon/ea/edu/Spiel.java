@@ -24,9 +24,9 @@ import ea.internal.annotations.API;
 @API
 public class Spiel
 {
-    public static final String STANDARD_TITEL = "Engine Alpha - EDU Version";
-    public static final int STANDARD_BREITE = 800;
-    public static final int STANDARD_HOEHE = 600;
+    public static final String STANDARD_TITEL = "BohAG Game";
+    public static final int STANDARD_BREITE = 1280;
+    public static final int STANDARD_HOEHE = 720;
     private static final HashMap<String, Color> farben;
     private static final HashMap<String, EduScene> szenen;
     private static final Color COLOR_LILA;

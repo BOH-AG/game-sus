@@ -34,18 +34,18 @@ import java.awt.Frame;
 
 public final class Game
 {
-    private static boolean debug;
-    private static boolean verbose;
-    private static int width;
-    private static int height;
-    private static final Frame frame;
-    private static RenderPanel renderPanel;
-    private static boolean exitOnEsc;
-    private static Scene scene;
-    private static GameLogic gameLogic;
-    private static Thread mainThread;
-    private static Collection<Integer> pressedKeys;
-    private static Point mousePosition;
+    public static boolean debug;
+    public static boolean verbose;
+    public static int width;
+    public static int height;
+    public static final Frame frame;
+    public static RenderPanel renderPanel;
+    public static boolean exitOnEsc;
+    public static Scene scene;
+    public static GameLogic gameLogic;
+    public static Thread mainThread;
+    public static Collection<Integer> pressedKeys;
+    public static Point mousePosition;
     
     @API
     public static void setTitle(final String title) {
@@ -100,7 +100,7 @@ public final class Game
         Game.mainThread.setPriority(10);
     }
     
-    private static void run() {
+    public static void run() {
         (Game.gameLogic = new GameLogic(Game.renderPanel, Game::getActiveScene, Game::isDebug)).run();
         Game.frame.setVisible(false);
         Game.frame.dispose();
@@ -115,7 +115,7 @@ public final class Game
         return new Vector(position.getX() + ((float)Math.cos(Math.toRadians(rotation)) * (mousePosition.x - Game.width / 2.0f) + (float)Math.sin(Math.toRadians(rotation)) * (mousePosition.y - Game.height / 2.0f)) / zoom, position.getY() + ((float)Math.sin(rotation) * (mousePosition.x - Game.width / 2.0f) - (float)Math.cos(rotation) * (mousePosition.y - Game.height / 2.0f)) / zoom);
     }
     
-    private static void enqueueMouseWheelEvent(final MouseWheelEvent mouseWheelEvent) {
+    public static void enqueueMouseWheelEvent(final MouseWheelEvent mouseWheelEvent) {
         final ea.event.MouseWheelEvent mouseWheelAction = new ea.event.MouseWheelEvent((float)mouseWheelEvent.getPreciseWheelRotation());
         Game.gameLogic.enqueue(() -> Game.scene.invokeMouseWheelMoveListeners(mouseWheelAction));
     }
@@ -229,12 +229,12 @@ public final class Game
         System.setProperty("sun.java2d.pmoffscreen", "true");
         System.setProperty("sun.java2d.ddoffscreen", "true");
         System.setProperty("sun.java2d.ddscale", "true");
-        frame = new Frame("Engine Alpha");
+        frame = new Frame("BohAG");
         Game.exitOnEsc = true;
         Game.pressedKeys = (Collection<Integer>)ConcurrentHashMap.newKeySet();
     }
     
-    private static class MouseListener extends MouseAdapter
+    public static class MouseListener extends MouseAdapter
     {
         @Override
         public void mousePressed(final MouseEvent e) {
@@ -261,7 +261,7 @@ public final class Game
             Game.mousePosition = e.getPoint();
         }
         
-        private void enqueueMouseEvent(final MouseEvent e, final boolean down) {
+        public void enqueueMouseEvent(final MouseEvent e, final boolean down) {
             final Vector sourcePosition = Game.convertMousePosition(Game.scene, e.getPoint());
             switch (e.getButton()) {
                 case 1: {
@@ -289,7 +289,7 @@ public final class Game
         }
     }
     
-    private static class KeyListener extends KeyAdapter
+    public static class KeyListener extends KeyAdapter
     {
         @Override
         public void keyPressed(final KeyEvent e) {
@@ -301,10 +301,7 @@ public final class Game
             this.enqueueKeyEvent(e, false);
         }
         
-        private void enqueueKeyEvent(final KeyEvent e, final boolean down) {
-            if (e.getKeyCode() == 27 && Game.exitOnEsc) {
-                Game.exit();
-            }
+        public void enqueueKeyEvent(final KeyEvent e, final boolean down) {
             final boolean pressed = Game.pressedKeys.contains(e.getKeyCode());
             if (down) {
                 if (pressed) {
