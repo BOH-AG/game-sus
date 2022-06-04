@@ -6,5 +6,6 @@ public class Main {
         g1.Scene();
         Sound s1 =new Sound();
         s1.sound();
+
     }
 }
