@@ -4,6 +4,7 @@ import ea.edu.Figur;
 import ea.edu.event.TastenReagierbar;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class player extends Figur implements TastenReagierbar {
 
