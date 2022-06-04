@@ -11,5 +11,6 @@
     <orderEntry type="library" name="+libs" level="project" />
     <orderEntry type="library" name="jlayer-1.0.1" level="project" />
     <orderEntry type="library" name="jlayer-1.0.1" level="project" />
+    <orderEntry type="library" name="engine-boh" level="project" />
   </component>
 </module>

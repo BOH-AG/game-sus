@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="sound">
-      <change afterPath="$PROJECT_DIR$/rsc/engine-beta_source_from_Procyon/engine-beta_source_from_Procyon/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/+libs/engine-boh .jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/engine-beta_source_from_Procyon/engine-beta_source_from_Procyon/ea/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/rsc/engine-beta_source_from_Procyon/engine-beta_source_from_Procyon/ea/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/engine-beta_source_from_Procyon/engine-beta_source_from_Procyon/ea/edu/Spiel.java" beforeDir="false" afterPath="$PROJECT_DIR$/rsc/engine-beta_source_from_Procyon/engine-beta_source_from_Procyon/ea/edu/Spiel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-sus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/game-sus.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/emil/IdeaProjects/game-sus/+libs/engine-boh .jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15332031",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="HelloWorld_v1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloWorld_v1" />
@@ -161,7 +168,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
