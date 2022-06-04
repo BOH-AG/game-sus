@@ -1,10 +1,11 @@
+import ea.FrameUpdateListener;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 
 
 
-public class game extends Spiel {
+public class game extends Spiel implements FrameUpdateListener {
     public MenuScene menuScene;
 
     public game(int width, int height) {
@@ -94,6 +95,10 @@ public class game extends Spiel {
     }
 
 
+    @Override
+    public void onFrameUpdate(float v) {
+
+    }
 }
 
 
