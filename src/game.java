@@ -5,15 +5,15 @@ import ea.edu.event.MausKlickReagierbar;
 
 
 
-public class game extends Spiel implements FrameUpdateListener {
+public class game extends Spiel implements FrameUpdateListener  {
     public MenuScene menuScene;
 
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
+
         //setzeRasterSichtbar(false);
-        gameScene();
-        benenneAktiveSzene("gameScene");
+
         MausKlickReagierbar dieSendungMitDer;
         BildAktualisierungReagierbar dasBild;
         registriereMausKlickReagierbar(
@@ -54,7 +54,9 @@ public class game extends Spiel implements FrameUpdateListener {
     }
 
 
-    void menuScene() {
+    void Scene() {
+        gameScene();
+        benenneAktiveSzene("gameScene");
 
 
 
@@ -90,7 +92,7 @@ public class game extends Spiel implements FrameUpdateListener {
 
     @Override
     public void onFrameUpdate(float v) {
-
+        Scene();
 
 
 

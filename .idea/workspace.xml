@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="46e727f0-5d28-4def-8e57-6e31f8171c11" name="Changes" comment="clean">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/Lvl1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/Lvl1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/tracer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/tracer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/tracer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/tracer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654352601673</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="clean">
+      <created>1654353346170</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654353346170</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
