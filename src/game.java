@@ -5,7 +5,7 @@ import ea.edu.event.MausKlickReagierbar;
 
 
 
-public class game extends Spiel implements FrameUpdateListener  {
+public class game extends Spiel {
     public MenuScene menuScene;
 
     public game(int width, int height) {
@@ -20,16 +20,26 @@ public class game extends Spiel implements FrameUpdateListener  {
                 dieSendungMitDer = new MausKlickReagierbar() {
                     @Override
                     public void klickReagieren(double v, double v1) {
-                        shoot(v, v1);
+                        shooting = true;
                     }
 
                     @Override
                     public void klickLosgelassenReagieren(double x, double y) {
-                        System.out.println("stopped clicking");
-
+                        shooting = false;
                     }
                 }
         );
+        registriereBildAktualisierungReagierbar( // tick() but for cool kids   B)
+                dasBild = new BildAktualisierungReagierbar() {
+                    @Override
+                    public void bildAktualisierungReagieren(double v) {
+                        if (shooting) {
+                            shoot();
+                        }
+                    }
+                }
+        );
+        Scene();
     }
 
     tracer traced;
@@ -38,6 +48,7 @@ public class game extends Spiel implements FrameUpdateListener  {
     int enemyhealth;
     int kills;
     Lvl1 lvl;
+    boolean shooting;
 
     void gameScene() {
         p1 = new player();
@@ -63,7 +74,9 @@ public class game extends Spiel implements FrameUpdateListener  {
 
     }
 
-    private void shoot(double x, double y) {
+    private void shoot() {
+        double x = nenneMausPositionX();
+        double y = nenneMausPositionY();
         for (int z=0; z < enemies.length; z++) {
             if (enemies[z].beinhaltetPunkt(x,y)) {
                 enemies[z].takeDamage(1);
@@ -74,8 +87,6 @@ public class game extends Spiel implements FrameUpdateListener  {
                 }
             }
         }
-
-
 
         traced = new tracer(
                 x+0.5,
@@ -89,16 +100,5 @@ public class game extends Spiel implements FrameUpdateListener  {
         setzeSchwerkraft(0);
     }
 
-
-    @Override
-    public void onFrameUpdate(float v) {
-        Scene();
-
-
-
-
-
-
-    }
 
 }
