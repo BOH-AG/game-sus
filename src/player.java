@@ -62,7 +62,7 @@ public class player extends Figur implements TastenReagierbar {
         }
         actor.setCenter(v1);
     }
-}
+
 
     @Override
     public void onKeyUp(KeyEvent e) {
@@ -72,24 +72,8 @@ public class player extends Figur implements TastenReagierbar {
         if (k==KeyEvent.VK_A||k==KeyEvent.VK_D) delx = 0;
     }
 
-    private void direction() {
-        // rotate player in all 8 movement directions (and place it in the correct center spot)
-        Vector bingy = getCenter();
-        if (delx>0) setRotation(270);
-        else if (delx<0) setRotation(90);
 
-        if (dely>0) {
-            if (delx>0) setRotation(315);
-            else if (delx<0) setRotation(45);
-            else setRotation(0);
-        } else if (dely<0) {
-            if (delx>0) setRotation(225);
-            else if (delx<0) setRotation(135);
-            else setRotation(180);
-        }
-        setCenter(bingy);
-    }
 
 
 }
-*/
+
