@@ -57,7 +57,10 @@ public class game extends Spiel implements FrameUpdateListener  {
     void Scene() {
         gameScene();
         benenneAktiveSzene("gameScene");
-
+        if (p1.menu){
+            erzeugeNeueSzene();
+            benenneAktiveSzene("menuScene");
+        }
 
 
 

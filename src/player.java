@@ -10,6 +10,7 @@ public class player extends Figur implements TastenReagierbar {
     StatefulAnimation<String> actor;
     double delx;
     double dely;
+    boolean menu;
 
     player() {
         super("normal", "rsc/fox.gif");
@@ -27,6 +28,9 @@ public class player extends Figur implements TastenReagierbar {
             dely = -5;
         }if (key==KeyEvent.VK_W){
             dely = 5;
+        }
+        if (key==KeyEvent.VK_TAB){
+            menu = !menu;
         }
         setzeGeschwindigkeit(delx, dely);
         direction();
