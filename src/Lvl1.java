@@ -49,10 +49,6 @@ public class Lvl1{
         }
 
 
-
-
-
-
         Figur background = new Figur("background", "rsc/cat.gif");
         background.setzeEbenenposition(-99);
         background.skaliere(2);
