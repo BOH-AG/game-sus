@@ -3,7 +3,7 @@ import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 
-public class game extends Spiel implements FrameUpdateListener {
+public class game extends Spiel {
 
     public MenuScene menuScene;
     tracer t1;
@@ -12,6 +12,7 @@ public class game extends Spiel implements FrameUpdateListener {
     int enemyhealth;
     int kills;
     Lvl1 lvl;
+    boolean shooting;
 
     public game(int width, int height) {
         super();
@@ -25,12 +26,26 @@ public class game extends Spiel implements FrameUpdateListener {
                 dieSendungMitDer = new MausKlickReagierbar() {
                     @Override
                     public void klickReagieren(double v, double v1) {
-                        shoot(v, v1);
+                        shooting = true;
                     }
-
                     @Override
                     public void klickLosgelassenReagieren(double x, double y) {
-                        System.out.println("stopped clicking");
+                        shooting = false;
+                    }
+                }
+        );
+        registriereBildAktualisierungReagierbar(
+                dasBild = new BildAktualisierungReagierbar() {
+                    @Override
+                    public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
+
+                        if (shooting) {
+                            shoot();
+                        }
+
+
+
+
                     }
                 }
         );
@@ -63,7 +78,9 @@ public class game extends Spiel implements FrameUpdateListener {
 
     }
 
-    private void shoot(double x, double y) {
+    private void shoot() {
+        double x = nenneMausPositionX();
+        double y = nenneMausPositionY();
         for (int z=0; z < enemies.length; z++) {
             if (enemies[z].beinhaltetPunkt(x,y)) {
                 enemies[z].takeDamage(1);
@@ -83,10 +100,5 @@ public class game extends Spiel implements FrameUpdateListener {
         );
     }
 
-    @Override
-    public void onFrameUpdate(float v) {
-
-
-    }
 
 }

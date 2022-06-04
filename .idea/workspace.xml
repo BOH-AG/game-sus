@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="sound2" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="sound">
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/Lvl1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/enemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/tracer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/tracer.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,15 +43,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "last_opened_file_path": "C:/Users/emil/IdeaProjects/game-sus/+libs/jlayer-1.0.1.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="HelloWorld_v1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloWorld_v1" />
@@ -165,6 +169,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
