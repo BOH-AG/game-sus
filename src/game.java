@@ -3,10 +3,15 @@ import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 
+public class game extends Spiel implements FrameUpdateListener {
 
-
-public class game extends Spiel implements FrameUpdateListener  {
     public MenuScene menuScene;
+    tracer t1;
+    player p1;
+    enemy[] enemies;
+    int enemyhealth;
+    int kills;
+    Lvl1 lvl;
 
     public game(int width, int height) {
         super();
@@ -26,18 +31,10 @@ public class game extends Spiel implements FrameUpdateListener  {
                     @Override
                     public void klickLosgelassenReagieren(double x, double y) {
                         System.out.println("stopped clicking");
-
                     }
                 }
         );
     }
-
-    tracer traced;
-    player p1;
-    enemy[] enemies;
-    int enemyhealth;
-    int kills;
-    Lvl1 lvl;
 
     void gameScene() {
         p1 = new player();
@@ -78,9 +75,7 @@ public class game extends Spiel implements FrameUpdateListener  {
             }
         }
 
-
-
-        traced = new tracer(
+        t1 = new tracer(
                 x+0.5,
                 y+0.5,
                 p1.nenneMittelpunktX(),
@@ -88,18 +83,8 @@ public class game extends Spiel implements FrameUpdateListener  {
         );
     }
 
-    public void alexaDisableGravity() {
-        setzeSchwerkraft(0);
-    }
-
-
     @Override
     public void onFrameUpdate(float v) {
-        Scene();
-
-
-
-
 
 
     }

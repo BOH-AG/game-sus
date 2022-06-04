@@ -8,7 +8,7 @@ public class Lvl1{
 
     public Lvl1(){
 
-
+        //building a Room
         walls = new Rechteck[8];
         walls[0] = new Rechteck(0.5,3);
         walls[0].setzeMittelpunkt(5, -7);
@@ -27,6 +27,7 @@ public class Lvl1{
         walls[7] = new Rechteck(0.5, 5.5);
         walls[7].setzeMittelpunkt(8.75,7.25);
 
+        //Setting map boundaries
         boundry = new Rechteck[4];
         boundry[0] = new Rechteck(42,1);
         boundry[0].setzeMittelpunkt(0,12);
@@ -47,7 +48,6 @@ public class Lvl1{
             wall.macheStatisch();
 
         }
-
 
         Figur background = new Figur("background", "rsc/cat.gif");
         background.setzeEbenenposition(-99);
