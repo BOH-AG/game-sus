@@ -40,6 +40,7 @@ public class game extends Spiel {
                 dasBild = new BildAktualisierungReagierbar() {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
+                        menuScene();
                         timer++;
                         if (shooting) {
                             shoot();
@@ -69,14 +70,16 @@ public class game extends Spiel {
 
 
     void Scene() {
-        gameScene();
-        benenneAktiveSzene("gameScene");
+
+            gameScene();
+            benenneAktiveSzene("gameScene");
+
+    }
+    void menuScene(){
         if (p1.menu){
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
         }
-
-
 
     }
 

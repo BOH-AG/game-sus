@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="schwerkraft">
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="jar">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_8_37_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_8_37_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +43,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emil/IdeaProjects/game-sus/+libs/jlayer-1.0.1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emil/Desktop/engine-boh&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;project.structure.proportion&quot;: &quot;0.15332031&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RunManager" selected="Application.Main">
@@ -155,28 +157,7 @@
       <option name="project" value="LOCAL" />
       <updated>1654357253582</updated>
     </task>
-    <task id="LOCAL-00012" summary="sound">
-      <created>1654411724037</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1654411724037</updated>
-    </task>
-    <task id="LOCAL-00013" summary="sound">
-      <created>1654412459416</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1654412459416</updated>
-    </task>
-    <task id="LOCAL-00014" summary="sound">
-      <created>1654413481719</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1654413481719</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,8 +178,8 @@
     <MESSAGE value="import clean" />
     <MESSAGE value="clean" />
     <MESSAGE value="scene" />
-    <MESSAGE value="sound2" />
     <MESSAGE value="sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="sound" />
+    <MESSAGE value="sound2" />
+    <option name="LAST_COMMIT_MESSAGE" value="sound2" />
   </component>
 </project>
