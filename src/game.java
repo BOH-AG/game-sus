@@ -68,18 +68,16 @@ public class game extends Spiel {
 
     }
 
-
-    void Scene() {
-
-            gameScene();
-            benenneAktiveSzene("gameScene");
-
-    }
     void menuScene(){
         if (p1.menu){
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
         }
+    }
+
+    void TitleScreen(){
+
+        TitleScreen ts1 = new TitleScreen();
 
     }
 
@@ -102,7 +100,13 @@ public class game extends Spiel {
                     kills = kills + 1;
                     System.out.println("kills: " + kills);
                 }
+
             }
+        }
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
 
     }
