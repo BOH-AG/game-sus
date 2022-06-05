@@ -24,6 +24,8 @@ public class tracer extends Rechteck {
                 framesWinGames = new FrameUpdateListener() {
                     @Override
                     public void onFrameUpdate(float v) {
+
+
                         setzeMittelpunkt(newx, newy);
                     }
                 }
@@ -33,5 +35,10 @@ public class tracer extends Rechteck {
         machePartikel(0.3);
         verzoegere(0.2, this::entfernen);
     }
+
+    public boolean schneidet(Rechteck[] walls) {
+        return false;
+    }
+
 
 }

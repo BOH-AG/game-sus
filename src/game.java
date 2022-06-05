@@ -42,7 +42,9 @@ public class game extends Spiel {
                         if (shooting) {
                             shoot();
                         }
-
+                        if (t1.schneidet(lvl.walls)){
+                            System.out.println("cbt");
+                        }
 
 
 
