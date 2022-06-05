@@ -40,11 +40,11 @@ public class game extends Spiel {
                 dasBild = new BildAktualisierungReagierbar() {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
-                        timer=0;
+                        timer++;
                         if (shooting) {
                             shoot();
                         }
-                        if (timer<1000000000) {
+                        if (timer>1000000000) {
                             if (t1.schneidet(lvl.walls[1])) {
                                 System.out.println("cbt");
                             }
