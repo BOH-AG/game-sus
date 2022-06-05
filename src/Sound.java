@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 public class Sound {
     public void sound(){
         try{
-            FileInputStream fis = new FileInputStream("rsc/music/dream.mp3");
+            FileInputStream fis = new FileInputStream("rsc/music/34 Tuesday.mp3");
             Player playMP3 = new Player(fis);
             playMP3.play();
             System.out.println("d");
