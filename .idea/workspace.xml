@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
-      <change afterPath="$PROJECT_DIR$/rsc/music/DIE FTZN SIND WIEDER DA (Official Video)_SXTN - Emil.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rsc/Boh.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TitleScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654458147012</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="menu">
+      <created>1654461438368</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654461438368</updated>
+    </task>
+    <task id="LOCAL-00014" summary="menu">
+      <created>1654461524125</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654461524125</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
