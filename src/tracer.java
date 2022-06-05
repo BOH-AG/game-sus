@@ -36,9 +36,7 @@ public class tracer extends Rechteck {
         verzoegere(0.2, this::entfernen);
     }
 
-    public boolean schneidet(Rechteck[] walls) {
-        return false;
-    }
+
 
 
 }

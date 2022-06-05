@@ -5,6 +5,8 @@ import ea.edu.event.MausKlickReagierbar;
 
 public class game extends Spiel {
 
+    public int timer;
+
     public MenuScene menuScene;
     tracer t1;
     player p1;
@@ -38,14 +40,15 @@ public class game extends Spiel {
                 dasBild = new BildAktualisierungReagierbar() {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
-
+                        timer=0;
                         if (shooting) {
                             shoot();
                         }
-                        if (t1.schneidet(lvl.walls)){
-                            System.out.println("cbt");
+                        if (timer<1000000000) {
+                            if (t1.schneidet(lvl.walls[1])) {
+                                System.out.println("cbt");
+                            }
                         }
-
 
 
                     }
