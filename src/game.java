@@ -55,6 +55,8 @@ public class game extends Spiel {
     }
 
     void gameScene() {
+        erzeugeNeueSzene();
+        benenneAktiveSzene("gameScene");
         p1 = new player();
         kills = 0;
         enemyhealth = 1;
@@ -69,14 +71,18 @@ public class game extends Spiel {
     }
 
     void menuScene(){
-        if (p1.menu){
-            erzeugeNeueSzene();
-            benenneAktiveSzene("menuScene");
+        try {
+            if (p1.menu){
+                erzeugeNeueSzene();
+                benenneAktiveSzene("menuScene");
+            }
+        } catch (Exception e) {
+
         }
     }
 
     void TitleScreen(){
-
+        benenneAktiveSzene("Title");
         TitleScreen ts1 = new TitleScreen();
 
     }
