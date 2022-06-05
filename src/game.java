@@ -19,7 +19,7 @@ public class game extends Spiel {
         setzeFensterGroesse(width, height);
 
         //setzeRasterSichtbar(false);
-
+        setzeSchwerkraft(0);
         MausKlickReagierbar dieSendungMitDer;
         BildAktualisierungReagierbar dasBild;
         registriereMausKlickReagierbar(
@@ -56,7 +56,7 @@ public class game extends Spiel {
         kills = 0;
         enemyhealth = 1;
         p1.setzeEbenenposition(2);
-        enemies = new enemy[20];
+        enemies = new enemy[3];
         for (int z=0; z < enemies.length; z++) {
             enemies[z] = new enemy(enemyhealth);
         }
