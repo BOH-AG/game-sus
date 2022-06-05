@@ -44,7 +44,7 @@ public class game extends Spiel {
                         if (shooting) {
                             shoot();
                         }
-                        if (timer>1000000000) {
+                        if (timer>100) {
                             if (t1.schneidet(lvl.walls[1])) {
                                 System.out.println("cbt");
                             }
