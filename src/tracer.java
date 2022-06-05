@@ -37,7 +37,7 @@ public class tracer extends Rechteck {
     }
 
 
-    public boolean berührt(Rechteck wall) {
+    public boolean berührt(enemy e) {
         return true;
     }
 }

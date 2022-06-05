@@ -44,11 +44,6 @@ public class game extends Spiel {
                         if (shooting) {
                             shoot();
 
-                            if (timer>100) {
-                                if (t1.berührt(lvl.walls[1])) {
-                                    System.out.println("cbt");
-                                }
-                            }
                         }
 
 
@@ -88,8 +83,16 @@ public class game extends Spiel {
     private void shoot() {
         double x = nenneMausPositionX();
         double y = nenneMausPositionY();
+
+        t1 = new tracer(
+                x+0.5,
+                y+0.5,
+                p1.nenneMittelpunktX(),
+                p1.nenneMittelpunktY()
+        );
+
         for (int z=0; z < enemies.length; z++) {
-            if (enemies[z].beinhaltetPunkt(x,y)) {
+            if (t1.berührt(enemies[z])) {
                 enemies[z].takeDamage(1);
                 if (enemies[z].dead) {
                     enemies[z] = new enemy(enemyhealth);
@@ -99,12 +102,6 @@ public class game extends Spiel {
             }
         }
 
-        t1 = new tracer(
-                x+0.5,
-                y+0.5,
-                p1.nenneMittelpunktX(),
-                p1.nenneMittelpunktY()
-        );
     }
 
 
