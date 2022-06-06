@@ -21,8 +21,8 @@ public class TitleScreen {
         Figur backgroundT = new Figur("background", "rsc/b-o-h.gif");
         Figur backgroundGif = new Figur("background", "rsc/hi.gif");
         backgroundT.setzeEbenenposition(-1);
-        backgroundT.skaliere(0.25);
-        backgroundT.setzeMittelpunkt(0,5);
+        backgroundT.skaliere(0.2);
+        backgroundT.setzeMittelpunkt(0,7.5);
         backgroundGif.setzeEbenenposition(-2);
         backgroundGif.skaliere(2.5);
         backgroundGif.setzeMittelpunkt(0,0);
