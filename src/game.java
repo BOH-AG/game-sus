@@ -5,11 +5,11 @@ import ea.edu.event.MausKlickReagierbar;
 import ea.edu.event.TastenReagierbar;
 
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 
-public class game extends Spiel implements TastenReagierbar {
+public class game extends Spiel {
 
     public MenuScene menuScene;
-    String sceneName;
     tracer t1;
     player p1;
     enemy[] enemies;
@@ -21,72 +21,104 @@ public class game extends Spiel implements TastenReagierbar {
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
-
         //setzeRasterSichtbar(false);
-        setzeSchwerkraft(0);
-        MausKlickReagierbar dieSendungMitDer;
-        BildAktualisierungReagierbar dasBild;
-        registriereMausKlickReagierbar(
-                dieSendungMitDer = new MausKlickReagierbar() {
-                    @Override
-                    public void klickReagieren(double v, double v1) {
-                        shooting = true;
-                    }
-                    @Override
-                    public void klickLosgelassenReagieren(double x, double y) {
-                        shooting = false;
-                    }
-                }
-        );
-        registriereBildAktualisierungReagierbar(
-                dasBild = new BildAktualisierungReagierbar() {
-                    @Override
-                    public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
+        titleScreen();
+    }
 
-                        if(sceneName == "gameScene"){
+     void gameScene() {
+        if (Arrays.stream(nenneSzenennamen()).anyMatch("gameScene"::equals)) { //check if gameScene exists
+            setzeAktiveSzene("gameScene");
+        } else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("gameScene");
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double v, double v1) {
+                            shooting = true;
+                        }
+
+                        @Override
+                        public void klickLosgelassenReagieren(double x, double y) {
+                            shooting = false;
+                        }
+                    });
+            BildAktualisierungReagierbar frameUpdate;
+            registriereBildAktualisierungReagierbar(
+                    frameUpdate = new BildAktualisierungReagierbar() {
+                        @Override
+                        public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                             if (shooting) {
                                 shoot();
                             }
                         }
-
-
-
-                    }
-                }
-        );
-    }
-
-     void gameScene() {
-        erzeugeNeueSzene();
-        benenneAktiveSzene("gameScene");
-        sceneName = "gameScene";
-        p1 = new player();
-        kills = 0;
-        enemyhealth = 1;
-        p1.setzeEbenenposition(2);
-        enemies = new enemy[3];
-        for (int z=0; z < enemies.length; z++) {
-            enemies[z] = new enemy(enemyhealth);
+                    });
+            TastenReagierbar cherryMxBrown;
+            registriereTastenReagierbar(
+                    cherryMxBrown = new TastenReagierbar() {
+                        @Override
+                        public void tasteReagieren(int key) {
+                            if (key == KeyEvent.VK_M) {
+                                menuScene();
+                            }
+                        }
+                    });
+            setzeSchwerkraft(0);
+            p1 = new player();
+            kills = 0;
+            enemyhealth = 1;
+            p1.setzeEbenenposition(2);
+            enemies = new enemy[3];
+            for (int z = 0; z < enemies.length; z++) {
+                enemies[z] = new enemy(enemyhealth);
+            }
+            lvl = new Lvl1();
+            p1.macheDynamisch();
         }
-        lvl = new Lvl1();
-        p1.macheDynamisch();
-
     }
 
     void menuScene(){
         //ersellt eine neue szene und ruft die menü szene auf
-        erzeugeNeueSzene();
-        benenneAktiveSzene("menuScene");
-        sceneName = "menuScene";
-        MenuScene ms1 = new MenuScene();
+        if (Arrays.stream(nenneSzenennamen()).anyMatch("menuScene"::equals)) {
+            setzeAktiveSzene("menuScene");
+        } else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("menuScene");
+            TastenReagierbar cherryMxBrown;
+            registriereTastenReagierbar(
+                    cherryMxBrown = new TastenReagierbar() {
+                        @Override
+                        public void tasteReagieren(int key) {
+                            if (key == KeyEvent.VK_M) {
+                                gameScene();
+                            }
+                        }
+                    }
+            );
+            MenuScene ms1 = new MenuScene();
+        }
     }
 
-    void TitleScreen(){
+    void titleScreen(){
         //benennt die aktive szene und ruft den titleScreen auf
-        benenneAktiveSzene("Title");
-        sceneName = "Title";
-        TitleScreen ts1 = new TitleScreen();
-
+        if (Arrays.stream(nenneSzenennamen()).anyMatch("title"::equals)) {
+            setzeAktiveSzene("title");
+        } else {
+            benenneAktiveSzene("title");
+            TastenReagierbar cherryMxBrown;
+            registriereTastenReagierbar(
+                    cherryMxBrown = new TastenReagierbar() {
+                        @Override
+                        public void tasteReagieren(int key) {
+                            if (key == KeyEvent.VK_ENTER) {
+                                gameScene();
+                            }
+                        }
+                    }
+            );
+            TitleScreen ts1 = new TitleScreen();
+        }
     }
 
     private void shoot() {
@@ -111,25 +143,7 @@ public class game extends Spiel implements TastenReagierbar {
 
             }
         }
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
-    }
-
-    @Override
-    //tasten
-    public void tasteReagieren(int key) {
-        //play taste
-        if (key== KeyEvent.VK_ENTER){
-            gameScene();
-        }
-        //menu taste
-        if (key==KeyEvent.VK_M){
-            menuScene();
-        }
     }
 
 }
