@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 public class TitleScreen {
 
     public Figur playButton;
+    public Figur bohLogo;
 
     TitleScreen(){
 
@@ -18,11 +19,11 @@ public class TitleScreen {
         playButton = new Figur("button", "rsc/play.gif");
         playButton.setzeMittelpunkt(0, -4.3);
 
-        Figur backgroundT = new Figur("background", "rsc/b-o-h.gif");
+        bohLogo = new Figur("background", "rsc/b-o-h.gif");
         Figur backgroundGif = new Figur("background", "rsc/hi.gif");
-        backgroundT.setzeEbenenposition(-1);
-        backgroundT.skaliere(0.2);
-        backgroundT.setzeMittelpunkt(0,7.5);
+        bohLogo.setzeEbenenposition(-1);
+        bohLogo.skaliere(0.2);
+        bohLogo.setzeMittelpunkt(0,7.5);
         backgroundGif.setzeEbenenposition(-2);
         backgroundGif.skaliere(2.5);
         backgroundGif.setzeMittelpunkt(0,0);

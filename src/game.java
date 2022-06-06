@@ -1,10 +1,15 @@
 import ea.FrameUpdateListener;
+import ea.edu.Figur;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 import ea.edu.event.TastenReagierbar;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Arrays;
 
 public class game extends Spiel {
@@ -114,6 +119,17 @@ public class game extends Spiel {
                         public void klickReagieren(double x, double y) {
                             if (ts.playButton.beinhaltetPunkt(x, y)) {
                                 gameScene();
+                            }if(ts.bohLogo.beinhaltetPunkt(x, y)){
+
+                                try {
+                                    java.awt.Desktop.getDesktop().browse(new URI("http://www.theboh.de"));
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                } catch (URISyntaxException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+
                             }
                         }
 
