@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu"/>
       <change afterPath="$PROJECT_DIR$/rsc/boh-logo.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TitleScreen.java" afterDir="false" />
