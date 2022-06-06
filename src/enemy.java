@@ -23,6 +23,7 @@ public class enemy extends Figur implements damage {
             ThreadLocalRandom.current().nextDouble(-5,5),
             true
         );
+         pausiereAnimation(true);
     }
 
     @Override

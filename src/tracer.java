@@ -62,7 +62,7 @@ public class tracer extends Rechteck {
         */
         boolean bing = false;
         for (int z=0; z < points.length; z++) {
-            if (e.beinhaltetPunkt(points[z].x, points[z].y)) {
+            if (e.beinhaltetPunkt(nenneMittelpunktX()+points[z].x, nenneMittelpunktY()+points[z].y)) {
                 bing = true;
             }
         }
