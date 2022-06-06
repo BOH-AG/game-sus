@@ -36,8 +36,10 @@ public class tracer extends Rechteck {
         verzoegere(0.2, this::entfernen);
     }
 
-
-    public boolean berührt(enemy e) {
+    public boolean touching(enemy e) {
         return true;
     }
+
+
+
 }

@@ -106,18 +106,18 @@ public class game extends Spiel {
             setzeAktiveSzene("title");
         } else {
             benenneAktiveSzene("title");
-            TastenReagierbar cherryMxBrown;
-            registriereTastenReagierbar(
-                    cherryMxBrown = new TastenReagierbar() {
+            TitleScreen ts = new TitleScreen();
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
                         @Override
-                        public void tasteReagieren(int key) {
-                            if (key == KeyEvent.VK_ENTER) {
+                        public void klickReagieren(double x, double y) {
+                            if (ts.playButton.beinhaltetPunkt(x, y)) {
                                 gameScene();
                             }
                         }
-                    }
-            );
-            TitleScreen ts1 = new TitleScreen();
+
+                    });
         }
     }
 
@@ -133,7 +133,7 @@ public class game extends Spiel {
         );
 
         for (int z=0; z < enemies.length; z++) {
-            if (t1.berührt(enemies[z])) {
+            if (t1.touching(enemies[z])) {
                 enemies[z].takeDamage(1);
                 if (enemies[z].dead) {
                     enemies[z] = new enemy(enemyhealth);

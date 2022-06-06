@@ -1,6 +1,8 @@
 import ea.Vector;
 import ea.actor.StatefulAnimation;
+import ea.edu.EduActor;
 import ea.edu.Figur;
+import ea.edu.event.KollisionsReagierbar;
 import ea.edu.event.TastenReagierbar;
 
 import java.awt.event.KeyEvent;
@@ -60,6 +62,8 @@ public class player extends Figur implements TastenReagierbar {
         }
         actor.setCenter(v1);
     }
+
+
 
 /*
     @Override

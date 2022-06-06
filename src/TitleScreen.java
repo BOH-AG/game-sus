@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 
 public class TitleScreen {
 
+    public Figur playButton;
+
     TitleScreen(){
 
         /*Rechteck button[] = new Rechteck[2];
@@ -13,9 +15,8 @@ public class TitleScreen {
         button[0].setzeMittelpunkt(0, 0);
         button[1] = new Rechteck(6, 1.5);
         button[1].setzeMittelpunkt(0, 2);*/
-        Figur buttons[] = new Figur[2];
-        buttons[0] = new Figur("button", "rsc/Play.gif");
-        buttons[0].setzeMittelpunkt(0, -4.3);
+        playButton = new Figur("button", "rsc/play.gif");
+        playButton.setzeMittelpunkt(0, -4.3);
 
         Figur backgroundT = new Figur("background", "rsc/b-o-h.gif");
         Figur backgroundGif = new Figur("background", "rsc/hi.gif");
