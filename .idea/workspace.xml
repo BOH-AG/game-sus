@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="schwerkraft">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_10_04_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_10_04_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_07_PM_[Changes]/game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_07_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_07_PM_[Changes]/tracer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_07_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_15_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_15_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
+      <change afterPath="$PROJECT_DIR$/rsc/boh-logo.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TitleScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +48,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lucam\Documents\GitHub\game-sus\rsc" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="HelloWorld_v1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloWorld_v1" />

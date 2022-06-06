@@ -16,9 +16,9 @@ public class TitleScreen {
         MenuItem m1 = new MenuItem(0, 7,"Boh!");
         MenuItem b1 = new MenuItem(0, 2,"Play");
         MenuItem b2 = new MenuItem(0, 0,"Options");
-        Figur backgroundT = new Figur("background", "rsc/cat.gif");
+        Figur backgroundT = new Figur("background", "rsc/boh-logo.gif");
         backgroundT.setzeEbenenposition(-99);
-        backgroundT.skaliere(2);
+        backgroundT.skaliere(0.25);
         backgroundT.setzeMittelpunkt(0,0);
 
     }
