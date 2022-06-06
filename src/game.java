@@ -74,11 +74,14 @@ public class game extends Spiel implements TastenReagierbar {
     }
 
     void menuScene(){
+        //ersellt eine neue szene und ruft die menü szene auf
         erzeugeNeueSzene();
         benenneAktiveSzene("menuScene");
+        MenuScene ms1 = new MenuScene();
     }
 
     void TitleScreen(){
+        //benennt die aktive szene und ruft den titleScreen auf
         benenneAktiveSzene("Title");
         TitleScreen ts1 = new TitleScreen();
 
@@ -115,10 +118,13 @@ public class game extends Spiel implements TastenReagierbar {
     }
 
     @Override
+    //tasten
     public void tasteReagieren(int key) {
+        //play taste
         if (key== KeyEvent.VK_ENTER){
             gameScene();
         }
+        //menu taste
         if (key==KeyEvent.VK_M){
             menuScene();
         }
