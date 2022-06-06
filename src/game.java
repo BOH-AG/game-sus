@@ -2,8 +2,11 @@ import ea.FrameUpdateListener;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
+import ea.edu.event.TastenReagierbar;
 
-public class game extends Spiel {
+import java.awt.event.KeyEvent;
+
+public class game extends Spiel implements TastenReagierbar {
 
     public int timer;
 
@@ -40,7 +43,7 @@ public class game extends Spiel {
                 dasBild = new BildAktualisierungReagierbar() {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
-                        menuScene();
+
                         timer++;
                         if (shooting) {
                             shoot();
@@ -54,7 +57,7 @@ public class game extends Spiel {
         );
     }
 
-    void gameScene() {
+     void gameScene() {
         erzeugeNeueSzene();
         benenneAktiveSzene("gameScene");
         p1 = new player();
@@ -71,14 +74,8 @@ public class game extends Spiel {
     }
 
     void menuScene(){
-        try {
-            if (p1.menu){
-                erzeugeNeueSzene();
-                benenneAktiveSzene("menuScene");
-            }
-        } catch (Exception e) {
-
-        }
+        erzeugeNeueSzene();
+        benenneAktiveSzene("menuScene");
     }
 
     void TitleScreen(){
@@ -115,6 +112,16 @@ public class game extends Spiel {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public void tasteReagieren(int n) {
+        if (n== KeyEvent.VK_ENTER){
+            gameScene();
+        }
+        if (n==KeyEvent.VK_M){
+            menuScene();
+        }
     }
 
 

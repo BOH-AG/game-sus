@@ -30,10 +30,6 @@ public class player extends Figur implements TastenReagierbar {
         }if (key==KeyEvent.VK_W){
             dely = 5;
         }
-        if (key==KeyEvent.VK_M){
-            menu = !menu;
-
-        }
         setzeGeschwindigkeit(delx, dely);
         direction();
     }

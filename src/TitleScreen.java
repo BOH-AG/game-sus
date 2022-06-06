@@ -2,6 +2,7 @@ import ea.edu.Figur;
 import ea.edu.Rechteck;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class TitleScreen {
 
@@ -15,7 +16,7 @@ public class TitleScreen {
         MenuItem m1 = new MenuItem(0, 7,"Boh!");
         MenuItem b1 = new MenuItem(0, 2,"Play");
         MenuItem b2 = new MenuItem(0, 0,"Options");
-        Figur backgroundT = new Figur("background", "rsc/Boh.gif");
+        Figur backgroundT = new Figur("background", "rsc/cat.gif");
         backgroundT.setzeEbenenposition(-99);
         backgroundT.skaliere(2);
         backgroundT.setzeMittelpunkt(0,0);
