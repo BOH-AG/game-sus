@@ -7,10 +7,8 @@
     <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="boh tower">
       <change beforePath="$PROJECT_DIR$/src/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TitleScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="sound">
-      <change afterPath="$PROJECT_DIR$/src/point.java" afterDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="startbildschrim">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654526776698</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="startbildschrim">
+      <created>1654539077548</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1654539077548</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,10 +248,10 @@
     <MESSAGE value="sound2" />
     <MESSAGE value="sound" />
     <MESSAGE value="list closed" />
-    <MESSAGE value="startbildschrim" />
     <MESSAGE value="button" />
     <MESSAGE value="button2" />
     <MESSAGE value="sceneName" />
-    <option name="LAST_COMMIT_MESSAGE" value="sceneName" />
+    <MESSAGE value="startbildschrim" />
+    <option name="LAST_COMMIT_MESSAGE" value="startbildschrim" />
   </component>
 </project>
