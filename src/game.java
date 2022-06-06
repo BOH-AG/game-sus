@@ -116,11 +116,13 @@ public class game extends Spiel implements TastenReagierbar {
 
     @Override
     public void tasteReagieren(int key) {
-        if (key==KeyEvent.VK_A) {
-            System.out.println("a");
-        }if (key==KeyEvent.VK_D) {
-            System.out.println("d");
+        if (key== KeyEvent.VK_ENTER){
+            gameScene();
         }
-     }
+        if (key==KeyEvent.VK_M){
+            menuScene();
+        }
+    }
+
 
 }

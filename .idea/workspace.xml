@@ -9,6 +9,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TitleScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
+      <change afterPath="$PROJECT_DIR$/src/button.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +50,6 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lucam\Documents\GitHub\game-sus\rsc" />
-    </key>
-  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="HelloWorld_v1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloWorld_v1" />
