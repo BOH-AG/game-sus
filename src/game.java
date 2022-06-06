@@ -8,9 +8,8 @@ import java.awt.event.KeyEvent;
 
 public class game extends Spiel implements TastenReagierbar {
 
-    public int timer;
-
     public MenuScene menuScene;
+    String sceneName;
     tracer t1;
     player p1;
     enemy[] enemies;
@@ -44,10 +43,10 @@ public class game extends Spiel implements TastenReagierbar {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
 
-                        timer++;
-                        if (shooting) {
-                            shoot();
-
+                        if(sceneName == "gameScene"){
+                            if (shooting) {
+                                shoot();
+                            }
                         }
 
 
@@ -60,6 +59,7 @@ public class game extends Spiel implements TastenReagierbar {
      void gameScene() {
         erzeugeNeueSzene();
         benenneAktiveSzene("gameScene");
+        sceneName = "gameScene";
         p1 = new player();
         kills = 0;
         enemyhealth = 1;
@@ -77,12 +77,14 @@ public class game extends Spiel implements TastenReagierbar {
         //ersellt eine neue szene und ruft die menü szene auf
         erzeugeNeueSzene();
         benenneAktiveSzene("menuScene");
+        sceneName = "menuScene";
         MenuScene ms1 = new MenuScene();
     }
 
     void TitleScreen(){
         //benennt die aktive szene und ruft den titleScreen auf
         benenneAktiveSzene("Title");
+        sceneName = "Title";
         TitleScreen ts1 = new TitleScreen();
 
     }
@@ -129,6 +131,5 @@ public class game extends Spiel implements TastenReagierbar {
             menuScene();
         }
     }
-
 
 }
