@@ -4,6 +4,7 @@ import ea.edu.Figur;
 public class TitleScreen {
 
     public Figur playButton;
+    public Figur settingsButton;
     public Figur bohLogo;
 
     TitleScreen(){
@@ -14,7 +15,10 @@ public class TitleScreen {
         button[1] = new Rechteck(6, 1.5);
         button[1].setzeMittelpunkt(0, 2);*/
         playButton = new Figur("button", "rsc/play.gif");
-        playButton.setzeMittelpunkt(0, -4.3);
+        playButton.setzeMittelpunkt(0, -0.3);
+
+        settingsButton = new Figur("button","rsc/play.gif");
+        settingsButton.setzeMittelpunkt(0, -4.3);
 
         bohLogo = new Figur("background", "rsc/b-o-h.gif");
         Figur backgroundGif = new Figur("background", "rsc/hi.gif");
