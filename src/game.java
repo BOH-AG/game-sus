@@ -27,7 +27,7 @@ public class game extends Spiel {
     }
 
      void gameScene() {
-        if (Arrays.stream(nenneSzenennamen()).anyMatch("gameScene"::equals)) { //check if gameScene exists
+        if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
         } else {
             erzeugeNeueSzene();
@@ -81,7 +81,7 @@ public class game extends Spiel {
 
     void menuScene(){
         //ersellt eine neue szene und ruft die menü szene auf
-        if (Arrays.stream(nenneSzenennamen()).anyMatch("menuScene"::equals)) {
+        if (Arrays.asList(nenneSzenennamen()).contains("menuScene")) {
             setzeAktiveSzene("menuScene");
         } else {
             erzeugeNeueSzene();
@@ -103,7 +103,7 @@ public class game extends Spiel {
 
     void titleScreen(){
         //benennt die aktive szene und ruft den titleScreen auf
-        if (Arrays.stream(nenneSzenennamen()).anyMatch("title"::equals)) {
+        if (Arrays.asList(nenneSzenennamen()).contains("title")) {
             setzeAktiveSzene("title");
         } else {
             benenneAktiveSzene("title");
