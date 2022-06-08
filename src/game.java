@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class game extends Spiel {
 
@@ -53,7 +54,7 @@ public class game extends Spiel {
                         @Override
                         public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                             if (shooting) {
-                                shoot(1, 0.4);
+                                shoot(1, 0.6);
                             }
                         }
                     });
@@ -142,12 +143,10 @@ public class game extends Spiel {
             double x = nenneMausPositionX();
             double y = nenneMausPositionY();
             fireLatency +=1;
-            double ranMin = -bulletSpread;
-            double ranMax = bulletSpread;
 
             t1 = new tracer(
-                    x + 0.5 + Math.floor(Math.random()*(ranMax-ranMin+1)+ranMin),
-                    y + 0.5 + Math.floor(Math.random()*(ranMax-ranMin+1)+ranMin),
+                    x + 0.5 + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
+                    y + 0.5 + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
                     p1.nenneMittelpunktX() + 0.5,
                     p1.nenneMittelpunktY() + 0.5
             );
