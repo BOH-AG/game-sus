@@ -1,8 +1,5 @@
 import ea.edu.Figur;
-import ea.edu.Rechteck;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class TitleScreen {
 
