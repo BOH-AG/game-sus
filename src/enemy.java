@@ -44,7 +44,7 @@ public class enemy extends Figur implements damage {
         pausiereAnimation(true);
         setzeWinkelgeschwindigkeit(5);
         machePartikel(2);
-        macheDynamisch();
+        macheSensor();
         setzeGeschwindigkeit(
             ThreadLocalRandom.current().nextDouble(-20,20),
             ThreadLocalRandom.current().nextDouble(-20,20)

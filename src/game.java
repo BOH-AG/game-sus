@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.Random;
 
 public class game extends Spiel {
 
@@ -43,6 +44,7 @@ public class game extends Spiel {
                         @Override
                         public void klickLosgelassenReagieren(double x, double y) {
                             shooting = false;
+                            fireLatency = 0;
                         }
                     });
             BildAktualisierungReagierbar frameUpdate;
@@ -51,7 +53,7 @@ public class game extends Spiel {
                         @Override
                         public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                             if (shooting) {
-                                shoot();
+                                shoot(1, 0.4);
                             }
                         }
                     });
@@ -115,7 +117,8 @@ public class game extends Spiel {
                         public void klickReagieren(double x, double y) {
                             if (ts.playButton.beinhaltetPunkt(x, y)) {
                                 gameScene();
-                            }if(ts.bohLogo.beinhaltetPunkt(x, y)){
+                            }
+                            if (ts.bohLogo.beinhaltetPunkt(x, y)) {
 
                                 try {
                                     java.awt.Desktop.getDesktop().browse(new URI("http://www.theboh.de"));
@@ -125,7 +128,6 @@ public class game extends Spiel {
                                     throw new RuntimeException(e);
                                 }
 
-
                             }
                         }
 
@@ -133,28 +135,37 @@ public class game extends Spiel {
         }
     }
 
-    private void shoot() {
-        double x = nenneMausPositionX();
-        double y = nenneMausPositionY();
+    int fireLatency;
+    private void shoot(int fireRate, double bulletSpread) {
 
-        t1 = new tracer(
-                x+0.5,
-                y+0.5,
-                p1.nenneMittelpunktX(),
-                p1.nenneMittelpunktY()
-        );
+        if (fireLatency==fireRate) {
+            double x = nenneMausPositionX();
+            double y = nenneMausPositionY();
+            fireLatency +=1;
+            double ranMin = -bulletSpread;
+            double ranMax = bulletSpread;
 
-        for (int z=0; z < enemies.length; z++) {
-            if (t1.touching(enemies[z])) {
-                enemies[z].takeDamage(1);
-                if (enemies[z].dead) {
-                    enemies[z] = new enemy(enemyhealth);
-                    kills = kills + 1;
-                    System.out.println("kills: " + kills);
+            t1 = new tracer(
+                    x + 0.5 + Math.floor(Math.random()*(ranMax-ranMin+1)+ranMin),
+                    y + 0.5 + Math.floor(Math.random()*(ranMax-ranMin+1)+ranMin),
+                    p1.nenneMittelpunktX() + 0.5,
+                    p1.nenneMittelpunktY() + 0.5
+            );
+
+            for (int z = 0; z < enemies.length; z++) {
+                if (t1.touching(enemies[z])) {
+                    enemies[z].takeDamage(1);
+                    if (enemies[z].dead) {
+                        enemies[z] = new enemy(enemyhealth);
+                        kills = kills + 1;
+                        System.out.println("kills: " + kills);
+                    }
+
                 }
-
             }
-        }
+        } else if (fireLatency<fireRate) {
+            fireLatency +=1;
+        } else fireLatency = 0;
 
     }
 
