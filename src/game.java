@@ -122,7 +122,7 @@ public class game extends Spiel {
                             if (ts.bohLogo.beinhaltetPunkt(x, y)) {
 
                                 try {
-                                    java.awt.Desktop.getDesktop().browse(new URI("http://www.theboh.de"));
+                                    java.awt.Desktop.getDesktop().browse(new URI("https://www.theboh.de"));
                                 } catch (IOException e) {
                                     throw new RuntimeException(e);
                                 } catch (URISyntaxException e) {
