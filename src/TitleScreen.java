@@ -1,3 +1,5 @@
+import ea.FrameUpdateListener;
+import ea.edu.Bild;
 import ea.edu.Figur;
 
 
@@ -6,6 +8,7 @@ public class TitleScreen {
     public Figur playButton;
     public Figur settingsButton;
     public Figur bohLogo;
+    public Bild background;
 
     TitleScreen(){
 
@@ -15,19 +18,19 @@ public class TitleScreen {
         button[1] = new Rechteck(6, 1.5);
         button[1].setzeMittelpunkt(0, 2);*/
         playButton = new Figur("button", "rsc/play.gif");
-        playButton.setzeMittelpunkt(0, -0.3);
+        playButton.setzeMittelpunkt(-17.1, 6);
 
         settingsButton = new Figur("button","rsc/play.gif");
-        settingsButton.setzeMittelpunkt(0, -4.3);
+        settingsButton.setzeMittelpunkt(-17.1, 3);
 
         bohLogo = new Figur("background", "rsc/b-o-h.gif");
-        Figur backgroundGif = new Figur("background", "rsc/hi.gif");
         bohLogo.setzeEbenenposition(-1);
-        bohLogo.skaliere(0.2);
-        bohLogo.setzeMittelpunkt(0,7.5);
-        backgroundGif.setzeEbenenposition(-2);
-        backgroundGif.skaliere(2.5);
-        backgroundGif.setzeMittelpunkt(0,0);
+        bohLogo.skaliere(0.3);
+        bohLogo.setzeMittelpunkt(-17.1,9.5);
+
+        background = new Bild(85.2, 24, "rsc/blurred-wskyline.png"); // 43.2
+        background.setzeEbenenposition(-2);
+        background.setzeMittelpunkt(21.3, 0);
 
     }
 

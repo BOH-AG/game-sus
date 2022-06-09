@@ -2,6 +2,8 @@ import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 import ea.edu.event.TastenReagierbar;
+import ea.edu.event.Ticker;
+
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URI;
@@ -116,6 +118,8 @@ public class game extends Spiel {
                     dieSendungMitDer = new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
                             if (ts.playButton.beinhaltetPunkt(x, y)) {
                                 gameScene();
                             }
@@ -133,8 +137,37 @@ public class game extends Spiel {
                         }
 
                     });
+            /*
+            BildAktualisierungReagierbar frameUpdate;
+            registriereBildAktualisierungReagierbar(
+                    frameUpdate = new BildAktualisierungReagierbar() {
+                        @Override
+                        public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
+                            if (ts.background.nenneMittelpunktX() <= -21.3) {
+                                ts.background.setzeMittelpunkt(21.3, 0);
+                            }
+                        }
+                    });
+
+             */
+            Ticker clippy;
+            registriereTicker(
+                    (1/30d),
+                    clippy = new Ticker() {
+                        @Override
+                        public void tick() {
+                            if (ts.background.nenneMittelpunktX() <= -21.3) {
+                                ts.background.setzeMittelpunkt(21.3, 0);
+                            } else {
+                                ts.background.verschieben(-((42.6/1280)*4), 0);
+                            }
+                        }
+                    }
+            );
         }
     }
+
+
 
     int fireLatency;
     private void shoot(int fireRate, double bulletSpread) {
