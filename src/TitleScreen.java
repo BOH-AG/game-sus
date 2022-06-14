@@ -20,7 +20,7 @@ public class TitleScreen {
         playButton = new Figur("button", "rsc/play.gif");
         playButton.setzeMittelpunkt(-17.1, 6);
 
-        settingsButton = new Figur("button","rsc/play.gif");
+        settingsButton = new Figur("button","rsc/settings.gif");
         settingsButton.setzeMittelpunkt(-17.1, 3);
 
         bohLogo = new Figur("background", "rsc/b-o-h.gif");
