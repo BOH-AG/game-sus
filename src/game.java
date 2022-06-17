@@ -78,6 +78,7 @@ public class game extends Spiel {
             enemies = new enemy[3];
             for (int z = 0; z < enemies.length; z++) {
                 enemies[z] = new enemy(enemyhealth);
+              //  enemies[z].macheDynamisch();
             }
             lvl = new Lvl1();
             p1.macheDynamisch();
@@ -102,7 +103,25 @@ public class game extends Spiel {
                         }
                     }
             );
+
             MenuScene ms1 = new MenuScene();
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)){
+                                titleScreen();
+                            }
+                            if(ms1.menuButton[0].beinhaltetPunkt(x,y)){
+                                gameScene();
+
+                            }
+                        }
+
+                    });
         }
     }
 
@@ -127,13 +146,18 @@ public class game extends Spiel {
 
                                 try {
                                     java.awt.Desktop.getDesktop().browse(new URI("https://www.theboh.de"));
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                } catch (URISyntaxException e) {
+                                } catch (IOException | URISyntaxException e) {
                                     throw new RuntimeException(e);
                                 }
 
                             }
+                            if (ts.settingsButton.beinhaltetPunkt(x,y)){
+                                menuScene();
+                            }
+
+
+
+
                         }
 
                     });
