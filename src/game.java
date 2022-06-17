@@ -78,7 +78,7 @@ public class game extends Spiel {
             enemies = new enemy[3];
             for (int z = 0; z < enemies.length; z++) {
                 enemies[z] = new enemy(enemyhealth);
-                enemies[z].macheDynamisch();
+              //  enemies[z].macheDynamisch();
             }
             lvl = new Lvl1();
             p1.macheDynamisch();
