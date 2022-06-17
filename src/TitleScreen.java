@@ -18,15 +18,15 @@ public class TitleScreen {
         button[1] = new Rechteck(6, 1.5);
         button[1].setzeMittelpunkt(0, 2);*/
         playButton = new Figur("button", "rsc/play.gif");
-        playButton.setzeMittelpunkt(-17.1, 6);
+        playButton.setzeMittelpunkt(0, 3);
 
         settingsButton = new Figur("button","rsc/settings.gif");
-        settingsButton.setzeMittelpunkt(-17.1, 3);
+        settingsButton.setzeMittelpunkt(0, -1.3);
 
         bohLogo = new Figur("background", "rsc/b-o-h.gif");
         bohLogo.setzeEbenenposition(-1);
         bohLogo.skaliere(0.3);
-        bohLogo.setzeMittelpunkt(-17.1,9.5);
+        bohLogo.setzeMittelpunkt(0,7.5);
 
         background = new Bild(85.2, 24, "rsc/blurred-wskyline.png"); // 43.2
         background.setzeEbenenposition(-2);
