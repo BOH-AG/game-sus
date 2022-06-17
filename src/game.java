@@ -112,12 +112,31 @@ public class game extends Spiel {
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)){
-                                titleScreen();
-                            }
+
                             if(ms1.menuButton[0].beinhaltetPunkt(x,y)){
                                 gameScene();
 
+                            }
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)){
+                                ms1.subMenu1();
+                            }
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)){
+                                ms1.subMenu2();
+                            }
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)){
+                                ms1.subMenu3();
+                            }
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)){
+                                ms1.subMenu4();
+                            }
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)){
+                                ms1.subMenu5();
+                            }
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)){
+                                ms1.subMenu6();
+                            }
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)){
+                                titleScreen();
                             }
                         }
 

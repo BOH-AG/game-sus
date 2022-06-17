@@ -3,7 +3,14 @@ import ea.edu.Figur;
 public class MenuScene  {
 
     public  Figur[] menuButton;
+    public  Figur[] sub1Button;
+    public  Figur[] sub2Button;
+    public  Figur[] sub3Button;
+    public  Figur[] sub4Button;
+    public  Figur[] sub5Button;
+    public  Figur[] sub6Button;
     public MenuScene() {
+
         menuButton = new Figur[8];
 
        menuButton[0] = new Figur("button", "rsc/play.gif");
@@ -25,4 +32,48 @@ public class MenuScene  {
 
 
     }
+    public void subMenu1(){
+
+        sub1Button = new Figur[1];
+
+        sub1Button[0] = new Figur("button","rsc/play.gif");
+        sub1Button[0].setzeMittelpunkt(-10,7);
+
+    }
+    public void subMenu2(){
+
+        sub2Button = new Figur[1];
+
+        sub2Button[0] = new Figur("button","rsc/play.gif");
+        sub2Button[0].setzeMittelpunkt(-10,7);
+    }
+    public void subMenu3(){
+
+        sub3Button = new Figur[1];
+
+        sub3Button[0] = new Figur("button","rsc/play.gif");
+        sub3Button[0].setzeMittelpunkt(-10,7);
+    }
+    public void subMenu4(){
+
+        sub4Button = new Figur[1];
+
+        sub4Button[0] = new Figur("button","rsc/play.gif");
+        sub4Button[0].setzeMittelpunkt(-10,7);
+    }
+    public void subMenu5(){
+
+        sub5Button = new Figur[1];
+
+        sub5Button[0] = new Figur("button","rsc/play.gif");
+        sub5Button[0].setzeMittelpunkt(-10,7);
+    }
+    public void subMenu6(){
+
+        sub6Button = new Figur[1];
+
+        sub6Button[0] = new Figur("button","rsc/play.gif");
+        sub6Button[0].setzeMittelpunkt(-10,7);
+    }
+
 }
