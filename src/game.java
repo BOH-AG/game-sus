@@ -12,6 +12,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import menu.*;
+
 public class game extends Spiel {
 
     public MenuScene menuScene;
@@ -105,6 +107,10 @@ public class game extends Spiel {
             );
 
             MenuScene ms1 = new MenuScene();
+            subMenu1 sm1 = new subMenu1();
+            subMenu2 sm2 = new subMenu2();
+            subMenu3 sm3 = new subMenu3();
+
             MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
                     dieSendungMitDer = new MausKlickReagierbar() {
@@ -118,21 +124,27 @@ public class game extends Spiel {
 
                             }
                             if (ms1.menuButton[1].beinhaltetPunkt(x,y)){
+                                System.out.println("AirCon");
                                 ms1.subMenu1();
                             }
                             if (ms1.menuButton[2].beinhaltetPunkt(x,y)){
+                                System.out.println("AirCon");
                                 ms1.subMenu2();
                             }
                             if (ms1.menuButton[3].beinhaltetPunkt(x,y)){
+                                System.out.println("AirCon");
                                 ms1.subMenu3();
                             }
                             if (ms1.menuButton[4].beinhaltetPunkt(x,y)){
+                                System.out.println("AirCon");
                                 ms1.subMenu4();
                             }
                             if (ms1.menuButton[5].beinhaltetPunkt(x,y)){
+                                System.out.println("AirCon");
                                 ms1.subMenu5();
                             }
                             if (ms1.menuButton[6].beinhaltetPunkt(x,y)){
+                                System.out.println("AirCon");
                                 ms1.subMenu6();
                             }
                             if (ms1.menuButton[7].beinhaltetPunkt(x,y)){

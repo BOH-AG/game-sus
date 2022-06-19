@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
+      <change afterPath="$PROJECT_DIR$/src/menu/subMenu1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu/subMenu2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu/subMenu3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_23_2022_6_01_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_23_2022_6_01_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_24_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2022_9_24_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-sus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/game-sus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/damage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/damage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
     </list>
@@ -51,7 +58,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/emil/IdeaProjects/game-sus/+libs/jlayer-1.0.1.jar",
+    "last_opened_file_path": "C:/Users/Emil/IdeaProjects/game-sus/+libs/discord-rpc.jar",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",

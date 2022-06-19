@@ -9,6 +9,13 @@ public class MenuScene  {
     public  Figur[] sub4Button;
     public  Figur[] sub5Button;
     public  Figur[] sub6Button;
+    boolean s1;
+    boolean s2;
+    boolean s3;
+    boolean s4;
+    boolean s5;
+    boolean s6;
+
     public MenuScene() {
 
         menuButton = new Figur[8];
@@ -34,46 +41,80 @@ public class MenuScene  {
     }
     public void subMenu1(){
 
+        del();
         sub1Button = new Figur[1];
 
         sub1Button[0] = new Figur("button","rsc/play.gif");
         sub1Button[0].setzeMittelpunkt(-10,7);
 
+        s1 = true;
+
     }
     public void subMenu2(){
 
+        del();
         sub2Button = new Figur[1];
 
         sub2Button[0] = new Figur("button","rsc/play.gif");
         sub2Button[0].setzeMittelpunkt(-10,7);
+
+        s2 = true;
     }
     public void subMenu3(){
+
+        del();
 
         sub3Button = new Figur[1];
 
         sub3Button[0] = new Figur("button","rsc/play.gif");
         sub3Button[0].setzeMittelpunkt(-10,7);
+
+        s3 = true;
     }
     public void subMenu4(){
+
+        del();
 
         sub4Button = new Figur[1];
 
         sub4Button[0] = new Figur("button","rsc/play.gif");
         sub4Button[0].setzeMittelpunkt(-10,7);
+
+        s4 = true;
     }
     public void subMenu5(){
+
+        del();
 
         sub5Button = new Figur[1];
 
         sub5Button[0] = new Figur("button","rsc/play.gif");
         sub5Button[0].setzeMittelpunkt(-10,7);
+
+
+        s5 = true;
     }
     public void subMenu6(){
+
+        del();
 
         sub6Button = new Figur[1];
 
         sub6Button[0] = new Figur("button","rsc/play.gif");
         sub6Button[0].setzeMittelpunkt(-10,7);
+
+        s6 = true;
     }
+    public void del(){
+        System.out.println("c");
+        if (s1)sub1Button = null;
+        if (s2)sub2Button = null;
+        if (s3)sub3Button = null;
+        if (s4)sub4Button = null;
+        if (s5)sub5Button = null;
+        if (s6)sub6Button = null;
+
+    }
+
 
 }
