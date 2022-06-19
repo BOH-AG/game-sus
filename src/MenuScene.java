@@ -106,7 +106,8 @@ public class MenuScene  {
         s6 = true;
     }
     public void del(){
-        System.out.println("c");
+
+        //löscht alle anderen aktiven sub meus
         if (s1)sub1Button = null;
         if (s2)sub2Button = null;
         if (s3)sub3Button = null;

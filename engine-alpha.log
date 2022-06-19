@@ -1,1 +1,1 @@
-[Sun Jun 19 20:08:12 CEST 2022][WARNUNG][EDU] Du hast einen Ticker mit geringem Intervall angemeldet (0.03333333333333333 s). Bei so Intervalwert nahe der Framerate können unerwünschte Effekte eintreten. Nutze stattdessen BildAktualisierungsReagierbar ! (Spiel.java:421)
+[Sun Jun 19 20:37:39 CEST 2022][WARNUNG][EDU] Du hast einen Ticker mit geringem Intervall angemeldet (0.03333333333333333 s). Bei so Intervalwert nahe der Framerate können unerwünschte Effekte eintreten. Nutze stattdessen BildAktualisierungsReagierbar ! (Spiel.java:421)

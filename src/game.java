@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import menu.*;
@@ -22,22 +21,24 @@ public class game extends Spiel {
     enemy[] enemies;
     int enemyhealth;
     int kills;
-    Lvl1 lvl;
+    Lvl1 lvl1;
+    lvl2 lvl2;
     boolean shooting;
 
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
-        //setzeRasterSichtbar(false);
         titleScreen();
     }
 
      void gameScene() {
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
-        } else {
+        }
+        else {
             erzeugeNeueSzene();
             benenneAktiveSzene("gameScene");
+
             MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
                     dieSendungMitDer = new MausKlickReagierbar() {
@@ -67,9 +68,9 @@ public class game extends Spiel {
                     cherryMxBrown = new TastenReagierbar() {
                         @Override
                         public void tasteReagieren(int key) {
-                            if (key == KeyEvent.VK_M) {
-                                menuScene();
-                            }
+                            if (key == KeyEvent.VK_M) menuScene();
+                            if(key == KeyEvent.VK_Y) lvl2();
+
                         }
                     });
             setzeSchwerkraft(0);
@@ -82,18 +83,78 @@ public class game extends Spiel {
                 enemies[z] = new enemy(enemyhealth);
               //  enemies[z].macheDynamisch();
             }
-            lvl = new Lvl1();
+            lvl1 = new Lvl1();
             p1.macheDynamisch();
         }
     }
+
+    void lvl2(){
+        if (Arrays.asList(nenneSzenennamen()).contains("lvl2Scene")) { //check if gameScene exists
+            setzeAktiveSzene("lvl2Scene");
+        }
+        else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("lvl2Scene");
+        }
+        MausKlickReagierbar dieSendungMitDer;
+        registriereMausKlickReagierbar(
+                dieSendungMitDer = new MausKlickReagierbar() {
+                    @Override
+                    public void klickReagieren(double v, double v1) {
+                        shooting = true;
+                    }
+
+                    @Override
+                    public void klickLosgelassenReagieren(double x, double y) {
+                        shooting = false;
+                        fireLatency = 0;
+                    }
+                });
+        BildAktualisierungReagierbar frameUpdate;
+        registriereBildAktualisierungReagierbar(
+                frameUpdate = new BildAktualisierungReagierbar() {
+                    @Override
+                    public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
+                        if (shooting) {
+                            shoot(1, 0.6);
+                        }
+                    }
+                });
+        TastenReagierbar cherryMxBrown;
+        registriereTastenReagierbar(
+                cherryMxBrown = new TastenReagierbar() {
+                    @Override
+                    public void tasteReagieren(int key) {
+                        if (key == KeyEvent.VK_M) {
+                            menuScene();
+                        }
+                    }
+                });
+        setzeSchwerkraft(0);
+        p1 = new player();
+        kills = 0;
+        enemyhealth = 1;
+        p1.setzeEbenenposition(2);
+        enemies = new enemy[3];
+        for (int z = 0; z < enemies.length; z++) {
+            enemies[z] = new enemy(enemyhealth);
+            //  enemies[z].macheDynamisch();
+        }
+        lvl2 = new lvl2();
+        p1.macheDynamisch();
+    }
+
+
 
     void menuScene(){
         //ersellt eine neue szene und ruft die menü szene auf
         if (Arrays.asList(nenneSzenennamen()).contains("menuScene")) {
             setzeAktiveSzene("menuScene");
-        } else {
+        }
+        else {
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
+
             TastenReagierbar cherryMxBrown;
             registriereTastenReagierbar(
                     cherryMxBrown = new TastenReagierbar() {
@@ -121,7 +182,6 @@ public class game extends Spiel {
 
                             if(ms1.menuButton[0].beinhaltetPunkt(x,y)){
                                 gameScene();
-
                             }
                             if (ms1.menuButton[1].beinhaltetPunkt(x,y)){
                                 System.out.println("AirCon");
@@ -177,7 +237,8 @@ public class game extends Spiel {
 
                                 try {
                                     java.awt.Desktop.getDesktop().browse(new URI("https://www.theboh.de"));
-                                } catch (IOException | URISyntaxException e) {
+                                }
+                                catch (IOException | URISyntaxException e) {
                                     throw new RuntimeException(e);
                                 }
 
