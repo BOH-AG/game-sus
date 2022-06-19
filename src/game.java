@@ -1,3 +1,5 @@
+import audio.MusicAudio;
+import audio.SfxAudio;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
@@ -5,7 +7,7 @@ import ea.edu.event.TastenReagierbar;
 import ea.edu.event.Ticker;
 
 import java.awt.event.KeyEvent;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -25,10 +27,14 @@ public class game extends Spiel {
     lvl2 lvl2;
     boolean shooting;
 
+    FileInputStream fis;
+    BufferedInputStream bis;
+
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
         titleScreen();
+        new MusicAudio("radiation storm", true);
     }
 
      void gameScene() {
@@ -59,7 +65,7 @@ public class game extends Spiel {
                         @Override
                         public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                             if (shooting) {
-                                shoot(1, 0.6);
+                                shoot(3, 0.6);
                             }
                         }
                     });
@@ -179,37 +185,14 @@ public class game extends Spiel {
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
 
-
-                            if(ms1.menuButton[0].beinhaltetPunkt(x,y)){
-                                gameScene();
-                            }
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)){
-                                System.out.println("AirCon");
-                                ms1.subMenu1();
-                            }
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)){
-                                System.out.println("AirCon");
-                                ms1.subMenu2();
-                            }
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)){
-                                System.out.println("AirCon");
-                                ms1.subMenu3();
-                            }
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)){
-                                System.out.println("AirCon");
-                                ms1.subMenu4();
-                            }
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)){
-                                System.out.println("AirCon");
-                                ms1.subMenu5();
-                            }
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)){
-                                System.out.println("AirCon");
-                                ms1.subMenu6();
-                            }
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)){
-                                titleScreen();
-                            }
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) ms1.subMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) ms1.subMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) ms1.subMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) ms1.subMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) ms1.subMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) ms1.subMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                         }
 
                     });
@@ -299,6 +282,8 @@ public class game extends Spiel {
                     p1.nenneMittelpunktX() + 0.5,
                     p1.nenneMittelpunktY() + 0.5
             );
+
+            new SfxAudio("rifle");
 
             for (int z = 0; z < enemies.length; z++) {
                 if (t1.touching(enemies[z])) {
