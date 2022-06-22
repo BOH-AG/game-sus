@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Be Quick or Be Dead.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Be Quick or Be Dead.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Deadly Force.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Deadly Force.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Eternal Night.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Eternal Night.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-License to Kill.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-License to Kill.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Radiation Storm-cut.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/music/WBA-Radiation Storm.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/sfx/rifleshot.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/audio/AudioMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/audio/MusicAudio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/audio/SfxAudio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/+libs/jlayer-1.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/+libs/jlayer-1.0.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-sus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/game-sus.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/game-sus/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/game-sus/MenuScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/MenuScene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

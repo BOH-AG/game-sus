@@ -10,7 +10,7 @@ public class enemy extends Figur implements damage {
 
         super("normal", "rsc/obamba.gif");
         fuegeZustandVonGifHinzu("dead", "rsc/doge.gif");
-        getActor().setSize(3,3);
+        getActor().setSize(2f,2f);
         health = h;
         dead = false;
         setzeMittelpunkt(

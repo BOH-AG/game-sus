@@ -18,7 +18,7 @@ public class player extends Figur implements TastenReagierbar {
     player() {
         super("normal", "rsc/fox.gif");
         actor = getActor();
-        actor.setSize(2.5f, 2.5f);
+        actor.setSize(2f, 2f);
     }
 
     @Override
