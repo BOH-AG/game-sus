@@ -14,11 +14,15 @@ public class player extends Figur implements TastenReagierbar {
     double delx;
     double dely;
     boolean menu;
+    public int fireRate;
+    public double bulletSpread;
 
-    player() {
+    player(int fr, double bs) {
         super("normal", "rsc/fox.gif");
         actor = getActor();
         actor.setSize(2f, 2f);
+        fireRate = fr;
+        bulletSpread = bs;
     }
 
     @Override

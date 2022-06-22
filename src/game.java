@@ -1,5 +1,6 @@
 import audio.MusicAudio;
 import audio.SfxAudio;
+import ea.edu.Kreis;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
@@ -65,7 +66,7 @@ public class game extends Spiel {
                         @Override
                         public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                             if (shooting) {
-                                shoot(3, 0.6);
+                                shoot(p1.fireRate, p1.bulletSpread);
                             }
                         }
                     });
@@ -80,7 +81,7 @@ public class game extends Spiel {
                         }
                     });
             setzeSchwerkraft(0);
-            p1 = new player();
+            p1 = new player(3, 0.6);
             kills = 0;
             enemyhealth = 1;
             p1.setzeEbenenposition(2);
@@ -122,7 +123,7 @@ public class game extends Spiel {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                         if (shooting) {
-                            shoot(1, 0.6);
+                            shoot(p1.fireRate, p1.bulletSpread);
                         }
                     }
                 });
@@ -137,7 +138,7 @@ public class game extends Spiel {
                     }
                 });
         setzeSchwerkraft(0);
-        p1 = new player();
+        p1 = new player(3, 0.6);
         kills = 0;
         enemyhealth = 1;
         p1.setzeEbenenposition(2);
@@ -275,7 +276,7 @@ public class game extends Spiel {
             double x = nenneMausPositionX();
             double y = nenneMausPositionY();
             fireLatency +=1;
-
+            t1 = null;
             t1 = new tracer(
                     x + 0.5 + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
                     y + 0.5 + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
