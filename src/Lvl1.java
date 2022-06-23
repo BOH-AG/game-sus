@@ -49,9 +49,9 @@ public class Lvl1{
 
         }
 
-        Figur background = new Figur("background", "rsc/cat.gif");
+        Figur background = new Figur("background", "rsc/tutorialgif.gif");
         background.setzeEbenenposition(-99);
-        background.skaliere(2);
+        background.skaliere(5);
         background.setzeMittelpunkt(0,0);
     }
 

@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
-      <change afterPath="$PROJECT_DIR$/rsc/sfx/rifleshot2.mp3" afterDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="list closed">
+      <change afterPath="$PROJECT_DIR$/rsc/tutorial.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rsc/tutorialgif.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rsc/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/audio/AudioMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/AudioMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/audio/SfxAudio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/SfxAudio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-sus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/game-sus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lvl1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lvl1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +52,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/emil/IdeaProjects/game-sus/+libs/jlayer-1.0.1.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emil/IdeaProjects/game-sus/rsc&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
@@ -61,10 +61,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Emil\IdeaProjects\game-sus\rsc" />
       <recent name="C:\Users\emil\IdeaProjects\game-sus\rsc" />
       <recent name="C:\Users\lucam\Documents\GitHub\game-sus\rsc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Emil\IdeaProjects\game-sus\rsc" />
       <recent name="C:\Users\lucam\Documents\GitHub\game-sus\rsc" />
     </key>
   </component>
