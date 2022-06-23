@@ -10,22 +10,22 @@ public class Lvl1{
 
         //building a Room
         walls = new Rechteck[8];
-        walls[0] = new Rechteck(0.5,3);
-        walls[0].setzeMittelpunkt(5, -7);
-        walls[1] = new Rechteck(0.5,3);
+        walls[0] = new Rechteck(0.2,25);//
+        walls[0].setzeMittelpunkt(-18.25, 0);
+        walls[1] = new Rechteck(0.2,3);
         walls[1].setzeMittelpunkt(10,-7);
-        walls[2] = new Rechteck(5,0.5);
-        walls[2].setzeMittelpunkt(2.25,-5.75);
-        walls[3] = new Rechteck(5,0.5);
-        walls[3].setzeMittelpunkt(12.75,-5.75);
-        walls[4] = new Rechteck(0.5, 10);
+        walls[2] = new Rechteck(30,0.2);//
+        walls[2].setzeMittelpunkt(-5,11);
+        walls[3] = new Rechteck(20,0.2);//
+        walls[3].setzeMittelpunkt(15.2,10.1);
+        walls[4] = new Rechteck(0.2, 10);
         walls[4].setzeMittelpunkt(0,-0.5);
-        walls[5] = new Rechteck(0.5, 15);
-        walls[5].setzeMittelpunkt(15,2);
-        walls[6] = new Rechteck(9, 0.5);
-        walls[6].setzeMittelpunkt(4.5,4.25);
-        walls[7] = new Rechteck(0.5, 5.5);
-        walls[7].setzeMittelpunkt(8.75,7.25);
+        walls[5] = new Rechteck(0.2, 15);//
+        walls[5].setzeMittelpunkt(10.75,-2);
+        walls[6] = new Rechteck(9, 0.2);//
+        walls[6].setzeMittelpunkt(9.75,3.1);
+        walls[7] = new Rechteck(20, 0.2);//
+        walls[7].setzeMittelpunkt(15.25,6.25);
 
         //Setting map boundaries
         boundry = new Rechteck[4];
