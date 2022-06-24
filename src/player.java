@@ -18,7 +18,7 @@ public class player extends Figur implements TastenReagierbar {
     public double bulletSpread;
 
     player(int fr, double bs) {
-        super("normal", "rsc/fox.gif");
+        super("normal", "rsc/player.gif");
         actor = getActor();
         actor.setSize(2f, 2f);
         fireRate = fr;
