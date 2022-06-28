@@ -81,16 +81,10 @@ public class game extends Spiel {
                         }
                     });
             setzeSchwerkraft(0);
+            lvl1 = new Lvl1();
             p1 = new player(3, 0.6);
             kills = 0;
-            enemyhealth = 1;
             p1.setzeEbenenposition(2);
-            enemies = new enemy[3];
-            for (int z = 0; z < enemies.length; z++) {
-                enemies[z] = new enemy(enemyhealth);
-              //  enemies[z].macheDynamisch();
-            }
-            lvl1 = new Lvl1();
             p1.macheDynamisch();
         }
     }
@@ -286,11 +280,11 @@ public class game extends Spiel {
 
             new SfxAudio("rifle");
 
-            for (int z = 0; z < enemies.length; z++) {
-                if (t1.touching(enemies[z])) {
-                    enemies[z].takeDamage(1);
-                    if (enemies[z].dead) {
-                        enemies[z] = new enemy(enemyhealth);
+            for (int z = 0; z < Lvl1.enemies.length; z++) {
+                if (t1.touching(Lvl1.enemies[z])) {
+                    Lvl1.enemies[z].takeDamage(1);
+                    if (Lvl1.enemies[z].dead) {
+                        //Lvl1.enemies[z] = new enemy(enemyhealth);
                         kills = kills + 1;
                         System.out.println("kills: " + kills);
                     }

@@ -3,6 +3,7 @@ import ea.edu.Rechteck;
 
 public class Lvl1{
 
+    public static enemy[] enemies;
     public Rechteck[] walls;
     public Rechteck[] boundry;
 
@@ -52,6 +53,10 @@ public class Lvl1{
         boundry[2].setzeMittelpunkt(21.5,0);
         boundry[3] = new Rechteck(1,23);
         boundry[3].setzeMittelpunkt(-21.5,0);
+
+        enemies = new enemy[1];
+        enemies[0] = new enemy(5);
+        enemies[0].setzeMittelpunkt(9,-2);
 
         for (Rechteck bound: boundry) {
             bound.setzeEbenenposition(-1);

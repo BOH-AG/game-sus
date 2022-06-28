@@ -8,12 +8,12 @@ public class enemy extends Figur implements damage {
     public boolean dead;
      enemy(int h) {
 
-        super("normal", "rsc/obamba.gif");
+        super("normal", "rsc/security.gif");
         fuegeZustandVonGifHinzu("dead", "rsc/doge.gif");
         getActor().setSize(2f,2f);
         health = h;
         dead = false;
-        setzeMittelpunkt(
+        /*setzeMittelpunkt(
             ThreadLocalRandom.current().nextDouble(-25,25),
             ThreadLocalRandom.current().nextDouble(-10,10)
         );
@@ -22,7 +22,7 @@ public class enemy extends Figur implements damage {
             ThreadLocalRandom.current().nextDouble(-5,5),
             ThreadLocalRandom.current().nextDouble(-5,5),
             true
-        );
+        );*/
     }
 
     @Override
