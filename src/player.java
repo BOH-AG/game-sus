@@ -31,6 +31,7 @@ public class player extends Figur implements TastenReagierbar {
         //actor.setShape(createCircleSupplier(0.1f));
         //actor.setShape(createCircleSupplier(1));
         setzeMittelpunkt(0,0);
+        setzeEbenenposition(10);
     }
 
     @Override
