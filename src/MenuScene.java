@@ -22,7 +22,7 @@ public class MenuScene  {
 
        menuButton[0] = new Figur("button", "rsc/play.gif");
        menuButton[0].setzeMittelpunkt(-18,10);
-       menuButton[1] = new Figur("button", "rsc/play.gif");
+       menuButton[1] = new Figur("button", "rsc/sound.gif");
        menuButton[1].setzeMittelpunkt(-18,7);
        menuButton[2] = new Figur("button", "rsc/play.gif");
        menuButton[2].setzeMittelpunkt(-18,4);
