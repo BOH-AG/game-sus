@@ -42,7 +42,6 @@ public class Lvl1{
         walls[14] = new Rechteck(2, .2);
         walls[14].setzeMittelpunkt(6.25,-5.25);
 
-
         //Setting map boundaries
         boundry = new Rechteck[4];
         boundry[0] = new Rechteck(42,1);
@@ -66,7 +65,7 @@ public class Lvl1{
         for (Rechteck wall : walls) {
             wall.setzeEbenenposition(-1);
             wall.macheStatisch();
-            wall.setzeSichtbar(false);
+            //wall.setzeSichtbar(false);
 
         }
 

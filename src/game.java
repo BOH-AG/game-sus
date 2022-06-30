@@ -1,6 +1,7 @@
 import audio.MusicAudio;
 import audio.SfxAudio;
 import ea.edu.Kreis;
+import ea.edu.Rechteck;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
@@ -271,11 +272,18 @@ public class game extends Spiel {
             double y = nenneMausPositionY();
             fireLatency +=1;
             t1 = null;
+            double[] newm = checkWalls(
+                    x + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
+                    y + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
+                    p1.nenneMittelpunktX(),
+                    p1.nenneMittelpunktY(),
+                    lvl1.walls
+            );
             t1 = new tracer(
-                    x + 0.5 + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
-                    y + 0.5 + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
-                    p1.nenneMittelpunktX() + 0.5,
-                    p1.nenneMittelpunktY() + 0.5
+                    newm[0],
+                    newm[1],
+                    newm[2],
+                    newm[3]
             );
 
             new SfxAudio("rifle");
@@ -285,7 +293,7 @@ public class game extends Spiel {
                     Lvl1.enemies[z].takeDamage(1);
                     if (Lvl1.enemies[z].dead) {
                         //Lvl1.enemies[z] = new enemy(enemyhealth);
-                        kills = kills + 1;
+                        kills++;
                         System.out.println("kills: " + kills);
                     }
 
@@ -296,5 +304,55 @@ public class game extends Spiel {
         } else fireLatency = 0;
 
     }
+
+    double length;
+    double delx;
+    double dely;
+    int hm;
+
+    private double[] checkWalls(double mx, double my, double px, double py, Rechteck[] wa) {
+        length = tracer.pyth(px-mx, py-my);
+        delx = (mx-px);
+        dely = (my-py);
+        //new Kreis(0.3).setzeMittelpunkt(px+delx,px+dely);
+        // create array of points along tracer line
+        hm = (int)(length*5);
+        point[] points = new point[hm];
+        for (int z=0; z<hm; z++) {
+            points[z] = new point((delx/hm)*(z+1)+px,(dely/hm)*(z+1)+py);
+        }
+        double newx = 99999;
+        double newy = 99999;
+        boolean brk = false;
+        for (Rechteck re : wa) {
+            for (point point : points) {
+                //System.out.println(point);
+                //Kreis k = new Kreis(0.1);
+                //k.setzeFarbe("gruen");
+                //k.setzeMittelpunkt(point.x,point.y);
+                //k.machePartikel(0.1);
+                if (re.beinhaltetPunkt(point.x, point.y) && !brk) {
+                    newx = point.x;
+                    newy = point.y;
+                    System.out.println("hitting wall");
+                    // Kreis(0.2).setzeMittelpunkt(point.x,point.y);
+                    brk = true;
+                }
+            }
+        }
+        if (newx==99999 && newy==99999) {
+            newx = mx;
+            newy = my;
+        }
+
+        double [] returnArray = new double[4];
+        returnArray[0] = newx+0.3;
+        returnArray[1] = newy+0.3;
+        returnArray[2] = px;
+        returnArray[3] = py;
+        return returnArray;
+    }
+
+
 
 }

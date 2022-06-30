@@ -2,11 +2,16 @@ import ea.Vector;
 import ea.actor.StatefulAnimation;
 import ea.edu.EduActor;
 import ea.edu.Figur;
+import ea.edu.Kreis;
 import ea.edu.event.KollisionsReagierbar;
 import ea.edu.event.TastenReagierbar;
+import org.jbox2d.collision.shapes.CircleShape;
+import org.jbox2d.collision.shapes.Shape;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.function.Supplier;
+import ea.internal.ShapeBuilder;
 
 public class player extends Figur implements TastenReagierbar {
 
@@ -18,11 +23,14 @@ public class player extends Figur implements TastenReagierbar {
     public double bulletSpread;
 
     player(int fr, double bs) {
-        super("normal", "rsc/player.gif");
+        super("normal", "rsc/player-new.gif");
         actor = getActor();
         actor.setSize(2f, 2f);
         fireRate = fr;
         bulletSpread = bs;
+        //actor.setShape(createCircleSupplier(0.1f));
+        //actor.setShape(createCircleSupplier(1));
+        setzeMittelpunkt(0,0);
     }
 
     @Override
@@ -66,6 +74,15 @@ public class player extends Figur implements TastenReagierbar {
         }
         actor.setCenter(v1);
     }
+
+    /*
+    private Supplier<Shape> createCircleSupplier(float diameter) {
+        return () -> {
+            return ShapeBuilder.createCircleShape(0,0,diameter);
+        };
+    }
+
+     */
 
 
 
