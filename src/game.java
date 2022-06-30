@@ -334,7 +334,7 @@ public class game extends Spiel {
                 if (re.beinhaltetPunkt(point.x, point.y) && !brk) {
                     newx = point.x;
                     newy = point.y;
-                    System.out.println("hitting wall");
+                    //System.out.println("hitting wall");
                     // Kreis(0.2).setzeMittelpunkt(point.x,point.y);
                     brk = true;
                 }
@@ -348,8 +348,8 @@ public class game extends Spiel {
         double [] returnArray = new double[4];
         returnArray[0] = newx+0.3;
         returnArray[1] = newy+0.3;
-        returnArray[2] = px;
-        returnArray[3] = py;
+        returnArray[2] = px+0.5;
+        returnArray[3] = py+0.5;
         return returnArray;
     }
 

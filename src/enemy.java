@@ -14,9 +14,9 @@ public class enemy extends Figur implements damage {
     List<Bild> bloodPuddles;
      enemy(int h) {
 
-        super("normal", "rsc/security.gif");
+        super("normal", "rsc/security-new.gif");
         fuegeZustandVonGifHinzu("dead", "rsc/doge.gif");
-        getActor().setSize(2f,2f);
+        getActor().setSize(1.8f,1.8f);
         setzeEbenenposition(9);
         health = h;
         dead = false;
@@ -48,7 +48,7 @@ public class enemy extends Figur implements damage {
 
 
     private void blood() {
-        bloodPuddles.add(new Bild(1.5,1.5, "rsc/blood.png"));
+        bloodPuddles.add(new Bild(2.2,2.2, "rsc/blood.png"));
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);
         b.setzeDrehwinkel(ThreadLocalRandom.current().nextInt(360));
         b.setzeMittelpunkt((float)nenneMittelpunktX(), (float)nenneMittelpunktY());
