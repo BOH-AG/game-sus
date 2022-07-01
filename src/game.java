@@ -85,7 +85,7 @@ public class game extends Spiel {
             );
             setzeSchwerkraft(0);
             lvl1 = new Lvl1();
-            p1 = new player(3, 0.6);
+            p1 = new player(3, 0.6, -15, -11);
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
@@ -132,7 +132,7 @@ public class game extends Spiel {
                     }
                 });
         setzeSchwerkraft(0);
-        p1 = new player(3, 0.6);
+        p1 = new player(3, 0.6, 0 ,0);
         kills = 0;
         enemyhealth = 1;
         p1.setzeEbenenposition(2);

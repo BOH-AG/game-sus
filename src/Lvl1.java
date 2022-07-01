@@ -53,9 +53,11 @@ public class Lvl1{
         boundry[3] = new Rechteck(1,23);
         boundry[3].setzeMittelpunkt(-21.5,0);
 
-        enemies = new enemy[1];
+        enemies = new enemy[2];
         enemies[0] = new enemy(5);
         enemies[0].setzeMittelpunkt(9,-2);
+        enemies[1] = new enemy(5);
+        enemies[1].setzeMittelpunkt(15,8);
 
         for (Rechteck bound: boundry) {
             bound.setzeEbenenposition(-1);

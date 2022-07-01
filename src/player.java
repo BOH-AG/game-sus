@@ -13,7 +13,7 @@ public class player extends Figur implements TastenReagierbar {
     public int fireRate;
     public double bulletSpread;
 
-    player(int fr, double bs) {
+    player(int fr, double bs, int px, int py) {
         super("normal", "rsc/player-new.gif");
         actor = getActor();
         actor.setSize(2f, 2f);
@@ -21,7 +21,7 @@ public class player extends Figur implements TastenReagierbar {
         bulletSpread = bs;
         //actor.setShape(createCircleSupplier(0.1f));
         //actor.setShape(createCircleSupplier(1));
-        setzeMittelpunkt(0,0);
+        setzeMittelpunkt(px,py);
         setzeEbenenposition(10);
     }
 
