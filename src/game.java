@@ -81,6 +81,9 @@ public class game extends Spiel {
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
+            new menu.button(1,1,"Among Us");
+            new menu.button(1,-2,"SAMPLE text", "red");
+            new menu.button(1,-4,"this is blue", "blue");
         }
     }
 
@@ -333,12 +336,12 @@ public class game extends Spiel {
             newy = my;
         }
 
-        double [] returnArray = new double[4];
-        returnArray[0] = newx+0.3;
-        returnArray[1] = newy+0.3;
-        returnArray[2] = px+0.5;
-        returnArray[3] = py+0.5;
-        return returnArray;
+        return new double[] {
+                newx+0.3,
+                newy+0.3,
+                px+0.5,
+                py+0.5
+        };
     }
 
 
