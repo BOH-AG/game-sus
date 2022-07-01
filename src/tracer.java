@@ -17,7 +17,7 @@ public class tracer extends Rechteck {
         double newx = px+((mx-px)/2-0.5);
         double newy = py+((my-py)/2-0.5);
         double angle = Math.asin((py-my)/length)*57.296; // i hate trig (math people suck)
-
+        setzeEbenenposition(4);
         delx = (mx-px)*0.5;
         dely = (my-py)*0.5;
 

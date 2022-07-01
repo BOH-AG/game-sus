@@ -85,7 +85,7 @@ public class game extends Spiel {
             lvl1 = new Lvl1();
             p1 = new player(3, 0.6);
             kills = 0;
-            p1.setzeEbenenposition(2);
+            p1.setzeEbenenposition(10);
             p1.macheDynamisch();
         }
     }
@@ -334,7 +334,7 @@ public class game extends Spiel {
                 if (re.beinhaltetPunkt(point.x, point.y) && !brk) {
                     newx = point.x;
                     newy = point.y;
-                    //System.out.println("hitting wall");
+                    // System.out.println("hitting wall");
                     // Kreis(0.2).setzeMittelpunkt(point.x,point.y);
                     brk = true;
                 }

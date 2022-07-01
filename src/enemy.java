@@ -52,7 +52,7 @@ public class enemy extends Figur implements damage {
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);
         b.setzeDrehwinkel(ThreadLocalRandom.current().nextInt(360));
         b.setzeMittelpunkt((float)nenneMittelpunktX(), (float)nenneMittelpunktY());
-        b.setzeEbenenposition(8);
+        b.setzeEbenenposition(2);
         b.verzoegere(10, b::entfernen);
     }
 
