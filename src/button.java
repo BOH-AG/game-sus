@@ -1,9 +1,5 @@
-package menu;
-
-import ea.FrameUpdateListener;
 import ea.edu.Bild;
 import ea.edu.Text;
-import ea.edu.event.MausKlickReagierbar;
 
 public class button extends Bild {
 
@@ -29,6 +25,7 @@ public class button extends Bild {
 
     public void changeText(String ntxt) {
         text.setzeInhalt(ntxt);
+        text.setzeMittelpunkt(nenneMittelpunktX(), nenneMittelpunktY()+0.02);
     }
 
     private static String getPath(String color) {

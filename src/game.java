@@ -81,9 +81,9 @@ public class game extends Spiel {
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
-            new menu.button(1,1,"Among Us");
-            new menu.button(1,-2,"SAMPLE text", "red");
-            new menu.button(1,-4,"this is blue", "blue");
+            new button(1,1,"Among Us");
+            new button(1,-2,"SAMPLE text", "red").changeText("bruh");
+            new button(1,-4,"this is blue", "blue");
         }
     }
 
