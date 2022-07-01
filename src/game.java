@@ -85,7 +85,7 @@ public class game extends Spiel {
             );
             setzeSchwerkraft(0);
             lvl1 = new Lvl1();
-            p1 = new player(3, 0.6, -15, -11);
+            p1 = new player(6, 5, -15, -11);
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
@@ -263,13 +263,23 @@ public class game extends Spiel {
         if (fireLatency==fireRate) {
             double x = nenneMausPositionX();
             double y = nenneMausPositionY();
+            double px = p1.nenneMittelpunktX();
+            double py = p1.nenneMittelpunktY();
             fireLatency +=1;
             t1 = null;
-            double[] newm = checkWalls(
+            /*double[] newm = checkWalls(
                     x + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
                     y + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
                     p1.nenneMittelpunktX(),
                     p1.nenneMittelpunktY(),
+                    lvl1.walls
+            );*/
+            double absSpread = tracer.pyth(px-x,py-y) * Math.atan(Math.toRadians(bulletSpread));
+            double[] newm = checkWalls(
+                    x + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                    y + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                    px,
+                    py,
                     lvl1.walls
             );
             t1 = new tracer(
@@ -335,38 +345,47 @@ public class game extends Spiel {
     private void ai() {
 
         for (enemy e: Lvl1.enemies) {
-            int ran = ThreadLocalRandom.current().nextInt(6);
-            if (ran == 5 && e.health>0) {
-                enemyShoot(e, 2);
+            int ran = ThreadLocalRandom.current().nextInt(4);
+            if (ran == 3 && e.health>0) {
+                enemyShoot(e, 10);
             }
         }
     }
 
     private void enemyShoot(enemy e, double spread) {
-        double ex = e.nenneMittelpunktX()+0.5;
-        double ey = e.nenneMittelpunktY()+0.5;
+        double ex = e.nenneMittelpunktX();
+        double ey = e.nenneMittelpunktY();
+        double tx = p1.nenneMittelpunktX();
+        double ty = p1.nenneMittelpunktY();
 
-        double tx = p1.nenneMittelpunktX() + ThreadLocalRandom.current().nextDouble(-spread, spread);
-        double ty = p1.nenneMittelpunktY() + ThreadLocalRandom.current().nextDouble(-spread, spread);
+        if (enemyLineOfSight(lvl1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
-        tracer t2 = new tracer(tx, ty, ex, ey);
-
-        if (enemyCheckWalls(lvl1.walls, t2) && t2.touching(p1)) {
-            System.out.println("player takes damage or smth");
-        } else {
-            t2.setzeSichtbar(false);
-            t2.entfernen();
+            double absSpread = tracer.pyth(ex-tx,ey-ty) * Math.atan(Math.toRadians(spread));
+            double[] newm = checkWalls(
+                    tx + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                    ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                    ex,
+                    ey,
+                    lvl1.walls
+            );
+            tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
+            if (t2.touching(p1)) {
+                System.out.println("player takes damage or smth");
+            }
         }
     }
 
-    private boolean enemyCheckWalls(Rechteck[] re, tracer tr) {
+    private boolean enemyLineOfSight(Rechteck[] re, double tx, double ty, double ex, double ey) {
         boolean aaa = false;
+        tracer tr = new tracer(tx, ty, ex, ey);
+        tr.setzeSichtbar(false);
         for (Rechteck aa: re) {
             if (tr.touching(aa)) {
                 aaa = true;
                 break;
             }
         }
+        tr.entfernen();
         return !aaa;
     }
 
