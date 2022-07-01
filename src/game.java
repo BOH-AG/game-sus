@@ -351,7 +351,7 @@ public class game extends Spiel {
 
         tracer t2 = new tracer(tx, ty, ex, ey);
 
-        if (aaaaa(lvl1.walls, t2) && t2.touching(p1)) {
+        if (enemyCheckWalls(lvl1.walls, t2) && t2.touching(p1)) {
             System.out.println("player takes damage or smth");
         } else {
             t2.setzeSichtbar(false);
@@ -359,15 +359,14 @@ public class game extends Spiel {
         }
     }
 
-    private/*aaaaaa*/ boolean aaaaa(Rechteck[] a, tracer aaaa) {
-        boolean aaa =/*aaaaaa*/ false;// aaaaaaa
-        for (Rechteck aa: /*aaaaaa*/a) {// aaaaaaa
-            if/*aaaaaa*/ (aaaa.touching(aa)) { //a aa aa
-                aaa = true;// aaaaaaa
-                break;// aaaaaaa
-                // /*aaaaaa*/
-                }// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        }// aaaaaaa
+    private boolean enemyCheckWalls(Rechteck[] re, tracer tr) {
+        boolean aaa = false;
+        for (Rechteck aa: re) {
+            if (tr.touching(aa)) {
+                aaa = true;
+                break;
+            }
+        }
         return !aaa;
     }
 
