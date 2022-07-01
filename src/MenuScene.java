@@ -2,13 +2,13 @@ import ea.edu.Figur;
 
 public class MenuScene  {
 
-    public  Figur[] menuButton;
-    public  Figur[] sub1Button;
-    public  Figur[] sub2Button;
-    public  Figur[] sub3Button;
-    public  Figur[] sub4Button;
-    public  Figur[] sub5Button;
-    public  Figur[] sub6Button;
+    public  button[] menuButton;
+    public  button[] sub1Button;
+    public  button[] sub2Button;
+    public  button[] sub3Button;
+    public  button[] sub4Button;
+    public  button[] sub5Button;
+    public  button[] sub6Button;
     boolean s1;
     boolean s2;
     boolean s3;
@@ -18,34 +18,26 @@ public class MenuScene  {
 
     public MenuScene() {
 
-        menuButton = new Figur[8];
+        menuButton = new button[8];
 
-       menuButton[0] = new Figur("button", "rsc/play.gif");
-       menuButton[0].setzeMittelpunkt(-18,10);
-       menuButton[1] = new Figur("button", "rsc/sound.gif");
-       menuButton[1].setzeMittelpunkt(-18,7);
-       menuButton[2] = new Figur("button", "rsc/play.gif");
-       menuButton[2].setzeMittelpunkt(-18,4);
-       menuButton[3] = new Figur("button", "rsc/play.gif");
-       menuButton[3].setzeMittelpunkt(-18,1);
-       menuButton[4] = new Figur("button", "rsc/play.gif");
-       menuButton[4].setzeMittelpunkt(-18,-2);
-       menuButton[5] = new Figur("button", "rsc/play.gif");
-       menuButton[5].setzeMittelpunkt(-18,-5);
-       menuButton[6] = new Figur("button", "rsc/play.gif");
-       menuButton[6].setzeMittelpunkt(-18,-8);
-       menuButton[7] = new Figur("button", "rsc/play.gif");
-       menuButton[7].setzeMittelpunkt(-18,-11);
+       menuButton[0] = new button(-18,10, "Game");
+       menuButton[1] = new button(-18,7, "sound");
+       menuButton[2] = new button(-18,4, "void");
+       menuButton[3] = new button(-18,1, "void");
+       menuButton[4] = new button(-18,-2, "rsc/play.gif");
+       menuButton[5] = new button(-18,-5, "rsc/play.gif");
+       menuButton[6] = new button(-18,-8, "rsc/play.gif");
+       menuButton[7] = new button(-18,-11, "rsc/play.gif");
+
 
 
     }
     public void subMenu1(){
 
         del();
-        sub1Button = new Figur[1];
+        sub1Button = new button[1];
 
-        sub1Button[0] = new Figur("button","rsc/play.gif");
-        sub1Button[0].setzeMittelpunkt(-10,7);
+        sub1Button[0] = new button(-10,5,"Disable","red");
 
         s1 = true;
 
@@ -53,10 +45,9 @@ public class MenuScene  {
     public void subMenu2(){
 
         del();
-        sub2Button = new Figur[1];
+        sub2Button = new button[1];
 
-        sub2Button[0] = new Figur("button","rsc/play.gif");
-        sub2Button[0].setzeMittelpunkt(-10,7);
+        sub2Button[0] = new button(-10,7,"rsc/play.gif");
 
         s2 = true;
     }
@@ -64,10 +55,9 @@ public class MenuScene  {
 
         del();
 
-        sub3Button = new Figur[1];
+        sub3Button = new button[1];
 
-        sub3Button[0] = new Figur("button","rsc/play.gif");
-        sub3Button[0].setzeMittelpunkt(-10,7);
+        sub3Button[0] = new button(-10,7,"rsc/play.gif");
 
         s3 = true;
     }
@@ -75,10 +65,9 @@ public class MenuScene  {
 
         del();
 
-        sub4Button = new Figur[1];
+        sub4Button = new button[1];
 
-        sub4Button[0] = new Figur("button","rsc/play.gif");
-        sub4Button[0].setzeMittelpunkt(-10,7);
+        sub4Button[0] = new button(-10,7,"rsc/play.gif");
 
         s4 = true;
     }
@@ -86,10 +75,9 @@ public class MenuScene  {
 
         del();
 
-        sub5Button = new Figur[1];
+        sub5Button = new button[1];
 
-        sub5Button[0] = new Figur("button","rsc/play.gif");
-        sub5Button[0].setzeMittelpunkt(-10,7);
+        sub5Button[0] = new button(-10,7,"rsc/play.gif");
 
 
         s5 = true;
@@ -98,22 +86,21 @@ public class MenuScene  {
 
         del();
 
-        sub6Button = new Figur[1];
+        sub6Button = new button[1];
 
-        sub6Button[0] = new Figur("button","rsc/play.gif");
-        sub6Button[0].setzeMittelpunkt(-10,7);
+        sub6Button[0] = new button(-10,7,"rsc/play.gif");
 
         s6 = true;
     }
     public void del(){
 
         //löscht alle anderen aktiven sub meus
-        if (s1)sub1Button = null;
-        if (s2)sub2Button = null;
-        if (s3)sub3Button = null;
-        if (s4)sub4Button = null;
-        if (s5)sub5Button = null;
-        if (s6)sub6Button = null;
+         sub1Button = null;
+         sub2Button = null;
+         sub3Button = null;
+         sub4Button = null;
+         sub5Button = null;
+         sub6Button = null;
 
     }
 
