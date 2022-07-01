@@ -75,15 +75,20 @@ public class game extends Spiel {
 
                         }
                     });
+            registriereTicker(0.1,
+                    new Ticker() {
+                        @Override
+                        public void tick() {
+                            ai();
+                        }
+                    }
+            );
             setzeSchwerkraft(0);
             lvl1 = new Lvl1();
             p1 = new player(3, 0.6);
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
-            new button(1,1,"Among Us");
-            new button(1,-2,"SAMPLE text", "red").changeText("bruh");
-            new button(1,-4,"this is blue", "blue");
         }
     }
 
@@ -314,7 +319,6 @@ public class game extends Spiel {
         }
         double newx = 99999;
         double newy = 99999;
-        boolean brk = false;
         for (Rechteck re : wa) {
             for (point point : points) {
                 //System.out.println(point);
@@ -322,12 +326,12 @@ public class game extends Spiel {
                 //k.setzeFarbe("gruen");
                 //k.setzeMittelpunkt(point.x,point.y);
                 //k.machePartikel(0.1);
-                if (re.beinhaltetPunkt(point.x, point.y) && !brk) {
+                if (re.beinhaltetPunkt(point.x, point.y)) {
                     newx = point.x;
                     newy = point.y;
                     // System.out.println("hitting wall");
                     // Kreis(0.2).setzeMittelpunkt(point.x,point.y);
-                    brk = true;
+                    break;
                 }
             }
         }
@@ -344,6 +348,31 @@ public class game extends Spiel {
         };
     }
 
+
+    private void ai() {
+
+        for (enemy e: Lvl1.enemies) {
+            int ran = ThreadLocalRandom.current().nextInt(6);
+            if (ran == 5 && e.health>0) {
+                enemyShoot(e, 2);
+            }
+        }
+
+    }
+
+    private void enemyShoot(enemy e, double spread) {
+        double ex = e.nenneMittelpunktX();
+        double ey = e.nenneMittelpunktY();
+
+        double tx = p1.nenneMittelpunktX() + ThreadLocalRandom.current().nextDouble(-spread, spread);
+        double ty = p1.nenneMittelpunktY() + ThreadLocalRandom.current().nextDouble(-spread, spread);
+
+        tracer t2 = new tracer(tx, ty, ex, ey);
+
+        if (t2.touching(p1)) {
+            System.out.println("player takes damage or smth");
+        }
+    }
 
 
 }

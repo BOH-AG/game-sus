@@ -1,5 +1,6 @@
 import ea.FrameUpdateListener;
 import ea.actor.Actor;
+import ea.edu.Figur;
 import ea.edu.Rechteck;
 
 public class tracer extends Rechteck {
@@ -91,7 +92,7 @@ public class tracer extends Rechteck {
 
 
 
-    public boolean touching(enemy e) {
+    public boolean touching(Figur e) {
         //double ex = e.nenneMittelpunktX();
         //double ey = e.nenneMittelpunktY();
         int hm = (int)(length*3);
