@@ -310,31 +310,23 @@ public class game extends Spiel {
         length = tracer.pyth(px-mx, py-my);
         delx = (mx-px);
         dely = (my-py);
-        //new Kreis(0.3).setzeMittelpunkt(px+delx,px+dely);
-        // create array of points along tracer line
-        hm = (int)(length*5);
-        point[] points = new point[hm];
-        for (int z=0; z<hm; z++) {
-            points[z] = new point((delx/hm)*(z+1)+px,(dely/hm)*(z+1)+py);
-        }
+
         double newx = 99999;
         double newy = 99999;
-        for (Rechteck re : wa) {
-            for (point point : points) {
-                //System.out.println(point);
-                //Kreis k = new Kreis(0.1);
-                //k.setzeFarbe("gruen");
-                //k.setzeMittelpunkt(point.x,point.y);
-                //k.machePartikel(0.1);
-                if (re.beinhaltetPunkt(point.x, point.y)) {
-                    newx = point.x;
-                    newy = point.y;
-                    // System.out.println("hitting wall");
-                    // Kreis(0.2).setzeMittelpunkt(point.x,point.y);
+        
+        hm = (int)(length*5);
+        point[] points = new point[hm];
+        for (int z=hm-1; z>-1; z--) {
+            points[z] = new point((delx/hm)*(z+1)+px,(dely/hm)*(z+1)+py);
+            for (Rechteck re : wa) {
+                if (re.beinhaltetPunkt(points[z].x, points[z].y)) {
+                    newx = points[z].x;
+                    newy = points[z].y;
                     break;
                 }
             }
         }
+
         if (newx==99999 && newy==99999) {
             newx = mx;
             newy = my;
