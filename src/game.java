@@ -1,6 +1,5 @@
 import audio.MusicAudio;
 import audio.SfxAudio;
-import ea.edu.Kreis;
 import ea.edu.Rechteck;
 import ea.edu.Spiel;
 import ea.edu.event.BildAktualisierungReagierbar;
@@ -29,8 +28,6 @@ public class game extends Spiel {
     lvl2 lvl2;
     boolean shooting;
 
-    FileInputStream fis;
-    BufferedInputStream bis;
 
     public game(int width, int height) {
         super();
@@ -47,9 +44,8 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("gameScene");
 
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double v, double v1) {
                             shooting = true;
@@ -61,9 +57,8 @@ public class game extends Spiel {
                             fireLatency = 0;
                         }
                     });
-            BildAktualisierungReagierbar frameUpdate;
             registriereBildAktualisierungReagierbar(
-                    frameUpdate = new BildAktualisierungReagierbar() {
+                    new BildAktualisierungReagierbar() {
                         @Override
                         public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                             if (shooting) {
@@ -71,9 +66,8 @@ public class game extends Spiel {
                             }
                         }
                     });
-            TastenReagierbar cherryMxBrown;
             registriereTastenReagierbar(
-                    cherryMxBrown = new TastenReagierbar() {
+                    new TastenReagierbar() {
                         @Override
                         public void tasteReagieren(int key) {
                             if (key == KeyEvent.VK_M) menuScene();
@@ -98,9 +92,8 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("lvl2Scene");
         }
-        MausKlickReagierbar dieSendungMitDer;
         registriereMausKlickReagierbar(
-                dieSendungMitDer = new MausKlickReagierbar() {
+                new MausKlickReagierbar() {
                     @Override
                     public void klickReagieren(double v, double v1) {
                         shooting = true;
@@ -112,9 +105,8 @@ public class game extends Spiel {
                         fireLatency = 0;
                     }
                 });
-        BildAktualisierungReagierbar frameUpdate;
         registriereBildAktualisierungReagierbar(
-                frameUpdate = new BildAktualisierungReagierbar() {
+                new BildAktualisierungReagierbar() {
                     @Override
                     public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
                         if (shooting) {
@@ -122,9 +114,8 @@ public class game extends Spiel {
                         }
                     }
                 });
-        TastenReagierbar cherryMxBrown;
         registriereTastenReagierbar(
-                cherryMxBrown = new TastenReagierbar() {
+                new TastenReagierbar() {
                     @Override
                     public void tasteReagieren(int key) {
                         if (key == KeyEvent.VK_M) {
@@ -157,9 +148,8 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
 
-            TastenReagierbar cherryMxBrown;
             registriereTastenReagierbar(
-                    cherryMxBrown = new TastenReagierbar() {
+                    new TastenReagierbar() {
                         @Override
                         public void tasteReagieren(int key) {
                             if (key == KeyEvent.VK_M) {
@@ -202,9 +192,8 @@ public class game extends Spiel {
         } else {
             benenneAktiveSzene("title");
             TitleScreen ts = new TitleScreen();
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -245,10 +234,9 @@ public class game extends Spiel {
                     });
 
              */
-            Ticker clippy;
             registriereTicker(
                     (1/30d),
-                    clippy = new Ticker() {
+                    new Ticker() {
                         @Override
                         public void tick() {
                             if (ts.background.nenneMittelpunktX() <= -21.3) {

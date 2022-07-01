@@ -1,17 +1,8 @@
 import ea.Vector;
 import ea.actor.StatefulAnimation;
-import ea.edu.EduActor;
 import ea.edu.Figur;
-import ea.edu.Kreis;
-import ea.edu.event.KollisionsReagierbar;
 import ea.edu.event.TastenReagierbar;
-import org.jbox2d.collision.shapes.CircleShape;
-import org.jbox2d.collision.shapes.Shape;
-
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.function.Supplier;
-import ea.internal.ShapeBuilder;
 
 public class player extends Figur implements TastenReagierbar {
 
