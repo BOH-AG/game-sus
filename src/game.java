@@ -178,12 +178,12 @@ public class game extends Spiel {
                             System.out.println(x + "     " + y);
 
                             if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) ms1.subMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) ms1.subMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) ms1.subMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) ms1.subMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) ms1.subMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) ms1.subMenu6();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
                             if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                         }
 
@@ -358,7 +358,6 @@ public class game extends Spiel {
             t2.entfernen();
         }
     }
-
     private boolean enemyCheckWalls(Rechteck[] re, tracer tr) {
         boolean aaa = false;
         for (Rechteck aa: re) {
@@ -369,6 +368,80 @@ public class game extends Spiel {
         }
         return !aaa;
     }
+    void SubMenu1(){
+        if (Arrays.asList(nenneSzenennamen()).contains("SM1")) {
+            setzeAktiveSzene("SM1");
+        }
+        else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("SM1");
+            MenuScene ms1 = new MenuScene();
+            ms1.subMenu1();
 
+
+
+        }
+    }
+    void SubMenu2(){
+        if (Arrays.asList(nenneSzenennamen()).contains("SM2")) {
+            setzeAktiveSzene("SM2");
+        }
+        else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("SM2");
+            MenuScene ms1 = new MenuScene();
+            ms1.subMenu2();
+        }
+
+    }
+    void SubMenu3() {
+        if (Arrays.asList(nenneSzenennamen()).contains("SM3")) {
+            setzeAktiveSzene("SM3");
+        } else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("SM3");
+            MenuScene ms1 = new MenuScene();
+            ms1.subMenu3();
+        }
+    }
+
+
+    void SubMenu4(){
+        if (Arrays.asList(nenneSzenennamen()).contains("SM4")) {
+            setzeAktiveSzene("SM4");
+        }
+        else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("SM4");
+            MenuScene ms1 = new MenuScene();
+            ms1.subMenu4();
+        }
+
+    }
+    void SubMenu5(){
+        if (Arrays.asList(nenneSzenennamen()).contains("SM5")) {
+            setzeAktiveSzene("SM5");
+        }
+        else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("SM5");
+            MenuScene ms1 = new MenuScene();
+            ms1.subMenu5();
+        }
+
+    }
+    void SubMenu6(){
+        if (Arrays.asList(nenneSzenennamen()).contains("SM6")) {
+            setzeAktiveSzene("SM6");
+        }
+        else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("SM6");
+            MenuScene ms1 = new MenuScene();
+            ms1.subMenu6();
+
+        }
+
+    }
 
 }
