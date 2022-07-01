@@ -301,20 +301,15 @@ public class game extends Spiel {
 
     }
 
-    double length;
-    double delx;
-    double dely;
-    int hm;
-
     private double[] checkWalls(double mx, double my, double px, double py, Rechteck[] wa) {
-        length = tracer.pyth(px-mx, py-my);
-        delx = (mx-px);
-        dely = (my-py);
+        double length = tracer.pyth(px-mx, py-my);
+        double delx = (mx-px);
+        double dely = (my-py);
 
         double newx = 99999;
         double newy = 99999;
-        
-        hm = (int)(length*5);
+
+        int hm = (int)(length*5);
         point[] points = new point[hm];
         for (int z=hm-1; z>-1; z--) {
             points[z] = new point((delx/hm)*(z+1)+px,(dely/hm)*(z+1)+py);
@@ -339,7 +334,6 @@ public class game extends Spiel {
                 py+0.5
         };
     }
-
 
     private void ai() {
 
