@@ -36,7 +36,7 @@ public class game extends Spiel {
         new MusicAudio("radiation storm", true);
     }
 
-     void gameScene() {
+    void gameScene() {
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
         }
@@ -75,7 +75,7 @@ public class game extends Spiel {
 
                         }
                     });
-            registriereTicker(0.1,
+            registriereTicker(0.2,
                     new Ticker() {
                         @Override
                         public void tick() {
@@ -144,8 +144,6 @@ public class game extends Spiel {
         lvl2 = new lvl2();
         p1.macheDynamisch();
     }
-
-
 
     void menuScene(){
         //ersellt eine neue szene und ruft die menü szene auf
@@ -259,7 +257,6 @@ public class game extends Spiel {
     }
 
 
-
     int fireLatency;
     private void shoot(int fireRate, double bulletSpread) {
 
@@ -343,21 +340,35 @@ public class game extends Spiel {
                 enemyShoot(e, 2);
             }
         }
-
     }
 
     private void enemyShoot(enemy e, double spread) {
-        double ex = e.nenneMittelpunktX();
-        double ey = e.nenneMittelpunktY();
+        double ex = e.nenneMittelpunktX()+0.5;
+        double ey = e.nenneMittelpunktY()+0.5;
 
         double tx = p1.nenneMittelpunktX() + ThreadLocalRandom.current().nextDouble(-spread, spread);
         double ty = p1.nenneMittelpunktY() + ThreadLocalRandom.current().nextDouble(-spread, spread);
 
         tracer t2 = new tracer(tx, ty, ex, ey);
 
-        if (t2.touching(p1)) {
+        if (aaaaa(lvl1.walls, t2) && t2.touching(p1)) {
             System.out.println("player takes damage or smth");
+        } else {
+            t2.setzeSichtbar(false);
+            t2.entfernen();
         }
+    }
+
+    private/*aaaaaa*/ boolean aaaaa(Rechteck[] a, tracer aaaa) {
+        boolean aaa =/*aaaaaa*/ false;// aaaaaaa
+        for (Rechteck aa: /*aaaaaa*/a) {// aaaaaaa
+            if/*aaaaaa*/ (aaaa.touching(aa)) { //a aa aa
+                aaa = true;// aaaaaaa
+                break;// aaaaaaa
+                // /*aaaaaa*/
+                }// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        }// aaaaaaa
+        return !aaa;
     }
 
 
