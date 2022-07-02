@@ -99,12 +99,6 @@ public class MenuScene  {
     public void del(){
 
         //löscht alle anderen aktiven sub meus
-         sub1Button = null;
-         sub2Button = null;
-         sub3Button = null;
-         sub4Button = null;
-         sub5Button = null;
-         sub6Button = null;
 
     }
 

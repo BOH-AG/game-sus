@@ -9,7 +9,7 @@ public class button extends Bild {
     Text text;
 
     public button(double x, double y, String txt) {
-        super(2f, 2f, "rsc/blue-empty.png");
+        super(2f, 2f, "rsc/green-empty.png");
         this.getActor().resetPixelPerMeter(30);
         setzeMittelpunkt(x, y);
         text = new Text(txt, 1.3);
