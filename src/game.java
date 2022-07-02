@@ -29,6 +29,7 @@ public class game extends Spiel {
     Lvl1 lvl1;
     lvl2 lvl2;
     boolean shooting;
+    boolean CBT;
 
 
     public game(int width, int height) {
@@ -424,7 +425,25 @@ public class game extends Spiel {
             benenneAktiveSzene("SM1");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu1();
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
 
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                            if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) ;
+                        }
+
+                    });
 
 
         }
@@ -438,6 +457,26 @@ public class game extends Spiel {
             benenneAktiveSzene("SM2");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu2();
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                            if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) CBT=true;
+                            if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) CBT=false;
+                        }
+
+                    });
         }
 
     }
@@ -448,7 +487,25 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("SM3");
             MenuScene ms1 = new MenuScene();
-            ms1.subMenu3();
+            ms1.subMenu3();            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                            if (ms1.sub3Button[0].beinhaltetPunkt(x,y)) ;
+                        }
+
+                    });
         }
     }
     void SubMenu4(){
@@ -459,7 +516,25 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("SM4");
             MenuScene ms1 = new MenuScene();
-            ms1.subMenu4();
+            ms1.subMenu4();            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                            if (ms1.sub4Button[0].beinhaltetPunkt(x,y)) ;
+                        }
+
+                    });
         }
 
     }
@@ -472,6 +547,25 @@ public class game extends Spiel {
             benenneAktiveSzene("SM5");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu5();
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                            if (ms1.sub5Button[0].beinhaltetPunkt(x,y)) ;
+                        }
+
+                    });
         }
 
     }
@@ -484,6 +578,25 @@ public class game extends Spiel {
             benenneAktiveSzene("SM6");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu6();
+            MausKlickReagierbar dieSendungMitDer;
+            registriereMausKlickReagierbar(
+                    dieSendungMitDer = new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double x, double y) {
+                            System.out.println(x + "     " + y);
+
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                            if (ms1.sub6Button[0].beinhaltetPunkt(x,y)) ;
+                        }
+
+                    });
 
         }
 

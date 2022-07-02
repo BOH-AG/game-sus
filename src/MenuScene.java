@@ -17,7 +17,7 @@ public class MenuScene  {
     boolean s4;
     boolean s5;
     boolean s6;
-    boolean CBT;
+
 
     public MenuScene() {
 
@@ -27,10 +27,10 @@ public class MenuScene  {
        menuButton[1] = new button(-18,7, "sound");
        menuButton[2] = new button(-18,4, "CBT");
        menuButton[3] = new button(-18,1, "void");
-       menuButton[4] = new button(-18,-2, "rsc/play.gif");
-       menuButton[5] = new button(-18,-5, "rsc/play.gif");
-       menuButton[6] = new button(-18,-8, "rsc/play.gif");
-       menuButton[7] = new button(-18,-11, "rsc/play.gif");
+       menuButton[4] = new button(-18,-2, "Graphics");
+       menuButton[5] = new button(-18,-5, "Difficulty");
+       menuButton[6] = new button(-18,-8, "Support Us");
+       menuButton[7] = new button(-18,-11, "TitleScreen");
 
 
 
@@ -49,13 +49,11 @@ public class MenuScene  {
     public void subMenu2(){
 
         del();
-        sub2Button = new button[1];
-        if(CBT){
+        sub2Button = new button[2];
+
             sub2Button[0] = new button(-10,7,"OFF","red");
-        }
-        else {
-            sub2Button[0] = new button(-10,7,"ON");
-        }
+            sub2Button[1] = new button(-10,5,"ON");
+
 
         s2 = true;
     }
@@ -96,7 +94,7 @@ public class MenuScene  {
 
         sub6Button = new button[1];
 
-        sub6Button[0] = new button(-10,7,"rsc/play.gif6");
+        sub6Button[0] = new button(-10,7,"6");
 
         s6 = true;
     }
