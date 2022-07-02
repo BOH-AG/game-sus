@@ -29,6 +29,7 @@ public class game extends Spiel {
     lvl2 lvl2;
     boolean shooting;
     boolean CBT;
+    boolean sound;
     MusicAudio lvlMusic;
     MusicAudio titleMusic;
 
@@ -37,6 +38,7 @@ public class game extends Spiel {
         super();
         setzeFensterGroesse(width, height);
         titleScreen();
+        sound = true;
     }
 
     void gameScene() {
@@ -434,7 +436,7 @@ public class game extends Spiel {
     }
 
     private void death() {
-        new Text("you died",5).setzeFarbe("rot");
+        new Text("You died!",5).setzeFarbe("rot");
         p1.verzoegere(0.3, this::a);
     }
     private void a() {
@@ -623,6 +625,17 @@ public class game extends Spiel {
 
                     });
 
+        }
+
+    }
+
+    public void soundHandler(){
+        if(sound == true){
+            sound = false;
+            ma1.pause();
+        }else{
+            sound = true;
+            ma1.resume();
         }
 
     }
