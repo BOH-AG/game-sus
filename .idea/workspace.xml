@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="menu">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TitleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TitleScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/damage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/damage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game-sus/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game-sus/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/subMenu1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/subMenu2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/subMenu3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +36,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="29Z811EYdL73lIZSriWa2CbOn4p" />
   <component name="ProjectLevelVcsManager">
@@ -348,14 +338,7 @@
       <option name="project" value="LOCAL" />
       <updated>1656069849871</updated>
     </task>
-    <task id="LOCAL-00035" summary="menu">
-      <created>1656743810951</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1656743810951</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,11 +369,11 @@
     <MESSAGE value="no sound" />
     <MESSAGE value="settings button in mainmenu" />
     <MESSAGE value="discord-rpc" />
+    <MESSAGE value="menu" />
     <MESSAGE value="room(unfinished)" />
     <MESSAGE value="room(finished)" />
     <MESSAGE value="i forgor" />
     <MESSAGE value="player" />
-    <MESSAGE value="menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="player" />
   </component>
 </project>

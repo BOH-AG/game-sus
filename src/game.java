@@ -82,6 +82,7 @@ public class game extends Spiel {
                         @Override
                         public void tick() {
                             ai();
+                            playerHealTick();
                         }
                     }
             );
@@ -135,6 +136,7 @@ public class game extends Spiel {
                     }
                 });
         setzeSchwerkraft(0);
+        healCounter = 0;
         p1 = new player(3, 0.6, 10, 0 ,0);
         kills = 0;
         enemyhealth = 1;
@@ -346,7 +348,7 @@ public class game extends Spiel {
 
         for (enemy e: Lvl1.enemies) {
             int ran = ThreadLocalRandom.current().nextInt(4);
-            if (ran == 3 && e.health>0) {
+            if (ran <= 2 && e.health>0) {
                 enemyShoot(e, 10);
             }
         }
@@ -370,7 +372,7 @@ public class game extends Spiel {
             );
             tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
             if (t2.touching(p1)) {
-                playerHealthHandler(5);
+                playerHealthHandler(1);
             }
         }
     }
@@ -392,20 +394,33 @@ public class game extends Spiel {
     Text healthHud;
     private void initPlayerHealthHandler() {
         healthHud = new Text(""+p1.getHealth(), 2);
-        //healthHud.setzeFarbe("schwarz");
+        healthHud.setzeFarbe("rot");
         healthHud.setzeMittelpunkt(-20, 10);
     }
 
-    private void playerHealthHandler(int dmg) {
-        p1.takeDamage(dmg);
-        healthHud.setzeInhalt(""+p1.getHealth());
-        if (p1.getHealth()<1) {
-            death();
+    private void playerHealthHandler(int h) {
+        if (h > 0) {
+            p1.takeDamage(h);
+            healthHud.setzeInhalt(""+p1.getHealth());
+            if (p1.getHealth()<1) {
+                death();
+            }
+        } else if (h < 0) {
+            p1.heal(1);
+            healthHud.setzeInhalt(""+p1.getHealth());
+        }
+    }
+    int healCounter;
+    private void playerHealTick() {
+        if (healCounter < 17) healCounter++;
+        else {
+            healCounter = 0;
+            playerHealthHandler(-1);
         }
     }
 
     private void death() {
-        new Text("you died (fuck you)",5).setzeFarbe("rot");
+        new Text("you died",5).setzeFarbe("rot");
         p1.verzoegere(0.3, this::a);
     }
     private void a() {

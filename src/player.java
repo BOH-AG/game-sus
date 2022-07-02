@@ -17,6 +17,8 @@ public class player extends Figur implements TastenReagierbar, damage {
     public int fireRate;
     public double bulletSpread;
     int hp;
+    final int maxhp;
+    double speed;
 
     player(int fr, double bs,int Hp, int px, int py) {
         super("normal", "rsc/player-new.gif");
@@ -25,23 +27,25 @@ public class player extends Figur implements TastenReagierbar, damage {
         fireRate = fr;
         bulletSpread = bs;
         bloodPuddles = new ArrayList<>();
+        speed = 7;
         //actor.setShape(createCircleSupplier(0.1f));
         //actor.setShape(createCircleSupplier(1));
         setzeMittelpunkt(px,py);
         setzeEbenenposition(10);
+        maxhp = Hp;
         hp = Hp;
     }
 
     @Override
     public void tasteReagieren(int key) {
         if (key==KeyEvent.VK_A) {
-            delx = -5;
+            delx = -speed;
         }if (key==KeyEvent.VK_D) {
-            delx = 5;
+            delx = speed;
         }if (key==KeyEvent.VK_S) {
-            dely = -5;
+            dely = -speed;
         }if (key==KeyEvent.VK_W){
-            dely = 5;
+            dely = speed;
         }
         setzeGeschwindigkeit(delx, dely);
         direction();
@@ -78,6 +82,14 @@ public class player extends Figur implements TastenReagierbar, damage {
     public void takeDamage(int d) {
         hp -= d;
         blood();
+    }
+
+    public void heal(int h) {
+        if ((hp+h)>maxhp) {
+            hp = maxhp;
+        } else {
+            hp += h;
+        }
     }
 
     List<Bild> bloodPuddles;
