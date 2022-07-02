@@ -53,11 +53,13 @@ public class Lvl1{
         boundry[3] = new Rechteck(1,23);
         boundry[3].setzeMittelpunkt(-21.5,0);
 
-        enemies = new enemy[2];
+        enemies = new enemy[3];
         enemies[0] = new enemy(5);
         enemies[0].setzeMittelpunkt(9,-2);
         enemies[1] = new enemy(5);
         enemies[1].setzeMittelpunkt(15,8);
+        enemies[2] = new enemy(5);
+        enemies[2].setzeMittelpunkt(-5,7);
 
         for (Rechteck bound: boundry) {
             bound.setzeEbenenposition(-1);
@@ -67,7 +69,7 @@ public class Lvl1{
         for (Rechteck wall : walls) {
             wall.setzeEbenenposition(-1);
             wall.macheStatisch();
-            //wall.setzeSichtbar(false);
+            wall.setzeSichtbar(false);
 
         }
 

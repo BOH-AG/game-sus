@@ -13,7 +13,7 @@ public class enemy extends Figur implements damage {
      enemy(int h) {
 
         super("normal", "rsc/security-new.gif");
-        fuegeZustandVonGifHinzu("dead", "rsc/doge.gif");
+        fuegeZustandVonGifHinzu("dead", "rsc/sus.gif");
         getActor().setSize(1.8f,1.8f);
         setzeEbenenposition(9);
         health = h;
@@ -35,10 +35,14 @@ public class enemy extends Figur implements damage {
     public void takeDamage(int d) {
 
         if (health >d){
-            health = health-d;
+            health -= d;
             blood();
             System.out.println("enemy health: " + health);
-        }else if (health==d){
+        } else if (health <= 0) {
+            health -= d;
+            blood();
+            System.out.println("enemy negative health: " + health);
+        } else if (health == d){
             kill();
             System.out.println("enemy dead");
         }
@@ -46,7 +50,11 @@ public class enemy extends Figur implements damage {
 
 
     private void blood() {
-        bloodPuddles.add(new Bild(2.2,2.2, "rsc/blood.png"));
+        bloodPuddles.add(new Bild(
+                ThreadLocalRandom.current().nextDouble(2, 2.6),
+                ThreadLocalRandom.current().nextDouble(2, 2.6),
+                "rsc/blood.png"
+        ));
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);
         b.setzeDrehwinkel(ThreadLocalRandom.current().nextInt(360));
         b.setzeMittelpunkt((float)nenneMittelpunktX(), (float)nenneMittelpunktY());
@@ -59,6 +67,7 @@ public class enemy extends Figur implements damage {
         health = 0;
         dead = true;
         setzeZustand("dead");
+        /*
         pausiereAnimation(true);
         setzeWinkelgeschwindigkeit(5);
         machePartikel(2);
@@ -66,6 +75,6 @@ public class enemy extends Figur implements damage {
         setzeGeschwindigkeit(
             ThreadLocalRandom.current().nextDouble(-20,20),
             ThreadLocalRandom.current().nextDouble(-20,20)
-        );
+        );*/
     }
 }

@@ -296,11 +296,11 @@ public class game extends Spiel {
             for (int z = 0; z < Lvl1.enemies.length; z++) {
                 if (t1.touching(Lvl1.enemies[z])) {
                     Lvl1.enemies[z].takeDamage(1);
-                    if (Lvl1.enemies[z].dead) {
+                    if (Lvl1.enemies[z].dead && Lvl1.enemies[z].health == 0) {
                         //Lvl1.enemies[z] = new enemy(enemyhealth);
                         kills++;
                         System.out.println("kills: " + kills);
-                    }
+                    } //else if (Lvl1.enemies[z].health < 0)
 
                 }
             }
