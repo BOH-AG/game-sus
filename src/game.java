@@ -3,10 +3,7 @@ import audio.SfxAudio;
 import ea.edu.Rechteck;
 import ea.edu.Spiel;
 import ea.edu.Text;
-import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
-import ea.edu.event.TastenReagierbar;
-import ea.edu.event.Ticker;
 
 import java.awt.event.KeyEvent;
 import java.io.*;
@@ -62,33 +59,24 @@ public class game extends Spiel {
                         }
                     });
             registriereBildAktualisierungReagierbar(
-                    new BildAktualisierungReagierbar() {
-                        @Override
-                        public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
-                            if (shooting) {
-                                shoot(p1.fireRate, p1.bulletSpread);
-                            }
+                    v -> { // tick() but for cool kids B)
+                        if (shooting) {
+                            shoot(p1.fireRate, p1.bulletSpread);
                         }
                     });
             registriereTastenReagierbar(
-                    new TastenReagierbar() {
-                        @Override
-                        public void tasteReagieren(int key) {
-                            if (key == KeyEvent.VK_M) {
-                                lvlMusic.pause();
-                                menuScene();
-                            }
-                            if(key == KeyEvent.VK_Y) lvl2();
-
+                    key -> {
+                        if (key == KeyEvent.VK_M) {
+                            lvlMusic.pause();
+                            menuScene();
                         }
+                        if(key == KeyEvent.VK_Y) lvl2();
+
                     });
             registriereTicker(0.2,
-                    new Ticker() {
-                        @Override
-                        public void tick() {
-                            ai();
-                            playerHealTick();
-                        }
+                    () -> {
+                        ai();
+                        playerHealTick();
                     }
             );
             setzeSchwerkraft(0);
@@ -123,21 +111,15 @@ public class game extends Spiel {
                     }
                 });
         registriereBildAktualisierungReagierbar(
-                new BildAktualisierungReagierbar() {
-                    @Override
-                    public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
-                        if (shooting) {
-                            shoot(p1.fireRate, p1.bulletSpread);
-                        }
+                v -> { // tick() but for cool kids B)
+                    if (shooting) {
+                        shoot(p1.fireRate, p1.bulletSpread);
                     }
                 });
         registriereTastenReagierbar(
-                new TastenReagierbar() {
-                    @Override
-                    public void tasteReagieren(int key) {
-                        if (key == KeyEvent.VK_M) {
-                            menuScene();
-                        }
+                key -> {
+                    if (key == KeyEvent.VK_M) {
+                        menuScene();
                     }
                 });
         setzeSchwerkraft(0);
@@ -166,39 +148,31 @@ public class game extends Spiel {
             benenneAktiveSzene("menuScene");
             titleMusic.resume();
             registriereTastenReagierbar(
-                    new TastenReagierbar() {
-                        @Override
-                        public void tasteReagieren(int key) {
-                            if (key == KeyEvent.VK_M) {
-                                titleMusic.pause();
-                                gameScene();
-                            }
+                    key -> {
+                        if (key == KeyEvent.VK_M) {
+                            titleMusic.pause();
+                            gameScene();
                         }
                     }
             );
 
             MenuScene ms1 = new MenuScene();
 
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) {
-                                titleMusic.pause();
-                                gameScene();
-                            }
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) {
+                            titleMusic.pause();
+                            gameScene();
                         }
-
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
     }
@@ -213,34 +187,30 @@ public class game extends Spiel {
             TitleScreen ts = new TitleScreen();
             titleMusic = new MusicAudio("radiation storm", true);
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ts.playButton.beinhaltetPunkt(x, y)) {
-                                titleMusic.pause();
-                                gameScene();
+                        if (ts.playButton.beinhaltetPunkt(x, y)) {
+                            titleMusic.pause();
+                            gameScene();
+                        }
+                        if (ts.bohLogo.beinhaltetPunkt(x, y)) {
+
+                            try {
+                                java.awt.Desktop.getDesktop().browse(new URI("https://www.theboh.de"));
                             }
-                            if (ts.bohLogo.beinhaltetPunkt(x, y)) {
-
-                                try {
-                                    java.awt.Desktop.getDesktop().browse(new URI("https://www.theboh.de"));
-                                }
-                                catch (IOException | URISyntaxException e) {
-                                    throw new RuntimeException(e);
-                                }
-
+                            catch (IOException | URISyntaxException e) {
+                                throw new RuntimeException(e);
                             }
-                            if (ts.settingsButton.beinhaltetPunkt(x,y)){
-                                titleMusic.pause();
-                                menuScene();
-                            }
-
-
-
 
                         }
+                        if (ts.settingsButton.beinhaltetPunkt(x,y)){
+                            titleMusic.pause();
+                            menuScene();
+                        }
+
+
+
 
                     });
             /*
@@ -258,14 +228,11 @@ public class game extends Spiel {
              */
             registriereTicker(
                     (1/30d),
-                    new Ticker() {
-                        @Override
-                        public void tick() {
-                            if (ts.background.nenneMittelpunktX() <= -21.3) {
-                                ts.background.setzeMittelpunkt(21.3, 0);
-                            } else {
-                                ts.background.verschieben(-((42.6/1280)*4), 0);
-                            }
+                    () -> {
+                        if (ts.background.nenneMittelpunktX() <= -21.3) {
+                            ts.background.setzeMittelpunkt(21.3, 0);
+                        } else {
+                            ts.background.verschieben(-((42.6/1280)*4), 0);
                         }
                     }
             );
@@ -451,21 +418,17 @@ public class game extends Spiel {
             MenuScene ms1 = new MenuScene();
             ms1.subMenu1();
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                        }
-
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
 
 
@@ -481,23 +444,19 @@ public class game extends Spiel {
             MenuScene ms1 = new MenuScene();
             ms1.subMenu2();
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) CBT=true;
-                            if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) CBT=false;
-                        }
-
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                        if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) CBT=true;
+                        if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) CBT=false;
                     });
         }
 
@@ -511,22 +470,17 @@ public class game extends Spiel {
             MenuScene ms1 = new MenuScene();
             ms1.subMenu3();
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub3Button[0].beinhaltetPunkt(x,y)) ;
-                        }
-
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
     }
@@ -540,22 +494,17 @@ public class game extends Spiel {
             MenuScene ms1 = new MenuScene();
             ms1.subMenu4();
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub4Button[0].beinhaltetPunkt(x,y)) ;
-                        }
-
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
 
@@ -570,22 +519,17 @@ public class game extends Spiel {
             MenuScene ms1 = new MenuScene();
             ms1.subMenu5();
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub5Button[0].beinhaltetPunkt(x,y)) ;
-                        }
-
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
 
@@ -600,22 +544,17 @@ public class game extends Spiel {
             MenuScene ms1 = new MenuScene();
             ms1.subMenu6();
             registriereMausKlickReagierbar(
-                    new MausKlickReagierbar() {
-                        @Override
-                        public void klickReagieren(double x, double y) {
-                            System.out.println(x + "     " + y);
+                    (x, y) -> {
+                        System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
-                            if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                            if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                            if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                            if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                            if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                            if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
-                            if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub6Button[0].beinhaltetPunkt(x,y)) ;
-                        }
-
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
+                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
+                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
+                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
+                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
 
         }
@@ -623,10 +562,10 @@ public class game extends Spiel {
     }
 
     public void soundHandler(){
-        if(sound == true){
+        if (sound){
             sound = false;
             //ma1.pause();
-        }else{
+        } else {
             sound = true;
             //ma1.resume();
         }
