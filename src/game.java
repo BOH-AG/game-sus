@@ -452,9 +452,8 @@ public class game extends Spiel {
             benenneAktiveSzene("SM1");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu1();
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -467,7 +466,6 @@ public class game extends Spiel {
                             if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
                             if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
                             if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) ;
                         }
 
                     });
@@ -484,9 +482,8 @@ public class game extends Spiel {
             benenneAktiveSzene("SM2");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu2();
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -514,9 +511,9 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("SM3");
             MenuScene ms1 = new MenuScene();
-            ms1.subMenu3();            MausKlickReagierbar dieSendungMitDer;
+            ms1.subMenu3();
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -543,9 +540,9 @@ public class game extends Spiel {
             erzeugeNeueSzene();
             benenneAktiveSzene("SM4");
             MenuScene ms1 = new MenuScene();
-            ms1.subMenu4();            MausKlickReagierbar dieSendungMitDer;
+            ms1.subMenu4();
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -574,9 +571,8 @@ public class game extends Spiel {
             benenneAktiveSzene("SM5");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu5();
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -605,9 +601,8 @@ public class game extends Spiel {
             benenneAktiveSzene("SM6");
             MenuScene ms1 = new MenuScene();
             ms1.subMenu6();
-            MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(
-                    dieSendungMitDer = new MausKlickReagierbar() {
+                    new MausKlickReagierbar() {
                         @Override
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
@@ -632,10 +627,10 @@ public class game extends Spiel {
     public void soundHandler(){
         if(sound == true){
             sound = false;
-            ma1.pause();
+            //ma1.pause();
         }else{
             sound = true;
-            ma1.resume();
+            //ma1.resume();
         }
 
     }
