@@ -1,10 +1,14 @@
 import ea.Vector;
 import ea.actor.StatefulAnimation;
+import ea.edu.Bild;
 import ea.edu.Figur;
 import ea.edu.event.TastenReagierbar;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class player extends Figur implements TastenReagierbar {
+public class player extends Figur implements TastenReagierbar, damage {
 
     StatefulAnimation<String> actor;
     double delx;
@@ -12,17 +16,20 @@ public class player extends Figur implements TastenReagierbar {
     boolean menu;
     public int fireRate;
     public double bulletSpread;
+    int hp;
 
-    player(int fr, double bs, int px, int py) {
+    player(int fr, double bs,int Hp, int px, int py) {
         super("normal", "rsc/player-new.gif");
         actor = getActor();
         actor.setSize(2f, 2f);
         fireRate = fr;
         bulletSpread = bs;
+        bloodPuddles = new ArrayList<>();
         //actor.setShape(createCircleSupplier(0.1f));
         //actor.setShape(createCircleSupplier(1));
         setzeMittelpunkt(px,py);
         setzeEbenenposition(10);
+        hp = Hp;
     }
 
     @Override
@@ -65,6 +72,26 @@ public class player extends Figur implements TastenReagierbar {
             else setzeDrehwinkel(180);
         }
         actor.setCenter(v1);
+    }
+
+    @Override
+    public void takeDamage(int d) {
+        hp -= d;
+        blood();
+    }
+
+    List<Bild> bloodPuddles;
+    private void blood() {
+        bloodPuddles.add(new Bild(2.2,2.2, "rsc/blood.png"));
+        Bild b = bloodPuddles.get(bloodPuddles.size()-1);
+        b.setzeDrehwinkel(ThreadLocalRandom.current().nextInt(360));
+        b.setzeMittelpunkt((float)nenneMittelpunktX(), (float)nenneMittelpunktY());
+        b.setzeEbenenposition(2);
+        b.verzoegere(10, b::entfernen);
+    }
+
+    public int getHealth() {
+        return hp;
     }
 
     /*

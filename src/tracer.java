@@ -43,11 +43,6 @@ public class tracer extends Rechteck {
     }
 
 
-
-
-
-
-
     public tracer(double[] pa) {
         super(pyth(pa[2]-pa[0], pa[3]-pa[1]), 0.1);
         double mx = pa[0];
@@ -84,15 +79,6 @@ public class tracer extends Rechteck {
     }
 
 
-
-
-
-
-
-
-
-
-
     public boolean touching(EduActor e) {
         //double ex = e.nenneMittelpunktX();
         //double ey = e.nenneMittelpunktY();
@@ -103,14 +89,7 @@ public class tracer extends Rechteck {
             points[z+hm] = new point(-(delx/hm)*(z+1),-(dely/hm)*(z+1));
         }
         points[hm*2] = new point(0,0);
-        /*
-        for (int z=0; z < points.length; z++) {
-            Kreis k = new Kreis(0.1);
-            k.setzeMittelpunkt(nenneMittelpunktX()+points[z].x, nenneMittelpunktY()+points[z].y);
-            k.setzeFarbe("schwarz");
-            k.machePartikel(0.1);
-        }
-        */
+
         boolean bing = false;
         for (point point : points) {
             double thisX = nenneMittelpunktX();
@@ -128,8 +107,4 @@ public class tracer extends Rechteck {
                 Math.pow(a, 2) + Math.pow(b, 2)
         );
     }
-
-
-
-
 }

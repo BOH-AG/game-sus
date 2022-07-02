@@ -1,7 +1,9 @@
 import audio.MusicAudio;
 import audio.SfxAudio;
+import ea.edu.Bild;
 import ea.edu.Rechteck;
 import ea.edu.Spiel;
+import ea.edu.Text;
 import ea.edu.event.BildAktualisierungReagierbar;
 import ea.edu.event.MausKlickReagierbar;
 import ea.edu.event.TastenReagierbar;
@@ -85,7 +87,8 @@ public class game extends Spiel {
             );
             setzeSchwerkraft(0);
             lvl1 = new Lvl1();
-            p1 = new player(6, 5, -15, -11);
+            p1 = new player(6, 5, 10, -15, -11);
+            initPlayerHealthHandler();
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
@@ -132,7 +135,7 @@ public class game extends Spiel {
                     }
                 });
         setzeSchwerkraft(0);
-        p1 = new player(3, 0.6, 0 ,0);
+        p1 = new player(3, 0.6, 10, 0 ,0);
         kills = 0;
         enemyhealth = 1;
         p1.setzeEbenenposition(2);
@@ -370,7 +373,7 @@ public class game extends Spiel {
             );
             tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
             if (t2.touching(p1)) {
-                System.out.println("player takes damage or smth");
+                playerHealthHandler(5);
             }
         }
     }
@@ -388,6 +391,30 @@ public class game extends Spiel {
         tr.entfernen();
         return !aaa;
     }
+
+    Text healthHud;
+    private void initPlayerHealthHandler() {
+        healthHud = new Text(""+p1.getHealth(), 2);
+        //healthHud.setzeFarbe("schwarz");
+        healthHud.setzeMittelpunkt(-20, 10);
+    }
+
+    private void playerHealthHandler(int dmg) {
+        p1.takeDamage(dmg);
+        healthHud.setzeInhalt(""+p1.getHealth());
+        if (p1.getHealth()<1) {
+            death();
+        }
+    }
+
+    private void death() {
+        new Text("you died (fuck you)",5).setzeFarbe("rot");
+        p1.verzoegere(0.3, this::a);
+    }
+    private void a() {
+        throw new RuntimeException();
+    }
+
     void SubMenu1(){
         if (Arrays.asList(nenneSzenennamen()).contains("SM1")) {
             setzeAktiveSzene("SM1");
@@ -414,7 +441,7 @@ public class game extends Spiel {
         }
 
     }
-    void SubMenu3() {
+    void SubMenu3(){
         if (Arrays.asList(nenneSzenennamen()).contains("SM3")) {
             setzeAktiveSzene("SM3");
         } else {
@@ -424,8 +451,6 @@ public class game extends Spiel {
             ms1.subMenu3();
         }
     }
-
-
     void SubMenu4(){
         if (Arrays.asList(nenneSzenennamen()).contains("SM4")) {
             setzeAktiveSzene("SM4");
