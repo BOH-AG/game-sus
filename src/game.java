@@ -27,15 +27,18 @@ public class game extends Spiel {
     int kills;
     Lvl1 lvl1;
     lvl2 lvl2;
+    MusicAudio ma1;
     boolean shooting;
     boolean CBT;
+    boolean sound;
 
 
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
         titleScreen();
-        new MusicAudio("radiation storm", true);
+        sound = true;
+        ma1 = new MusicAudio("radiation storm", true);
     }
 
     void gameScene() {
@@ -291,7 +294,9 @@ public class game extends Spiel {
                     newm[3]
             );
 
-            new SfxAudio("rifle");
+            if (sound == true){
+                new SfxAudio("rifle");
+            }
 
             for (int z = 0; z < Lvl1.enemies.length; z++) {
                 if (t1.touching(Lvl1.enemies[z])) {
@@ -420,7 +425,7 @@ public class game extends Spiel {
     }
 
     private void death() {
-        new Text("you died",5).setzeFarbe("rot");
+        new Text("You died!",5).setzeFarbe("rot");
         p1.verzoegere(0.3, this::a);
     }
     private void a() {
@@ -451,7 +456,7 @@ public class game extends Spiel {
                             if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
                             if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
                             if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) ;
+                            if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) soundHandler();
                         }
 
                     });
@@ -609,6 +614,17 @@ public class game extends Spiel {
 
                     });
 
+        }
+
+    }
+
+    public void soundHandler(){
+        if(sound == true){
+            sound = false;
+            ma1.pause();
+        }else{
+            sound = true;
+            ma1.resume();
         }
 
     }

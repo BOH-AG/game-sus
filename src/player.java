@@ -3,10 +3,14 @@ import ea.actor.StatefulAnimation;
 import ea.edu.Bild;
 import ea.edu.Figur;
 import ea.edu.event.TastenReagierbar;
+import ea.internal.ShapeBuilder;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Supplier;
 
 public class player extends Figur implements TastenReagierbar, damage {
 
@@ -106,14 +110,14 @@ public class player extends Figur implements TastenReagierbar, damage {
         return hp;
     }
 
-    /*
+
     private Supplier<Shape> createCircleSupplier(float diameter) {
         return () -> {
-            return ShapeBuilder.createCircleShape(0,0,diameter);
+            return (Shape) ShapeBuilder.createCircleShape(0,0,diameter);
         };
     }
 
-     */
+
 
 
 
