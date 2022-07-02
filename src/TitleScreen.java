@@ -1,4 +1,3 @@
-import ea.FrameUpdateListener;
 import ea.edu.Bild;
 import ea.edu.Figur;
 
@@ -12,11 +11,6 @@ public class TitleScreen {
 
     TitleScreen(){
 
-        /*Rechteck button[] = new Rechteck[2];
-        button[0] = new Rechteck(6, 1.5);
-        button[0].setzeMittelpunkt(0, 0);
-        button[1] = new Rechteck(6, 1.5);
-        button[1].setzeMittelpunkt(0, 2);*/
         playButton = new Figur("button", "rsc/play.gif");
         playButton.setzeMittelpunkt(0, 3);
 

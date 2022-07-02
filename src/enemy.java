@@ -1,8 +1,6 @@
-import ea.FrameUpdateListener;
 import ea.edu.Figur;
 import ea.edu.Bild;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;

@@ -1,9 +1,8 @@
 
 
-import ea.FrameUpdateListener;
 import ea.edu.Bild;
 import ea.edu.Text;
-import ea.edu.event.MausKlickReagierbar;
+
 
 public class button extends Bild {
 

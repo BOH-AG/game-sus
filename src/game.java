@@ -1,6 +1,5 @@
 import audio.MusicAudio;
 import audio.SfxAudio;
-import ea.edu.Bild;
 import ea.edu.Rechteck;
 import ea.edu.Spiel;
 import ea.edu.Text;
@@ -16,11 +15,11 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
-import menu.*;
+
 
 public class game extends Spiel {
 
-    public MenuScene menuScene;
+
     tracer t1;
     player p1;
     enemy[] enemies;
@@ -170,9 +169,6 @@ public class game extends Spiel {
             );
 
             MenuScene ms1 = new MenuScene();
-            subMenu1 sm1 = new subMenu1();
-            subMenu2 sm2 = new subMenu2();
-            subMenu3 sm3 = new subMenu3();
 
             MausKlickReagierbar dieSendungMitDer;
             registriereMausKlickReagierbar(

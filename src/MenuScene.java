@@ -1,6 +1,4 @@
-import ea.edu.Figur;
 
-import java.util.Arrays;
 
 public class MenuScene  {
 
