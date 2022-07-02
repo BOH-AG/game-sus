@@ -22,6 +22,7 @@ final class AudioMatrix {
         map2 = new HashMap<>();
 
         map2.put("rifle"                 , "rsc/sfx/rifleshot.mp3");
+        map2.put("pistol"                , "rsc/sfx/pistolshot.mp3");
     }
 
     public String get(String track, boolean music) {

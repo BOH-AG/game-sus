@@ -29,23 +29,25 @@ public class game extends Spiel {
     lvl2 lvl2;
     boolean shooting;
     boolean CBT;
+    MusicAudio lvlMusic;
+    MusicAudio titleMusic;
 
 
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
         titleScreen();
-        new MusicAudio("radiation storm", true);
     }
 
     void gameScene() {
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
+            lvlMusic.resume();
         }
         else {
             erzeugeNeueSzene();
             benenneAktiveSzene("gameScene");
-
+            lvlMusic = new MusicAudio("license to kill", true);
             registriereMausKlickReagierbar(
                     new MausKlickReagierbar() {
                         @Override
@@ -72,7 +74,10 @@ public class game extends Spiel {
                     new TastenReagierbar() {
                         @Override
                         public void tasteReagieren(int key) {
-                            if (key == KeyEvent.VK_M) menuScene();
+                            if (key == KeyEvent.VK_M) {
+                                lvlMusic.pause();
+                                menuScene();
+                            }
                             if(key == KeyEvent.VK_Y) lvl2();
 
                         }
@@ -154,16 +159,18 @@ public class game extends Spiel {
         //ersellt eine neue szene und ruft die menü szene auf
         if (Arrays.asList(nenneSzenennamen()).contains("menuScene")) {
             setzeAktiveSzene("menuScene");
+            titleMusic.resume();
         }
         else {
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
-
+            titleMusic.resume();
             registriereTastenReagierbar(
                     new TastenReagierbar() {
                         @Override
                         public void tasteReagieren(int key) {
                             if (key == KeyEvent.VK_M) {
+                                titleMusic.pause();
                                 gameScene();
                             }
                         }
@@ -179,7 +186,10 @@ public class game extends Spiel {
                         public void klickReagieren(double x, double y) {
                             System.out.println(x + "     " + y);
 
-                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                            if (ms1.menuButton[0].beinhaltetPunkt(x,y)) {
+                                titleMusic.pause();
+                                gameScene();
+                            }
                             if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                             if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                             if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -197,9 +207,11 @@ public class game extends Spiel {
         //benennt die aktive szene und ruft den titleScreen auf
         if (Arrays.asList(nenneSzenennamen()).contains("title")) {
             setzeAktiveSzene("title");
+            titleMusic.resume();
         } else {
             benenneAktiveSzene("title");
             TitleScreen ts = new TitleScreen();
+            titleMusic = new MusicAudio("radiation storm", true);
             registriereMausKlickReagierbar(
                     new MausKlickReagierbar() {
                         @Override
@@ -207,6 +219,7 @@ public class game extends Spiel {
                             System.out.println(x + "     " + y);
 
                             if (ts.playButton.beinhaltetPunkt(x, y)) {
+                                titleMusic.pause();
                                 gameScene();
                             }
                             if (ts.bohLogo.beinhaltetPunkt(x, y)) {
@@ -220,6 +233,7 @@ public class game extends Spiel {
 
                             }
                             if (ts.settingsButton.beinhaltetPunkt(x,y)){
+                                titleMusic.pause();
                                 menuScene();
                             }
 

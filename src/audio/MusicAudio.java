@@ -11,32 +11,44 @@ public class MusicAudio {
     Thread curThread;
     FileInputStream fis;
     AdvancedPlayer audio;
+    AudioMatrix am;
 
     public MusicAudio(String track, boolean looped) {
-        AudioMatrix am = new AudioMatrix();
+        am = new AudioMatrix();
         try {
-            fis = new FileInputStream(am.get(track, true));
-            audio = new AdvancedPlayer(fis);
-            curThread = new Thread(
-                    () -> {try {
-                        audio.play();
-                        if (looped) {
-                            audio.setPlayBackListener(
-                                    new PlaybackListener() {
-                                        @Override
-                                        public void playbackFinished(PlaybackEvent playbackEvent) {
-                                            super.playbackFinished(playbackEvent);
-                                            try {audio.play();} catch (Exception e) {e.printStackTrace();}
-                                        }
-                                    }
-                            );
-                        }
-                    } catch (Exception ignored) {}}
-            );
-            curThread.start();
+            if (looped) createLoopedMusic(track);
+            else createMusic(track);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception ignored) {}
     }
+
+    private void createMusic(String track) throws Exception {
+        fis = new FileInputStream(am.get(track, true));
+        audio = new AdvancedPlayer(fis);
+        curThread = new Thread(() -> {
+            try {audio.play();} catch (Exception e) {e.printStackTrace();}
+        });
+        curThread.start();
+    }
+
+    private void createLoopedMusic(String track) throws Exception {
+        fis = new FileInputStream(am.get(track, true));
+        audio = new AdvancedPlayer(fis);
+        curThread = new Thread(() -> {
+            try {audio.play();} catch (Exception e) {e.printStackTrace();}
+        });
+        curThread.start();
+        audio.setPlayBackListener(new PlaybackListener() {
+            @Override
+            public void playbackFinished(PlaybackEvent evt) {
+                super.playbackFinished(evt);
+                curThread = null;
+                try {createLoopedMusic(track);} catch (Exception e) {e.printStackTrace();}
+            }
+        });
+    }
+
 
     public void pause() {
         curThread.suspend();
