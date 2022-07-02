@@ -1,5 +1,3 @@
-
-
 import ea.edu.Bild;
 import ea.edu.Text;
 

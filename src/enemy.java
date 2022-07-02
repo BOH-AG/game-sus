@@ -19,16 +19,6 @@ public class enemy extends Figur implements damage {
         health = h;
         dead = false;
         bloodPuddles = new ArrayList<>();
-        /*setzeMittelpunkt(
-            ThreadLocalRandom.current().nextDouble(-25,25),
-            ThreadLocalRandom.current().nextDouble(-10,10)
-        );
-        animiereGerade(
-            ThreadLocalRandom.current().nextDouble(0.2,1),
-            ThreadLocalRandom.current().nextDouble(-5,5),
-            ThreadLocalRandom.current().nextDouble(-5,5),
-            true
-        );*/
     }
 
     @Override
@@ -48,7 +38,6 @@ public class enemy extends Figur implements damage {
         }
     }
 
-
     private void blood() {
         bloodPuddles.add(new Bild(
                 ThreadLocalRandom.current().nextDouble(2, 2.6),
@@ -62,19 +51,9 @@ public class enemy extends Figur implements damage {
         b.verzoegere(10, b::entfernen);
     }
 
-
     public void kill() {
         health = 0;
         dead = true;
         setzeZustand("dead");
-        /*
-        pausiereAnimation(true);
-        setzeWinkelgeschwindigkeit(5);
-        machePartikel(2);
-        macheSensor();
-        setzeGeschwindigkeit(
-            ThreadLocalRandom.current().nextDouble(-20,20),
-            ThreadLocalRandom.current().nextDouble(-20,20)
-        );*/
     }
 }

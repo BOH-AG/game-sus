@@ -18,8 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class game extends Spiel {
-
-
     tracer t1;
     player p1;
     enemy[] enemies;
