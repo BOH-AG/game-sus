@@ -456,7 +456,15 @@ public class game extends Spiel {
                             if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
                             if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
                             if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                            if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) soundHandler();
+                            if (ms1.sub1Button[0].beinhaltetPunkt(x,y)){
+                                if(sound == true){
+                                    ms1.sub1Button[0] = new button(-10, 5, "Enable", "green") ;
+                                }else{
+                                    ms1.sub1Button[0] = new button(-10, 5, "Disable", "red");
+                                }
+                                soundHandler();
+
+                            }
                         }
 
                     });
