@@ -33,8 +33,8 @@ public class game extends Spiel {
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
-        m[0] = new MusicAudio("license to kill", true);
-        m[1] = new MusicAudio("deadly force", true);
+        m[1] = new MusicAudio("license to kill", true);
+        m[0] = new MusicAudio("deadly force", true);
         sound = true;
         for (int i = 0; i < m.length; i++) {
             m[i].pause();
