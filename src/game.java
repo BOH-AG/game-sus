@@ -256,7 +256,7 @@ public class game extends Spiel {
                     newm[3]
             );
 
-            new SfxAudio("rifle");
+            if (sound) new SfxAudio("rifle");
 
             for (int z = 0; z < Lvl1.enemies.length; z++) {
                 if (t1.touching(Lvl1.enemies[z])) {
@@ -326,6 +326,8 @@ public class game extends Spiel {
         double ty = p1.nenneMittelpunktY();
 
         if (enemyLineOfSight(lvl1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+
+            if (sound) new SfxAudio("pistol");
 
             double absSpread = tracer.pyth(ex-tx,ey-ty) * Math.atan(Math.toRadians(spread));
             double[] newm = checkWalls(
@@ -556,11 +558,8 @@ public class game extends Spiel {
             String s = getActiveScene().getName();
             System.out.println(s);
             switch (s) {
-                case "gameScene": m[2].resume(); break;
-                case "lvl2Scene": m[2].resume(); break;
-                case "menuScene": m[1].resume(); break;
-                case "titleScene": m[1].resume(); break;
-                default: {break;}
+                case "gameScene", "lvl2Scene" -> m[2].resume();
+                case "menuScene", "titleScene" -> m[1].resume();
             }
         }
 
