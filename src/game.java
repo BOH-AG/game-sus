@@ -34,7 +34,7 @@ public class game extends Spiel {
         super();
         setzeFensterGroesse(width, height);
         m[0] = new MusicAudio("license to kill", true);
-        m[1] = new MusicAudio("radiation storm", true);
+        m[1] = new MusicAudio("deadly force", true);
         sound = true;
         for (int i = 0; i < m.length; i++) {
             m[i].pause();
@@ -43,15 +43,13 @@ public class game extends Spiel {
     }
 
     void gameScene() {
-        soundHandler(0);
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
-            lvlMusic.resume();
         }
         else {
             erzeugeNeueSzene();
             benenneAktiveSzene("gameScene");
-            lvlMusic = new MusicAudio("license to kill", true);
+            soundHandler(0);
             registriereMausKlickReagierbar(
                     new MausKlickReagierbar() {
                         @Override
@@ -74,7 +72,6 @@ public class game extends Spiel {
             registriereTastenReagierbar(
                     key -> {
                         if (key == KeyEvent.VK_M) {
-                            lvlMusic.pause();
                             menuScene();
                         }
                         if(key == KeyEvent.VK_Y) lvl2();
@@ -146,20 +143,17 @@ public class game extends Spiel {
     }
 
     void menuScene(){
-        soundHandler(0);
         //ersellt eine neue szene und ruft die menü szene auf
         if (Arrays.asList(nenneSzenennamen()).contains("menuScene")) {
             setzeAktiveSzene("menuScene");
-            titleMusic.resume();
+            soundHandler(0);
         }
         else {
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
-            titleMusic.resume();
             registriereTastenReagierbar(
                     key -> {
                         if (key == KeyEvent.VK_M) {
-                            titleMusic.pause();
                             gameScene();
                         }
                     }
@@ -172,7 +166,6 @@ public class game extends Spiel {
                         System.out.println(x + "     " + y);
 
                         if (ms1.menuButton[0].beinhaltetPunkt(x,y)) {
-                            titleMusic.pause();
                             gameScene();
                         }
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
@@ -187,21 +180,20 @@ public class game extends Spiel {
     }
 
     void titleScreen(){
-        soundHandler(0);
         //benennt die aktive szene und ruft den titleScreen auf
-        if (Arrays.asList(nenneSzenennamen()).contains("title")) {
-            setzeAktiveSzene("title");
-            titleMusic.resume();
+        if (Arrays.asList(nenneSzenennamen()).contains("titleScene")) {
+            setzeAktiveSzene("titleScene");
+            soundHandler(0);
+
         } else {
-            benenneAktiveSzene("title");
+            benenneAktiveSzene("titleScene");
+            soundHandler(0);
             TitleScreen ts = new TitleScreen();
-            titleMusic = new MusicAudio("radiation storm", true);
             registriereMausKlickReagierbar(
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
                         if (ts.playButton.beinhaltetPunkt(x, y)) {
-                            titleMusic.pause();
                             gameScene();
                         }
                         if (ts.bohLogo.beinhaltetPunkt(x, y)) {
@@ -215,7 +207,6 @@ public class game extends Spiel {
 
                         }
                         if (ts.settingsButton.beinhaltetPunkt(x,y)){
-                            titleMusic.pause();
                             menuScene();
                         }
 
@@ -579,14 +570,14 @@ public class game extends Spiel {
             m[j].pause();
         }
         if(sound){
-            String s = String.valueOf(getActiveScene().getName());
+            String s = getActiveScene().getName();
             System.out.println(s);
             switch (s) {
-                case "gameScene" -> m[0].resume();
-                case "lvl2Scene" -> m[0].resume();
-                case "menuScene" -> m[1].resume();
-                case "ea.edu.internal.EduScene@380fb434" -> m[1].resume();
-                default -> {}
+                case "gameScene": m[0].resume(); break;
+                case "lvl2Scene": m[0].resume(); break;
+                case "menuScene": m[1].resume(); break;
+                case "titleScene": m[1].resume(); break;
+                default: {break;}
             }
         }
 
