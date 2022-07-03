@@ -34,7 +34,7 @@ public class game extends Spiel {
         super();
         setzeFensterGroesse(width, height);
         m[1] = new MusicAudio("license to kill", true);
-        m[0] = new MusicAudio("deadly force", true);
+        m[0] = new MusicAudio("radiation force", true);
         sound = true;
         for (int i = 0; i < m.length; i++) {
             m[i].pause();
@@ -45,6 +45,7 @@ public class game extends Spiel {
     void gameScene() {
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
+            soundHandler(0);
         }
         else {
             erzeugeNeueSzene();
@@ -151,6 +152,7 @@ public class game extends Spiel {
         else {
             erzeugeNeueSzene();
             benenneAktiveSzene("menuScene");
+            soundHandler(0);
             registriereTastenReagierbar(
                     key -> {
                         if (key == KeyEvent.VK_M) {
@@ -573,10 +575,10 @@ public class game extends Spiel {
             String s = getActiveScene().getName();
             System.out.println(s);
             switch (s) {
-                case "gameScene": m[0].resume(); break;
-                case "lvl2Scene": m[0].resume(); break;
-                case "menuScene": m[1].resume(); break;
-                case "titleScene": m[1].resume(); break;
+                case "gameScene": m[1].resume(); break;
+                case "lvl2Scene": m[1].resume(); break;
+                case "menuScene": m[0].resume(); break;
+                case "titleScene": m[0].resume(); break;
                 default: {break;}
             }
         }
