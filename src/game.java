@@ -27,7 +27,7 @@ public class game extends Spiel {
     boolean sound;
     MusicAudio lvlMusic;
     MusicAudio titleMusic;
-    MusicAudio[] m = new MusicAudio[2];
+    MusicAudio[] m = new MusicAudio[3];
 
 
     public game(int width, int height) {
@@ -35,6 +35,7 @@ public class game extends Spiel {
         setzeFensterGroesse(width, height);
         m[1] = new MusicAudio("license to kill", true);
         m[0] = new MusicAudio("license to kill", true);
+        m[2] = new MusicAudio("radiation storm", true);
         sound = true;
         for (int i = 0; i < m.length; i++) {
             m[i].pause();
@@ -575,10 +576,10 @@ public class game extends Spiel {
             String s = getActiveScene().getName();
             System.out.println(s);
             switch (s) {
-                case "gameScene": m[1].resume(); break;
-                case "lvl2Scene": m[1].resume(); break;
-                case "menuScene": m[0].resume(); break;
-                case "titleScene": m[0].resume(); break;
+                case "gameScene": m[2].resume(); break;
+                case "lvl2Scene": m[2].resume(); break;
+                case "menuScene": m[1].resume(); break;
+                case "titleScene": m[1].resume(); break;
                 default: {break;}
             }
         }

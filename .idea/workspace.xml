@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="storm">
-      <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="wieso???????????">
+      <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656873236999</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="wieso???????????">
+      <created>1656874149927</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1656874149927</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,7 +399,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="import clean" />
     <MESSAGE value="clean" />
     <MESSAGE value="scene" />
     <MESSAGE value="sound2" />
@@ -417,6 +423,7 @@
     <MESSAGE value="bbbbbbb" />
     <MESSAGE value="sus sound" />
     <MESSAGE value="storm" />
-    <option name="LAST_COMMIT_MESSAGE" value="storm" />
+    <MESSAGE value="wieso???????????" />
+    <option name="LAST_COMMIT_MESSAGE" value="wieso???????????" />
   </component>
 </project>
