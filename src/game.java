@@ -34,7 +34,7 @@ public class game extends Spiel {
         super();
         setzeFensterGroesse(width, height);
         m[1] = new MusicAudio("license to kill", true);
-        m[0] = new MusicAudio("radiation force", true);
+        m[0] = new MusicAudio("radiation storm", true);
         sound = true;
         for (int i = 0; i < m.length; i++) {
             m[i].pause();
