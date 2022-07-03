@@ -27,16 +27,23 @@ public class game extends Spiel {
     boolean sound;
     MusicAudio lvlMusic;
     MusicAudio titleMusic;
+    MusicAudio[] m = new MusicAudio[2];
 
 
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
-        titleScreen();
+        m[0] = new MusicAudio("license to kill", true);
+        m[1] = new MusicAudio("radiation storm", true);
         sound = true;
+        for (int i = 0; i < m.length; i++) {
+            m[i].pause();
+        }
+        titleScreen();
     }
 
     void gameScene() {
+        soundHandler(0);
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
             lvlMusic.resume();
@@ -90,6 +97,7 @@ public class game extends Spiel {
     }
 
     void lvl2(){
+        soundHandler(0);
         if (Arrays.asList(nenneSzenennamen()).contains("lvl2Scene")) { //check if gameScene exists
             setzeAktiveSzene("lvl2Scene");
         }
@@ -138,6 +146,7 @@ public class game extends Spiel {
     }
 
     void menuScene(){
+        soundHandler(0);
         //ersellt eine neue szene und ruft die menü szene auf
         if (Arrays.asList(nenneSzenennamen()).contains("menuScene")) {
             setzeAktiveSzene("menuScene");
@@ -178,6 +187,7 @@ public class game extends Spiel {
     }
 
     void titleScreen(){
+        soundHandler(0);
         //benennt die aktive szene und ruft den titleScreen auf
         if (Arrays.asList(nenneSzenennamen()).contains("title")) {
             setzeAktiveSzene("title");
@@ -429,6 +439,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
                         if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
+                        if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) soundHandler(1);
                     });
 
 
@@ -561,14 +572,27 @@ public class game extends Spiel {
 
     }
 
-    public void soundHandler(){
-        if (sound){
-            sound = false;
-            //ma1.pause();
-        } else {
-            sound = true;
-            //ma1.resume();
+    public void soundHandler(int i){
+
+        if(i == 1) sound = !sound;
+        for (int j = 0; j < m.length; j++) {
+            m[j].pause();
         }
+        if(sound){
+            String s = String.valueOf(getActiveScene().getName());
+            System.out.println(s);
+            switch (s) {
+                case "gameScene" -> m[0].resume();
+                case "lvl2Scene" -> m[0].resume();
+                case "menuScene" -> m[1].resume();
+                case "ea.edu.internal.EduScene@380fb434" -> m[1].resume();
+                default -> {}
+            }
+        }
+
+
+
+
 
     }
 
