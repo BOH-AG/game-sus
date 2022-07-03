@@ -33,12 +33,12 @@ public class game extends Spiel {
     public game(int width, int height) {
         super();
         setzeFensterGroesse(width, height);
-        m[1] = new MusicAudio("license to kill", true);
-        m[0] = new MusicAudio("license to kill", true);
-        m[2] = new MusicAudio("radiation storm", true);
+        m[1] = new MusicAudio("lucas traene", true);
+        m[0] = new MusicAudio("lucas traene", true);
+        m[2] = new MusicAudio("license to kill", true);
         sound = true;
-        for (int i = 0; i < m.length; i++) {
-            m[i].pause();
+        for (MusicAudio musicAudio : m) {
+            musicAudio.pause();
         }
         titleScreen();
     }
@@ -217,19 +217,6 @@ public class game extends Spiel {
 
 
                     });
-            /*
-            BildAktualisierungReagierbar frameUpdate;
-            registriereBildAktualisierungReagierbar(
-                    frameUpdate = new BildAktualisierungReagierbar() {
-                        @Override
-                        public void bildAktualisierungReagieren(double v) { // tick() but for cool kids B)
-                            if (ts.background.nenneMittelpunktX() <= -21.3) {
-                                ts.background.setzeMittelpunkt(21.3, 0);
-                            }
-                        }
-                    });
-
-             */
             registriereTicker(
                     (1/30d),
                     () -> {
@@ -254,13 +241,6 @@ public class game extends Spiel {
             double py = p1.nenneMittelpunktY();
             fireLatency +=1;
             t1 = null;
-            /*double[] newm = checkWalls(
-                    x + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
-                    y + ThreadLocalRandom.current().nextDouble(-bulletSpread, bulletSpread),
-                    p1.nenneMittelpunktX(),
-                    p1.nenneMittelpunktY(),
-                    lvl1.walls
-            );*/
             double absSpread = tracer.pyth(px-x,py-y) * Math.atan(Math.toRadians(bulletSpread));
             double[] newm = checkWalls(
                     x + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
@@ -569,8 +549,8 @@ public class game extends Spiel {
     public void soundHandler(int i){
 
         if(i == 1) sound = !sound;
-        for (int j = 0; j < m.length; j++) {
-            m[j].pause();
+        for (MusicAudio musicAudio : m) {
+            musicAudio.pause();
         }
         if(sound){
             String s = getActiveScene().getName();

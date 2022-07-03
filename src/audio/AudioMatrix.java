@@ -12,6 +12,7 @@ final class AudioMatrix {
         map1 = new HashMap<>();
 
         map1.put("radiation storm"       , "rsc/music/WBA-Radiation Storm-cut.mp3");
+        map1.put("lucas traene"          , "rsc/music/WBA-Radiation Storm-cut.mp3");
         map1.put("license to kill"       , "rsc/music/WBA-License to Kill.mp3");
         map1.put("eternal night"         , "rsc/music/WBA-Eternal Night.mp3");
         map1.put("deadly force"          , "rsc/music/WBA-Deadly Force.mp3");
