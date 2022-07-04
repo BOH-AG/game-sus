@@ -23,7 +23,7 @@ public class MenuScene  {
 
        menuButton[0] = new button(-18,10, "Game");
        menuButton[1] = new button(-18,7, "Sound");
-       menuButton[2] = new button(-18,4, "Baby Mode");
+       menuButton[2] = new button(-18,4, "CBT");
        menuButton[3] = new button(-18,1, "void");
        menuButton[4] = new button(-18,-2, "Graphics");
        menuButton[5] = new button(-18,-5, "Difficulty");
@@ -36,8 +36,8 @@ public class MenuScene  {
     public void subMenu1(){
 
 
-            del();
-            sub1Button = new button[2];
+
+            sub1Button = new button[1];
 
             sub1Button[0] = new button(-10, 3, "Disable", "red");
             sub1Button[1] = new button(-10, 5, "Enable", "green");
