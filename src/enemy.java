@@ -9,6 +9,8 @@ public class enemy extends Figur implements damage {
 
     public int health;
     public boolean dead;
+    boolean blood;
+
     List<Bild> bloodPuddles;
      enemy(int h) {
 
@@ -19,6 +21,7 @@ public class enemy extends Figur implements damage {
         health = h;
         dead = false;
         bloodPuddles = new ArrayList<>();
+        blood = true;
     }
 
     @Override
@@ -42,7 +45,7 @@ public class enemy extends Figur implements damage {
             bloodPuddles.add(new Bild(
                     ThreadLocalRandom.current().nextDouble(2, 2.6),
                     ThreadLocalRandom.current().nextDouble(2, 2.6),
-                    "rsc/blood.png"
+                    getBlood()
             ));
 
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);
@@ -56,5 +59,10 @@ public class enemy extends Figur implements damage {
         health = 0;
         dead = true;
         setzeZustand("dead");
+    }
+
+    private String getBlood() {
+        if (blood) return "rsc/blood.png";
+        else return "rsc/blood_blue.png";
     }
 }

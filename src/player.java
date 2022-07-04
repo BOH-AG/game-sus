@@ -20,6 +20,7 @@ public class player extends Figur implements TastenReagierbar, damage {
     boolean menu;
     public int fireRate;
     public double bulletSpread;
+    public boolean blood;
     int hp;
     final int maxhp;
     double speed;
@@ -38,6 +39,7 @@ public class player extends Figur implements TastenReagierbar, damage {
         setzeEbenenposition(10);
         maxhp = Hp;
         hp = Hp;
+        blood = true;
     }
 
     @Override
@@ -98,7 +100,11 @@ public class player extends Figur implements TastenReagierbar, damage {
 
     List<Bild> bloodPuddles;
     private void blood() {
-        bloodPuddles.add(new Bild(2.2,2.2, "rsc/blood.png"));
+        bloodPuddles.add(new Bild(
+                ThreadLocalRandom.current().nextDouble(2, 2.6),
+                ThreadLocalRandom.current().nextDouble(2, 2.6),
+                getBlood())
+        );
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);
         b.setzeDrehwinkel(ThreadLocalRandom.current().nextInt(360));
         b.setzeMittelpunkt((float)nenneMittelpunktX(), (float)nenneMittelpunktY());
@@ -115,6 +121,11 @@ public class player extends Figur implements TastenReagierbar, damage {
         return () -> {
             return (Shape) ShapeBuilder.createCircleShape(0,0,diameter);
         };
+    }
+
+    private String getBlood() {
+        if (blood) return "rsc/blood.png";
+        else return "rsc/blood_blue.png";
     }
 
 

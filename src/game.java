@@ -25,8 +25,8 @@ public class game extends Spiel {
     boolean shooting;
     boolean CBT;
     boolean sound;
-    MusicAudio[] m = new MusicAudio[3];
     boolean blood;
+    MusicAudio[] m = new MusicAudio[3];
 
 
     public game(int width, int height) {
@@ -40,12 +40,14 @@ public class game extends Spiel {
             musicAudio.pause();
         }
         titleScreen();
+        blood = true;
     }
 
     void gameScene() {
         if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
             setzeAktiveSzene("gameScene");
             soundHandler(0);
+            setBlood(blood);
         }
         else {
             erzeugeNeueSzene();
@@ -86,6 +88,7 @@ public class game extends Spiel {
             setzeSchwerkraft(0);
             lvl1 = new Lvl1();
             p1 = new player(6, 5, 10, -15, -11);
+            setBlood(blood);
             initPlayerHealthHandler();
             kills = 0;
             p1.setzeEbenenposition(10);
@@ -442,8 +445,8 @@ public class game extends Spiel {
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
                         if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                        if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) blood=true;
-                        if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) blood=false;
+                        if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) blood = true;
+                        if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) blood = false;
                     });
         }
 
@@ -571,6 +574,13 @@ public class game extends Spiel {
         }
         catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void setBlood(boolean bld) {
+        p1.blood = bld;
+        for (enemy e : Lvl1.enemies) {
+            e.blood = bld;
         }
     }
 
