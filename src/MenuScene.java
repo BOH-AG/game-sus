@@ -36,7 +36,7 @@ public class MenuScene  {
     public void subMenu1(){
 
 
-            del();
+
             sub1Button = new button[1];
 
             sub1Button[0] = new button(-10, 5, "Disable", "red");
@@ -46,7 +46,7 @@ public class MenuScene  {
     }
     public void subMenu2(){
 
-        del();
+
         sub2Button = new button[2];
 
             sub2Button[0] = new button(-10,7,"OFF","red");
@@ -57,27 +57,30 @@ public class MenuScene  {
     }
     public void subMenu3(){
 
-        del();
+
 
         sub3Button = new button[1];
 
-        sub3Button[0] = new button(-10,7,"rsc/play.gif3");
+        sub3Button[0] = new button(-10,7,"void");
 
         s3 = true;
     }
     public void subMenu4(){
 
-        del();
 
-        sub4Button = new button[1];
 
-        sub4Button[0] = new button(-10,7,"rsc/play.gif4");
+        sub4Button = new button[4];
+
+        sub4Button[0] = new button(-10,7,"Easy");
+        sub4Button[1] = new button(-10,7,"MID");
+        sub4Button[2] = new button(-10,7,"Hard");
+        sub4Button[3] = new button(-10,7,"Fucking die");
 
         s4 = true;
     }
     public void subMenu5(){
 
-        del();
+
 
         sub5Button = new button[1];
 
@@ -88,7 +91,7 @@ public class MenuScene  {
     }
     public void subMenu6(){
 
-        del();
+
 
         sub6Button = new button[1];
 
@@ -96,11 +99,7 @@ public class MenuScene  {
 
         s6 = true;
     }
-    public void del(){
 
-        //löscht alle anderen aktiven sub meus
-
-    }
 
 
 }
