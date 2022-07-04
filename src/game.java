@@ -93,6 +93,7 @@ public class game extends Spiel {
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
+            p1.skaliere(2);
         }
     }
 
