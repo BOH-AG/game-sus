@@ -25,8 +25,6 @@ public class game extends Spiel {
     boolean shooting;
     boolean CBT;
     boolean sound;
-    MusicAudio lvlMusic;
-    MusicAudio titleMusic;
     MusicAudio[] m = new MusicAudio[3];
 
 
@@ -416,6 +414,8 @@ public class game extends Spiel {
                         if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                         if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) soundHandler(1);
+                        if (ms1.sub1Button[1].beinhaltetPunkt(x,y)) soundHandler(2);
+
                     });
 
 
@@ -550,7 +550,8 @@ public class game extends Spiel {
 
     public void soundHandler(int i){
 
-        if(i == 1) sound = !sound;
+        if(i == 1) sound = false;
+        if(i == 2) sound = true;
         for (MusicAudio musicAudio : m) {
             musicAudio.pause();
         }
