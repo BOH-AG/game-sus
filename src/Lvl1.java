@@ -2,7 +2,6 @@ import ea.edu.Figur;
 import ea.edu.Rechteck;
 
 public class Lvl1{
-
     public static enemy[] enemies;
     public Rechteck[] walls;
     public Rechteck[] boundry;

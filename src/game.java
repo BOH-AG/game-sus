@@ -26,6 +26,7 @@ public class game extends Spiel {
     boolean CBT;
     boolean sound;
     MusicAudio[] m = new MusicAudio[3];
+    boolean blood;
 
 
     public game(int width, int height) {
@@ -75,7 +76,6 @@ public class game extends Spiel {
                             menuScene();
                         }
                         if(key == KeyEvent.VK_Y) lvl2();
-
                     });
             registriereTicker(0.2,
                     () -> {
@@ -174,7 +174,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
@@ -411,7 +411,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                         if (ms1.sub1Button[0].beinhaltetPunkt(x,y)) soundHandler(1);
                         if (ms1.sub1Button[1].beinhaltetPunkt(x,y)) soundHandler(2);
@@ -440,10 +440,10 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                        if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) CBT=true;
-                        if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) CBT=false;
+                        if (ms1.sub2Button[0].beinhaltetPunkt(x,y)) blood=true;
+                        if (ms1.sub2Button[1].beinhaltetPunkt(x,y)) blood=false;
                     });
         }
 
@@ -466,7 +466,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
@@ -490,7 +490,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
@@ -515,7 +515,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
         }
@@ -540,7 +540,7 @@ public class game extends Spiel {
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
                         if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
                         if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) SubMenu6();
+                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
                         if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
                     });
 
@@ -563,11 +563,15 @@ public class game extends Spiel {
                 case "menuScene", "titleScene" -> m[1].resume();
             }
         }
+    }
 
-
-
-
-
+    public void donations(){
+        try {
+            java.awt.Desktop.getDesktop().browse(new URI("https://www.theboh.de/donations"));
+        }
+        catch (IOException | URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

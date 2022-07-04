@@ -39,11 +39,12 @@ public class enemy extends Figur implements damage {
     }
 
     private void blood() {
-        bloodPuddles.add(new Bild(
-                ThreadLocalRandom.current().nextDouble(2, 2.6),
-                ThreadLocalRandom.current().nextDouble(2, 2.6),
-                "rsc/blood.png"
-        ));
+            bloodPuddles.add(new Bild(
+                    ThreadLocalRandom.current().nextDouble(2, 2.6),
+                    ThreadLocalRandom.current().nextDouble(2, 2.6),
+                    "rsc/blood.png"
+            ));
+
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);
         b.setzeDrehwinkel(ThreadLocalRandom.current().nextInt(360));
         b.setzeMittelpunkt((float)nenneMittelpunktX(), (float)nenneMittelpunktY());
