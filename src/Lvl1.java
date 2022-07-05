@@ -68,6 +68,7 @@ public class Lvl1{
         for (Rechteck bound: boundry) {
             bound.setzeEbenenposition(-1);
             bound.macheStatisch();
+            bound.setzeSichtbar(false);
 
         }
         for (Rechteck wall : walls) {

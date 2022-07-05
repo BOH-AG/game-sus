@@ -20,6 +20,7 @@ public class game extends Spiel {
     int kills;
     Lvl1 lvl1;
     Lvl2 lvl2;
+    Lvl3 lvl3;
     int lvl;
     boolean shooting;
     boolean CBT;
@@ -34,6 +35,7 @@ public class game extends Spiel {
         m[1] = new MusicAudio("lucas traene", true);
         m[0] = new MusicAudio("lucas traene", true);
         m[2] = new MusicAudio("license to kill", true);
+        setzeRasterSichtbar(true);
         sound = true;
         lvl = 0;
         for (MusicAudio musicAudio : m) {
@@ -72,6 +74,7 @@ public class game extends Spiel {
                         if (shooting) {
                             shoot(p1.fireRate, p1.bulletSpread);
                         }
+                        if(kills == 2 && p1.nenneMittelpunktX() >= 18) level2();
                     });
             registriereTastenReagierbar(
                     key -> {
@@ -126,6 +129,61 @@ public class game extends Spiel {
                         if (shooting) {
                             shoot(p1.fireRate, p1.bulletSpread);
                         }
+                        if(kills == 3 && p1.nenneMittelpunktX() >= 18) level3();
+                    });
+            registriereTastenReagierbar(
+                    key -> {
+                        if (key == KeyEvent.VK_M) {
+                            menuScene();
+                        }
+                        if (key == KeyEvent.VK_Y) level3();
+                    });
+            registriereTicker(0.2,
+                    () -> {
+                        ai();
+                        playerHealTick();
+                    }
+            );
+            setzeSchwerkraft(0);
+            lvl2 = new Lvl2();
+            p1 = new player(6, 5, 10, -18, 7);
+            setBlood(blood);
+            initPlayerHealthHandler();
+            kills = 0;
+            p1.setzeEbenenposition(10);
+            p1.macheDynamisch();
+            p1.skaliere(1.7);
+        }
+    }
+
+    void level3() {
+        lvl ++;
+        if (Arrays.asList(nenneSzenennamen()).contains("lvl3Scene")) { //check if lvl1Scene exists
+            setzeAktiveSzene("lvl3Scene");
+            soundHandler(0);
+            setBlood(blood);
+        } else {
+            erzeugeNeueSzene();
+            benenneAktiveSzene("lvl3Scene");
+            soundHandler(0);
+            registriereMausKlickReagierbar(
+                    new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double v, double v1) {
+                            shooting = true;
+                        }
+
+                        @Override
+                        public void klickLosgelassenReagieren(double x, double y) {
+                            shooting = false;
+                            fireLatency = 0;
+                        }
+                    });
+            registriereBildAktualisierungReagierbar(
+                    v -> { // tick() but for cool kids B)
+                        if (shooting) {
+                            shoot(p1.fireRate, p1.bulletSpread);
+                        }
                     });
             registriereTastenReagierbar(
                     key -> {
@@ -141,7 +199,7 @@ public class game extends Spiel {
                     }
             );
             setzeSchwerkraft(0);
-            lvl2 = new Lvl2();
+            lvl3 = new Lvl3();
             p1 = new player(6, 5, 10, -18, 7);
             setBlood(blood);
             initPlayerHealthHandler();
@@ -176,9 +234,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) {
-                            level1();
-                        }
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -191,6 +247,7 @@ public class game extends Spiel {
     }
 
     void titleScreen(){
+        lvl = 0;
         //benennt die aktive szene und ruft den titleScreen auf
         if (Arrays.asList(nenneSzenennamen()).contains("titleScene")) {
             setzeAktiveSzene("titleScene");
@@ -346,8 +403,15 @@ public class game extends Spiel {
                     enemyShoot(e, 10);
                 }
             }
-        }else{
+        }else if(lvl == 2){
             for (enemy e : Lvl2.enemies) {
+                int ran = ThreadLocalRandom.current().nextInt(4);
+                if (ran <= 2 && e.health > 0) {
+                    enemyShoot(e, 10);
+                }
+            }
+        }else{
+            for (enemy e : Lvl3.enemies) {
                 int ran = ThreadLocalRandom.current().nextInt(4);
                 if (ran <= 2 && e.health > 0) {
                     enemyShoot(e, 10);
@@ -380,7 +444,7 @@ public class game extends Spiel {
                     playerHealthHandler(1);
                 }
             }
-        }else{
+        }else if(lvl == 2){
             if (enemyLineOfSight(lvl2.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
                 if (sound) new SfxAudio("pistol");
@@ -392,6 +456,24 @@ public class game extends Spiel {
                         ex,
                         ey,
                         lvl2.walls
+                );
+                tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
+                if (t2.touching(p1)) {
+                    playerHealthHandler(1);
+                }
+            }
+        }else{
+            if (enemyLineOfSight(lvl3.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+
+                if (sound) new SfxAudio("pistol");
+
+                double absSpread = tracer.pyth(ex - tx, ey - ty) * Math.atan(Math.toRadians(spread));
+                double[] newm = checkWalls(
+                        tx + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        ex,
+                        ey,
+                        lvl3.walls
                 );
                 tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
                 if (t2.touching(p1)) {
@@ -464,7 +546,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -493,7 +575,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -519,7 +601,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -543,7 +625,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -568,7 +650,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -593,7 +675,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -618,7 +700,7 @@ public class game extends Spiel {
             String s = getActiveScene().getName();
             System.out.println(s);
             switch (s) {
-                case "lvl1Scene", "lvl2Scene" -> m[2].resume();
+                case "lvl1Scene", "lvl2Scene", "lvl3Scene" -> m[2].resume();
                 case "menuScene", "titleScene" -> m[1].resume();
             }
         }
@@ -637,6 +719,14 @@ public class game extends Spiel {
         p1.blood = bld;
         for (enemy e : Lvl1.enemies) {
             e.blood = bld;
+        }
+    }
+
+    public void levelHandler(){
+        switch(lvl){
+            case 2: level2(); break;
+            case 3:level3(); break;
+            default: level1(); break;
         }
     }
 

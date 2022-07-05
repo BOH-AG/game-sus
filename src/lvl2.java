@@ -82,12 +82,13 @@ public class Lvl2{
         for (Rechteck bound: boundry) {
             bound.setzeEbenenposition(-1);
             bound.macheStatisch();
+            bound.setzeSichtbar(false);
 
         }
         for (Rechteck wall : walls) {
             wall.setzeEbenenposition(-1);
             wall.macheStatisch();
-            //wall.setzeSichtbar(false);
+            wall.setzeSichtbar(false);
 
         }
 
