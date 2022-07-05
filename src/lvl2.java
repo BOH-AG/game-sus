@@ -97,5 +97,4 @@ public class Lvl2{
         background.skaliere(5);
         background.setzeMittelpunkt(0,0);
     }
-
 }
