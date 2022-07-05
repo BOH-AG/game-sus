@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="sound fertig">
-      <change afterPath="$PROJECT_DIR$/rsc/lvl2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rsc/milde-banana.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="lvl2">
       <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/cat.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/disc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/tutorial.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/tutorialgif.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/uhoh.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lvl1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lvl1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -395,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656874149927</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="lvl2">
+      <created>1657041629045</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1657041629045</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +407,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="clean" />
     <MESSAGE value="scene" />
     <MESSAGE value="sound2" />
     <MESSAGE value="sound" />
@@ -436,6 +431,7 @@
     <MESSAGE value="sus sound" />
     <MESSAGE value="storm" />
     <MESSAGE value="wieso???????????" />
-    <option name="LAST_COMMIT_MESSAGE" value="wieso???????????" />
+    <MESSAGE value="lvl2" />
+    <option name="LAST_COMMIT_MESSAGE" value="lvl2" />
   </component>
 </project>
