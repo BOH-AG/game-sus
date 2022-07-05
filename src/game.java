@@ -21,7 +21,8 @@ public class game extends Spiel {
     int enemyhealth;
     int kills;
     Lvl1 lvl1;
-    lvl2 lvl2;
+    Lvl2 lvl2;
+    int lvl;
     boolean shooting;
     boolean CBT;
     boolean sound;
@@ -36,6 +37,7 @@ public class game extends Spiel {
         m[0] = new MusicAudio("lucas traene", true);
         m[2] = new MusicAudio("license to kill", true);
         sound = true;
+        lvl = 0;
         for (MusicAudio musicAudio : m) {
             musicAudio.pause();
         }
@@ -43,15 +45,16 @@ public class game extends Spiel {
         blood = true;
     }
 
-    void gameScene() {
-        if (Arrays.asList(nenneSzenennamen()).contains("gameScene")) { //check if gameScene exists
-            setzeAktiveSzene("gameScene");
+    void level1() {
+        lvl ++;
+        if (Arrays.asList(nenneSzenennamen()).contains("lvl1Scene")) { //check if lvl1Scene exists
+            setzeAktiveSzene("lvl1Scene");
             soundHandler(0);
             setBlood(blood);
         }
         else {
             erzeugeNeueSzene();
-            benenneAktiveSzene("gameScene");
+            benenneAktiveSzene("lvl1Scene");
             soundHandler(0);
             registriereMausKlickReagierbar(
                     new MausKlickReagierbar() {
@@ -77,7 +80,7 @@ public class game extends Spiel {
                         if (key == KeyEvent.VK_M) {
                             menuScene();
                         }
-                        if(key == KeyEvent.VK_Y) lvl2();
+                        if(key == KeyEvent.VK_Y) level2();
                     });
             registriereTicker(0.2,
                     () -> {
@@ -93,57 +96,62 @@ public class game extends Spiel {
             kills = 0;
             p1.setzeEbenenposition(10);
             p1.macheDynamisch();
-            p1.skaliere(2);
+            p1.skaliere(1.7);
         }
     }
 
-    void lvl2(){
-        soundHandler(0);
-        if (Arrays.asList(nenneSzenennamen()).contains("lvl2Scene")) { //check if gameScene exists
+    void level2() {
+        lvl ++;
+        if (Arrays.asList(nenneSzenennamen()).contains("lvl2Scene")) { //check if lvl1Scene exists
             setzeAktiveSzene("lvl2Scene");
-        }
-        else {
+            soundHandler(0);
+            setBlood(blood);
+        } else {
             erzeugeNeueSzene();
             benenneAktiveSzene("lvl2Scene");
-        }
-        registriereMausKlickReagierbar(
-                new MausKlickReagierbar() {
-                    @Override
-                    public void klickReagieren(double v, double v1) {
-                        shooting = true;
-                    }
+            soundHandler(0);
+            registriereMausKlickReagierbar(
+                    new MausKlickReagierbar() {
+                        @Override
+                        public void klickReagieren(double v, double v1) {
+                            shooting = true;
+                        }
 
-                    @Override
-                    public void klickLosgelassenReagieren(double x, double y) {
-                        shooting = false;
-                        fireLatency = 0;
+                        @Override
+                        public void klickLosgelassenReagieren(double x, double y) {
+                            shooting = false;
+                            fireLatency = 0;
+                        }
+                    });
+            registriereBildAktualisierungReagierbar(
+                    v -> { // tick() but for cool kids B)
+                        if (shooting) {
+                            shoot(p1.fireRate, p1.bulletSpread);
+                        }
+                    });
+            registriereTastenReagierbar(
+                    key -> {
+                        if (key == KeyEvent.VK_M) {
+                            menuScene();
+                        }
+                        if (key == KeyEvent.VK_Y) level1();
+                    });
+            registriereTicker(0.2,
+                    () -> {
+                        ai();
+                        playerHealTick();
                     }
-                });
-        registriereBildAktualisierungReagierbar(
-                v -> { // tick() but for cool kids B)
-                    if (shooting) {
-                        shoot(p1.fireRate, p1.bulletSpread);
-                    }
-                });
-        registriereTastenReagierbar(
-                key -> {
-                    if (key == KeyEvent.VK_M) {
-                        menuScene();
-                    }
-                });
-        setzeSchwerkraft(0);
-        healCounter = 0;
-        p1 = new player(3, 0.6, 10, 0 ,0);
-        kills = 0;
-        enemyhealth = 1;
-        p1.setzeEbenenposition(2);
-        enemies = new enemy[3];
-        for (int z = 0; z < enemies.length; z++) {
-            enemies[z] = new enemy(enemyhealth);
-            //  enemies[z].macheDynamisch();
+            );
+            setzeSchwerkraft(0);
+            lvl2 = new Lvl2();
+            p1 = new player(6, 5, 10, -18, 7);
+            setBlood(blood);
+            initPlayerHealthHandler();
+            kills = 0;
+            p1.setzeEbenenposition(10);
+            p1.macheDynamisch();
+            p1.skaliere(1.7);
         }
-        lvl2 = new lvl2();
-        p1.macheDynamisch();
     }
 
     void menuScene(){
@@ -159,7 +167,7 @@ public class game extends Spiel {
             registriereTastenReagierbar(
                     key -> {
                         if (key == KeyEvent.VK_M) {
-                            gameScene();
+                            level1();
                         }
                     }
             );
@@ -171,7 +179,7 @@ public class game extends Spiel {
                         System.out.println(x + "     " + y);
 
                         if (ms1.menuButton[0].beinhaltetPunkt(x,y)) {
-                            gameScene();
+                            level1();
                         }
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
@@ -199,7 +207,7 @@ public class game extends Spiel {
                         System.out.println(x + "     " + y);
 
                         if (ts.playButton.beinhaltetPunkt(x, y)) {
-                            gameScene();
+                            level1();
                         }
                         if (ts.bohLogo.beinhaltetPunkt(x, y)) {
 
@@ -235,7 +243,7 @@ public class game extends Spiel {
 
     int fireLatency;
     private void shoot(int fireRate, double bulletSpread) {
-
+        double[] newm;
         if (fireLatency==fireRate) {
             double x = nenneMausPositionX();
             double y = nenneMausPositionY();
@@ -244,13 +252,21 @@ public class game extends Spiel {
             fireLatency +=1;
             t1 = null;
             double absSpread = tracer.pyth(px-x,py-y) * Math.atan(Math.toRadians(bulletSpread));
-            double[] newm = checkWalls(
+            if(lvl == 1){
+                newm = checkWalls(
                     x + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                     y + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                     px,
                     py,
                     lvl1.walls
-            );
+            );}else{
+                newm = checkWalls(
+                        x + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        y + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        px,
+                        py,
+                        lvl2.walls
+                );}
             t1 = new tracer(
                     newm[0],
                     newm[1],
@@ -312,11 +328,19 @@ public class game extends Spiel {
     }
 
     private void ai() {
-
-        for (enemy e: Lvl1.enemies) {
-            int ran = ThreadLocalRandom.current().nextInt(4);
-            if (ran <= 2 && e.health>0) {
-                enemyShoot(e, 10);
+        if(lvl == 1) {
+            for (enemy e : Lvl1.enemies) {
+                int ran = ThreadLocalRandom.current().nextInt(4);
+                if (ran <= 2 && e.health > 0) {
+                    enemyShoot(e, 10);
+                }
+            }
+        }else{
+            for (enemy e : Lvl2.enemies) {
+                int ran = ThreadLocalRandom.current().nextInt(4);
+                if (ran <= 2 && e.health > 0) {
+                    enemyShoot(e, 10);
+                }
             }
         }
     }
@@ -327,21 +351,41 @@ public class game extends Spiel {
         double tx = p1.nenneMittelpunktX();
         double ty = p1.nenneMittelpunktY();
 
-        if (enemyLineOfSight(lvl1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+        if(lvl == 1) {
+            if (enemyLineOfSight(lvl1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
-            if (sound) new SfxAudio("pistol");
+                if (sound) new SfxAudio("pistol");
 
-            double absSpread = tracer.pyth(ex-tx,ey-ty) * Math.atan(Math.toRadians(spread));
-            double[] newm = checkWalls(
-                    tx + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
-                    ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
-                    ex,
-                    ey,
-                    lvl1.walls
-            );
-            tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
-            if (t2.touching(p1)) {
-                playerHealthHandler(1);
+                double absSpread = tracer.pyth(ex - tx, ey - ty) * Math.atan(Math.toRadians(spread));
+                double[] newm = checkWalls(
+                        tx + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        ex,
+                        ey,
+                        lvl1.walls
+                );
+                tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
+                if (t2.touching(p1)) {
+                    playerHealthHandler(1);
+                }
+            }
+        }else{
+            if (enemyLineOfSight(lvl2.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+
+                if (sound) new SfxAudio("pistol");
+
+                double absSpread = tracer.pyth(ex - tx, ey - ty) * Math.atan(Math.toRadians(spread));
+                double[] newm = checkWalls(
+                        tx + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
+                        ex,
+                        ey,
+                        lvl2.walls
+                );
+                tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
+                if (t2.touching(p1)) {
+                    playerHealthHandler(1);
+                }
             }
         }
     }
@@ -409,7 +453,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -438,7 +482,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -464,7 +508,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -488,7 +532,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -513,7 +557,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -538,7 +582,7 @@ public class game extends Spiel {
                     (x, y) -> {
                         System.out.println(x + "     " + y);
 
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) gameScene();
+                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) level1();
                         if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
                         if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
                         if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
@@ -563,7 +607,7 @@ public class game extends Spiel {
             String s = getActiveScene().getName();
             System.out.println(s);
             switch (s) {
-                case "gameScene", "lvl2Scene" -> m[2].resume();
+                case "lvl1Scene", "lvl2Scene" -> m[2].resume();
                 case "menuScene", "titleScene" -> m[1].resume();
             }
         }

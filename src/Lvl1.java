@@ -58,10 +58,10 @@ public class Lvl1{
 
         enemies = new enemy[2];
         enemies[0] = new enemy(10);
-        enemies[0].skaliere(2);
+        enemies[0].skaliere(1.7);
         enemies[0].setzeMittelpunkt(4.5,-5.5);
         enemies[1] = new enemy(10);
-        enemies[1].skaliere(2);
+        enemies[1].skaliere(1.7);
         enemies[1].setzeMittelpunkt(18,3);
 
 
@@ -73,7 +73,7 @@ public class Lvl1{
         for (Rechteck wall : walls) {
             wall.setzeEbenenposition(-1);
             wall.macheStatisch();
-            //wall.setzeSichtbar(false);
+            wall.setzeSichtbar(false);
 
         }
 

@@ -37,7 +37,7 @@ public class MenuScene  {
 
 
 
-            sub1Button = new button[1];
+            sub1Button = new button[2];
 
             sub1Button[0] = new button(-10, 3, "Disable", "red");
             sub1Button[1] = new button(-10, 5, "Enable", "green");
