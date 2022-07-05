@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="lvl2(kleine korrektur)">
-      <change afterPath="$PROJECT_DIR$/rsc/lvl3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Lvl3.java" afterDir="false" />
+    <list default="true" id="534bf3ac-2b76-4f15-bbbc-c37888c13af2" name="Changes" comment="lvl3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine-alpha.log" beforeDir="false" afterPath="$PROJECT_DIR$/engine-alpha.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsc/sus.gif" beforeDir="false" afterPath="$PROJECT_DIR$/rsc/sus.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lvl1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lvl1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lvl2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lvl2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -404,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657041927990</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="lvl3">
+      <created>1657050342971</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1657050342971</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,7 +422,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="sound2" />
     <MESSAGE value="sound" />
     <MESSAGE value="list closed" />
     <MESSAGE value="button" />
@@ -445,6 +446,7 @@
     <MESSAGE value="wieso???????????" />
     <MESSAGE value="lvl2" />
     <MESSAGE value="lvl2(kleine korrektur)" />
-    <option name="LAST_COMMIT_MESSAGE" value="lvl2(kleine korrektur)" />
+    <MESSAGE value="lvl3" />
+    <option name="LAST_COMMIT_MESSAGE" value="lvl3" />
   </component>
 </project>
