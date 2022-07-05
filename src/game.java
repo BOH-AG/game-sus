@@ -35,7 +35,6 @@ public class game extends Spiel {
         m[1] = new MusicAudio("lucas traene", true);
         m[0] = new MusicAudio("lucas traene", true);
         m[2] = new MusicAudio("license to kill", true);
-        setzeRasterSichtbar(true);
         sound = true;
         lvl = 0;
         for (MusicAudio musicAudio : m) {
@@ -662,32 +661,6 @@ public class game extends Spiel {
         }
 
     }
-    void SubMenu6(){
-        if (Arrays.asList(nenneSzenennamen()).contains("SM6")) {
-            setzeAktiveSzene("SM6");
-        }
-        else {
-            erzeugeNeueSzene();
-            benenneAktiveSzene("SM6");
-            MenuScene ms1 = new MenuScene();
-            ms1.subMenu6();
-            registriereMausKlickReagierbar(
-                    (x, y) -> {
-                        System.out.println(x + "     " + y);
-
-                        if (ms1.menuButton[0].beinhaltetPunkt(x,y)) levelHandler();
-                        if (ms1.menuButton[1].beinhaltetPunkt(x,y)) SubMenu1();
-                        if (ms1.menuButton[2].beinhaltetPunkt(x,y)) SubMenu2();
-                        if (ms1.menuButton[3].beinhaltetPunkt(x,y)) SubMenu3();
-                        if (ms1.menuButton[4].beinhaltetPunkt(x,y)) SubMenu4();
-                        if (ms1.menuButton[5].beinhaltetPunkt(x,y)) SubMenu5();
-                        if (ms1.menuButton[6].beinhaltetPunkt(x,y)) donations();
-                        if (ms1.menuButton[7].beinhaltetPunkt(x,y)) titleScreen();
-                    });
-
-        }
-
-    }
 
     public void soundHandler(int i){
 
@@ -723,10 +696,10 @@ public class game extends Spiel {
     }
 
     public void levelHandler(){
-        switch(lvl){
-            case 2: level2(); break;
-            case 3:level3(); break;
-            default: level1(); break;
+        switch (lvl) {
+            case 2 -> level2();
+            case 3 -> level3();
+            default -> level1();
         }
     }
 
