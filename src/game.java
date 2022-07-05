@@ -18,9 +18,9 @@ public class game extends Spiel {
     enemy[] enemies;
     int enemyhealth;
     int kills;
-    Lvl1 lvl1;
-    Lvl2 lvl2;
-    Lvl3 lvl3;
+    Lvl1 level1;
+    Lvl2 level2;
+    Lvl3 level3;
     int lvl;
     boolean shooting;
     boolean CBT;
@@ -89,7 +89,7 @@ public class game extends Spiel {
                     }
             );
             setzeSchwerkraft(0);
-            lvl1 = new Lvl1();
+            level1 = new Lvl1();
             p1 = new player(6, 5, 10, -15, -11);
             setBlood(blood);
             initPlayerHealthHandler();
@@ -144,7 +144,7 @@ public class game extends Spiel {
                     }
             );
             setzeSchwerkraft(0);
-            lvl2 = new Lvl2();
+            level2 = new Lvl2();
             p1 = new player(6, 5, 10, -18, 7);
             setBlood(blood);
             initPlayerHealthHandler();
@@ -198,7 +198,7 @@ public class game extends Spiel {
                     }
             );
             setzeSchwerkraft(0);
-            lvl3 = new Lvl3();
+            level3 = new Lvl3();
             p1 = new player(6, 5, 10, -18, 7);
             setBlood(blood);
             initPlayerHealthHandler();
@@ -312,14 +312,14 @@ public class game extends Spiel {
                     y + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                     px,
                     py,
-                    lvl1.walls
+                    level1.walls
             );}else{
                 newm = checkWalls(
                         x + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                         y + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                         px,
                         py,
-                        lvl2.walls
+                        level2.walls
                 );}
             t1 = new tracer(
                     newm[0],
@@ -330,10 +330,10 @@ public class game extends Spiel {
 
             if (sound) new SfxAudio("rifle");
             if(lvl == 1) {
-                for (int z = 0; z < Lvl1.enemies.length; z++) {
-                    if (t1.touching(Lvl1.enemies[z])) {
-                        Lvl1.enemies[z].takeDamage(1);
-                        if (Lvl1.enemies[z].dead && Lvl1.enemies[z].health == 0) {
+                for (int z = 0; z < level1.enemies.length; z++) {
+                    if (t1.touching(level1.enemies[z])) {
+                        level1.enemies[z].takeDamage(1);
+                        if (level1.enemies[z].dead && level1.enemies[z].health == 0) {
                             //Lvl1.enemies[z] = new enemy(enemyhealth);
                             kills++;
                             System.out.println("kills: " + kills);
@@ -342,10 +342,10 @@ public class game extends Spiel {
                     }
                 }
             }else{
-                for (int z = 0; z < Lvl2.enemies.length; z++) {
-                    if (t1.touching(Lvl2.enemies[z])) {
-                        Lvl2.enemies[z].takeDamage(1);
-                        if (Lvl2.enemies[z].dead && Lvl2.enemies[z].health == 0) {
+                for (int z = 0; z < level2.enemies.length; z++) {
+                    if (t1.touching(level2.enemies[z])) {
+                        level2.enemies[z].takeDamage(1);
+                        if (level2.enemies[z].dead && level2.enemies[z].health == 0) {
                             //Lvl1.enemies[z] = new enemy(enemyhealth);
                             kills++;
                             System.out.println("kills: " + kills);
@@ -396,21 +396,21 @@ public class game extends Spiel {
 
     private void ai() {
         if(lvl == 1) {
-            for (enemy e : Lvl1.enemies) {
+            for (enemy e : level1.enemies) {
                 int ran = ThreadLocalRandom.current().nextInt(4);
                 if (ran <= 2 && e.health > 0) {
                     enemyShoot(e, 10);
                 }
             }
         }else if(lvl == 2){
-            for (enemy e : Lvl2.enemies) {
+            for (enemy e : level2.enemies) {
                 int ran = ThreadLocalRandom.current().nextInt(4);
                 if (ran <= 2 && e.health > 0) {
                     enemyShoot(e, 10);
                 }
             }
         }else{
-            for (enemy e : Lvl3.enemies) {
+            for (enemy e : level3.enemies) {
                 int ran = ThreadLocalRandom.current().nextInt(4);
                 if (ran <= 2 && e.health > 0) {
                     enemyShoot(e, 10);
@@ -426,7 +426,7 @@ public class game extends Spiel {
         double ty = p1.nenneMittelpunktY();
 
         if(lvl == 1) {
-            if (enemyLineOfSight(lvl1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+            if (enemyLineOfSight(level1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
                 if (sound) new SfxAudio("pistol");
 
@@ -436,7 +436,7 @@ public class game extends Spiel {
                         ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                         ex,
                         ey,
-                        lvl1.walls
+                        level1.walls
                 );
                 tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
                 if (t2.touching(p1)) {
@@ -444,7 +444,7 @@ public class game extends Spiel {
                 }
             }
         }else if(lvl == 2){
-            if (enemyLineOfSight(lvl2.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+            if (enemyLineOfSight(level2.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
                 if (sound) new SfxAudio("pistol");
 
@@ -454,7 +454,7 @@ public class game extends Spiel {
                         ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                         ex,
                         ey,
-                        lvl2.walls
+                        level2.walls
                 );
                 tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
                 if (t2.touching(p1)) {
@@ -462,7 +462,7 @@ public class game extends Spiel {
                 }
             }
         }else{
-            if (enemyLineOfSight(lvl3.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
+            if (enemyLineOfSight(level3.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
                 if (sound) new SfxAudio("pistol");
 
@@ -472,7 +472,7 @@ public class game extends Spiel {
                         ty + ThreadLocalRandom.current().nextDouble(-absSpread, absSpread),
                         ex,
                         ey,
-                        lvl3.walls
+                        level3.walls
                 );
                 tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
                 if (t2.touching(p1)) {
@@ -690,7 +690,7 @@ public class game extends Spiel {
 
     private void setBlood(boolean bld) {
         p1.blood = bld;
-        for (enemy e : Lvl1.enemies) {
+        for (enemy e : level1.enemies) {
             e.blood = bld;
         }
     }

@@ -101,8 +101,8 @@ public class player extends Figur implements TastenReagierbar, damage {
     List<Bild> bloodPuddles;
     private void blood() {
         bloodPuddles.add(new Bild(
-                ThreadLocalRandom.current().nextDouble(2, 2.6),
-                ThreadLocalRandom.current().nextDouble(2, 2.6),
+                ThreadLocalRandom.current().nextDouble(4, 4.6),
+                ThreadLocalRandom.current().nextDouble(4, 4.6),
                 getBlood())
         );
         Bild b = bloodPuddles.get(bloodPuddles.size()-1);

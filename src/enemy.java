@@ -43,8 +43,8 @@ public class enemy extends Figur implements damage {
 
     private void blood() {
             bloodPuddles.add(new Bild(
-                    ThreadLocalRandom.current().nextDouble(2, 2.6),
-                    ThreadLocalRandom.current().nextDouble(2, 2.6),
+                    ThreadLocalRandom.current().nextDouble(4, 4.6),
+                    ThreadLocalRandom.current().nextDouble(4, 4.6),
                     getBlood()
             ));
 
