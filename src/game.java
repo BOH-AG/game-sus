@@ -1,8 +1,6 @@
 import audio.MusicAudio;
 import audio.SfxAudio;
-import ea.edu.Rechteck;
-import ea.edu.Spiel;
-import ea.edu.Text;
+import ea.edu.*;
 import ea.edu.event.MausKlickReagierbar;
 
 import java.awt.event.KeyEvent;
