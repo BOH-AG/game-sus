@@ -26,9 +26,9 @@ public class player extends Figur implements TastenReagierbar, damage {
     double speed;
 
     player(int fr, double bs,int Hp, int px, int py) {
-        super("normal", "rsc/player-new.gif");
+        super("normal", "rsc/player-cropped.gif");
         actor = getActor();
-        actor.setSize(2f, 2f);
+        actor.setSize(1.28f, 2f);
         fireRate = fr;
         bulletSpread = bs;
         bloodPuddles = new ArrayList<>();

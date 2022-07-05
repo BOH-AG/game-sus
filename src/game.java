@@ -90,7 +90,7 @@ public class game extends Spiel {
             );
             setzeSchwerkraft(0);
             level1 = new Lvl1();
-            p1 = new player(6, 5, 10, -15, -11);
+            p1 = new player(5, 4, 15, -15, -11);
             setBlood(blood);
             initPlayerHealthHandler();
             kills = 0;
