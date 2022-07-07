@@ -30,14 +30,10 @@ public class enemy extends Figur implements damage {
         if (health >d){
             health -= d;
             blood();
-            System.out.println("enemy health: " + health);
-        } else if (health <= 0) {
-            health -= d;
+        } else if (dead) {
             blood();
-            System.out.println("enemy negative health: " + health);
         } else if (health == d){
             kill();
-            System.out.println("enemy dead");
         }
     }
 

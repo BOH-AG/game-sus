@@ -15,17 +15,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class game extends Spiel {
     tracer t1;
     player p1;
-    enemy[] enemies;
-    int enemyhealth;
     int kills;
     Lvl1 level1;
     Lvl2 level2;
     Lvl3 level3;
     int lvl;
     boolean shooting;
-    boolean CBT;
     boolean sound;
     boolean blood;
+    int fireLatency;
     MusicAudio[] m = new MusicAudio[3];
 
 
@@ -45,7 +43,7 @@ public class game extends Spiel {
     }
 
     void level1() {
-        lvl ++;
+        if(lvl==0)lvl ++;
         if (Arrays.asList(nenneSzenennamen()).contains("lvl1Scene")) { //check if lvl1Scene exists
             setzeAktiveSzene("lvl1Scene");
             soundHandler(0);
@@ -101,7 +99,7 @@ public class game extends Spiel {
     }
 
     void level2() {
-        lvl ++;
+        if(lvl==1)lvl ++;
         if (Arrays.asList(nenneSzenennamen()).contains("lvl2Scene")) { //check if lvl1Scene exists
             setzeAktiveSzene("lvl2Scene");
             soundHandler(0);
@@ -156,7 +154,7 @@ public class game extends Spiel {
     }
 
     void level3() {
-        lvl ++;
+        if(lvl==2)lvl ++;
         if (Arrays.asList(nenneSzenennamen()).contains("lvl3Scene")) { //check if lvl1Scene exists
             setzeAktiveSzene("lvl3Scene");
             soundHandler(0);
@@ -295,7 +293,6 @@ public class game extends Spiel {
     }
 
 
-    int fireLatency;
     private void shoot(int fireRate, double bulletSpread) {
         double[] newm;
         if (fireLatency==fireRate) {
@@ -364,11 +361,10 @@ public class game extends Spiel {
         double length = tracer.pyth(px-mx, py-my);
         double delx = (mx-px);
         double dely = (my-py);
-
         double newx = 99999;
         double newy = 99999;
-
         int hm = (int)(length*5);
+
         point[] points = new point[hm];
         for (int z=hm-1; z>-1; z--) {
             points[z] = new point((delx/hm)*(z+1)+px,(dely/hm)*(z+1)+py);
@@ -395,6 +391,7 @@ public class game extends Spiel {
     }
 
     private void ai() {
+
         if(lvl == 1) {
             for (enemy e : level1.enemies) {
                 int ran = ThreadLocalRandom.current().nextInt(4);
@@ -420,14 +417,15 @@ public class game extends Spiel {
     }
 
     private void enemyShoot(enemy e, double spread) {
+
         double ex = e.nenneMittelpunktX();
         double ey = e.nenneMittelpunktY();
         double tx = p1.nenneMittelpunktX();
         double ty = p1.nenneMittelpunktY();
 
         if(lvl == 1) {
-            if (enemyLineOfSight(level1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
 
+            if (enemyLineOfSight(level1.walls, p1.nenneMittelpunktX(), p1.nenneMittelpunktY(), ex, ey)) {
                 if (sound) new SfxAudio("pistol");
 
                 double absSpread = tracer.pyth(ex - tx, ey - ty) * Math.atan(Math.toRadians(spread));
@@ -438,7 +436,9 @@ public class game extends Spiel {
                         ey,
                         level1.walls
                 );
+
                 tracer t2 = new tracer(newm[0], newm[1], newm[2], newm[3]);
+
                 if (t2.touching(p1)) {
                     playerHealthHandler(1);
                 }
@@ -483,9 +483,11 @@ public class game extends Spiel {
     }
 
     private boolean enemyLineOfSight(Rechteck[] re, double tx, double ty, double ex, double ey) {
+
         boolean aaa = false;
         tracer tr = new tracer(tx, ty, ex, ey);
         tr.setzeSichtbar(false);
+
         for (Rechteck aa: re) {
             if (tr.touching(aa)) {
                 aaa = true;

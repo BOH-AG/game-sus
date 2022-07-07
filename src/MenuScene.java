@@ -25,8 +25,8 @@ public class MenuScene  {
        menuButton[1] = new button(-18,7, "Sound");
        menuButton[2] = new button(-18,4, "Baby Mode");
        menuButton[3] = new button(-18,1, "void");
-       menuButton[4] = new button(-18,-2, "Graphics");
-       menuButton[5] = new button(-18,-5, "Difficulty");
+       menuButton[4] = new button(-18,-2, "void");
+       menuButton[5] = new button(-18,-5, "void");
        menuButton[6] = new button(-18,-8, "Support Us");
        menuButton[7] = new button(-18,-11, "TitleScreen");
 
